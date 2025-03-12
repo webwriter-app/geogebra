@@ -1,8 +1,10 @@
 {
     "name": "@webwriter/geogebra",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "webwriter-widget",
+        "widget-conceptual",
+        "widget-informational",
         "widget-online",
         "widget-lang-en",
         "widget-lang-de",
