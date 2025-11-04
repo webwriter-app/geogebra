@@ -1,9 +1,15 @@
 import {customElement} from "lit/decorators.js"
 import { GeogebraApp } from "../components/geogebra-app"
 
+/**
+ * A GeoGebra Geometry widget.
+ */
 @customElement("webwriter-geogebra-geometry")
 export class WebwriterGeogebraGeometry extends GeogebraApp {
-  type = "geometry" as const
-  showZoomButtons = true
-  showFullscreenButton = true
+  constructor() {
+    super()
+    this.type = "geometry" as const
+    this.showZoomButtons = true
+    this.showFullscreenButton = true
+  }
 }

@@ -1,166 +1,164 @@
 {
-    "name": "@webwriter/geogebra",
-    "version": "1.0.1",
-    "keywords": [
-        "webwriter-widget",
-        "widget-conceptual",
-        "widget-informational",
-        "widget-online",
-        "widget-lang-en",
-        "widget-lang-de",
-        "widget-lang-af",
-        "widget-lang-am",
-        "widget-lang-ar",
-        "widget-lang-az",
-        "widget-lang-bg",
-        "widget-lang-bn",
-        "widget-lang-bs",
-        "widget-lang-ca",
-        "widget-lang-cs",
-        "widget-lang-cy",
-        "widget-lang-da",
-        "widget-lang-el",
-        "widget-lang-eo",
-        "widget-lang-es",
-        "widget-lang-et",
-        "widget-lang-eu",
-        "widget-lang-fa",
-        "widget-lang-fi",
-        "widget-lang-fil",
-        "widget-lang-fr",
-        "widget-lang-gl",
-        "widget-lang-he",
-        "widget-lang-hi",
-        "widget-lang-hr",
-        "widget-lang-hu",
-        "widget-lang-hy",
-        "widget-lang-id",
-        "widget-lang-is",
-        "widget-lang-it",
-        "widget-lang-ja",
-        "widget-lang-ka",
-        "widget-lang-kk",
-        "widget-lang-km",
-        "widget-lang-kn",
-        "widget-lang-ko",
-        "widget-lang-lt",
-        "widget-lang-lv",
-        "widget-lang-mk",
-        "widget-lang-ml",
-        "widget-lang-mn",
-        "widget-lang-mr",
-        "widget-lang-ms",
-        "widget-lang-nb",
-        "widget-lang-ne",
-        "widget-lang-nl",
-        "widget-lang-nn",
-        "widget-lang-pl",
-        "widget-lang-pt",
-        "widget-lang-ro",
-        "widget-lang-ru",
-        "widget-lang-si",
-        "widget-lang-sk",
-        "widget-lang-sl",
-        "widget-lang-sq",
-        "widget-lang-sr",
-        "widget-lang-sv",
-        "widget-lang-ta",
-        "widget-lang-tg",
-        "widget-lang-th",
-        "widget-lang-tr",
-        "widget-lang-ug",
-        "widget-lang-uk",
-        "widget-lang-uz",
-        "widget-lang-vi",
-        "widget-lang-xh",
-        "widget-lang-yi",
-        "widget-lang-zh",
-        "iscedf2013-05",
-        "isced2011-2",
-        "isced2011-3",
-        "isced2011-4",
-        "isced2011-5",
-        "isced2011-6",
-        "isced2011-7",
-        "isced2011-8",
-        "algebra",
-        "geometry",
-        "spreadsheet",
-        "table",
-        "graph"
-    ],
-    "license": "MIT",
-    "author": "Frederic Salmen <frederic@fsalmen.de>",
-    "description": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
-    "scripts": {
-        "prepublishOnly": "npx @webwriter/build",
-        "dev": "npx @webwriter/build dev",
-        "localize": "lit-localize extract && npx @webwriter/build localize && lit-localize build"
+  "name": "@webwriter/geogebra",
+  "version": "1.0.1",
+  "description": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
+  "keywords": [
+    "webwriter-widget",
+    "widget-conceptual",
+    "widget-informational",
+    "widget-online",
+    "widget-lang-en",
+    "widget-lang-de",
+    "widget-lang-af",
+    "widget-lang-am",
+    "widget-lang-ar",
+    "widget-lang-az",
+    "widget-lang-bg",
+    "widget-lang-bn",
+    "widget-lang-bs",
+    "widget-lang-ca",
+    "widget-lang-cs",
+    "widget-lang-cy",
+    "widget-lang-da",
+    "widget-lang-el",
+    "widget-lang-eo",
+    "widget-lang-es",
+    "widget-lang-et",
+    "widget-lang-eu",
+    "widget-lang-fa",
+    "widget-lang-fi",
+    "widget-lang-fil",
+    "widget-lang-fr",
+    "widget-lang-gl",
+    "widget-lang-he",
+    "widget-lang-hi",
+    "widget-lang-hr",
+    "widget-lang-hu",
+    "widget-lang-hy",
+    "widget-lang-id",
+    "widget-lang-is",
+    "widget-lang-it",
+    "widget-lang-ja",
+    "widget-lang-ka",
+    "widget-lang-kk",
+    "widget-lang-km",
+    "widget-lang-kn",
+    "widget-lang-ko",
+    "widget-lang-lt",
+    "widget-lang-lv",
+    "widget-lang-mk",
+    "widget-lang-ml",
+    "widget-lang-mn",
+    "widget-lang-mr",
+    "widget-lang-ms",
+    "widget-lang-nb",
+    "widget-lang-ne",
+    "widget-lang-nl",
+    "widget-lang-nn",
+    "widget-lang-pl",
+    "widget-lang-pt",
+    "widget-lang-ro",
+    "widget-lang-ru",
+    "widget-lang-si",
+    "widget-lang-sk",
+    "widget-lang-sl",
+    "widget-lang-sq",
+    "widget-lang-sr",
+    "widget-lang-sv",
+    "widget-lang-ta",
+    "widget-lang-tg",
+    "widget-lang-th",
+    "widget-lang-tr",
+    "widget-lang-ug",
+    "widget-lang-uk",
+    "widget-lang-uz",
+    "widget-lang-vi",
+    "widget-lang-xh",
+    "widget-lang-yi",
+    "widget-lang-zh",
+    "iscedf2013-05",
+    "isced2011-2",
+    "isced2011-3",
+    "isced2011-4",
+    "isced2011-5",
+    "isced2011-6",
+    "isced2011-7",
+    "isced2011-8",
+    "algebra",
+    "geometry",
+    "spreadsheet",
+    "table",
+    "graph",
+    "widget-lang-pt-PT",
+    "widget-lang-pt-BR",
+    "widget-lang-zh-hans",
+    "widget-lang-zh-hant"
+  ],
+  "license": "MIT",
+  "author": "Frederic Salmen <frederic@fsalmen.de>",
+  "scripts": {
+    "prepublishOnly": "npx @webwriter/build",
+    "dev": "npx @webwriter/build dev",
+    "localize": "lit-localize extract && npx @webwriter/build localize && lit-localize build"
+  },
+  "dependencies": {
+    "@lit/localize": "^0.12.2",
+    "@shoelace-style/shoelace": "^2.20.1",
+    "@webwriter/lit": "^2.1.6",
+    "lit": "^3"
+  },
+  "devDependencies": {
+    "@lit/localize-tools": "^0.8"
+  },
+  "exports": {
+    "./widgets/webwriter-geogebra.*": {
+      "source": "./widgets/webwriter-geogebra.ts",
+      "default": "./dist/widgets/webwriter-geogebra.*"
     },
-    "dependencies": {
-        "@webwriter/lit": "^2.1.6",
-        "lit": "^3"
+    "./widgets/webwriter-geogebra-geometry.*": {
+      "source": "./widgets/webwriter-geogebra-geometry.ts",
+      "default": "./dist/widgets/webwriter-geogebra-geometry.*"
     },
-    "devDependencies": {
-        "@lit/localize-tools": "^0.8"
+    "./widgets/webwriter-geogebra-3d.*": {
+      "source": "./widgets/webwriter-geogebra-3d.ts",
+      "default": "./dist/widgets/webwriter-geogebra-3d.*"
     },
-    "exports": {
-        "./widgets/webwriter-geogebra.*": {
-            "source": "./widgets/webwriter-geogebra.ts",
-            "default": "./dist/widgets/webwriter-geogebra.*"
-        },
-        "./widgets/webwriter-geogebra-geometry.*": {
-            "source": "./widgets/webwriter-geogebra-geometry.ts",
-            "default": "./dist/widgets/webwriter-geogebra-geometry.*"
-        },
-        "./widgets/webwriter-geogebra-3d.*": {
-            "source": "./widgets/webwriter-geogebra-3d.ts",
-            "default": "./dist/widgets/webwriter-geogebra-3d.*"
-        },
-        "./widgets/webwriter-geogebra-notes.*": {
-            "source": "./widgets/webwriter-geogebra-notes.ts",
-            "default": "./dist/widgets/webwriter-geogebra-notes.*"
-        },
-        "./widgets/webwriter-geogebra-scientific.*": {
-            "source": "./widgets/webwriter-geogebra-scientific.ts",
-            "default": "./dist/widgets/webwriter-geogebra-scientific.*"
-        },
-        "./widgets/webwriter-geogebra-classic.*": {
-            "source": "./widgets/webwriter-geogebra-classic.ts",
-            "default": "./dist/widgets/webwriter-geogebra-classic.*"
-        },
-        "./icon": "./icon.svg"
+    "./widgets/webwriter-geogebra-notes.*": {
+      "source": "./widgets/webwriter-geogebra-notes.ts",
+      "default": "./dist/widgets/webwriter-geogebra-notes.*"
     },
-
-    "editingConfig": {
-        ".": {
-            "description": {
-                "de": "Nutze die Mathematik-Lern-Apps von GeoGebra für Algebra und Geometrie."
-            }
-        },
-        "./widgets/webwriter-geogebra": {
-            "atom": true,
-            "content": "text*"
-        },
-        "./widgets/webwriter-geogebra-geometry": {
-            "atom": true,
-            "content": "text*"
-        },
-        "./widgets/webwriter-geogebra-3d": {
-            "atom": true,
-            "content": "text*"
-        },
-        "./widgets/webwriter-geogebra-notes": {
-            "atom": true,
-            "content": "text*"
-        },
-        "./widgets/webwriter-geogebra-scientific": {
-            "atom": true,
-            "content": "text*"
-        },
-        "./widgets/webwriter-geogebra-classic": {
-            "atom": true,
-            "content": "text*"
-        }
+    "./widgets/webwriter-geogebra-scientific.*": {
+      "source": "./widgets/webwriter-geogebra-scientific.ts",
+      "default": "./dist/widgets/webwriter-geogebra-scientific.*"
+    },
+    "./widgets/webwriter-geogebra-classic.*": {
+      "source": "./widgets/webwriter-geogebra-classic.ts",
+      "default": "./dist/widgets/webwriter-geogebra-classic.*"
+    },
+    "./icon": "./icon.svg",
+    "./editing-config.json": "./editing-config.json",
+    "./custom-elements.json": "./custom-elements.json"
+  },
+  "editingConfig": {
+    ".": {},
+    "./widgets/webwriter-geogebra": {
+      "content": "text*"
+    },
+    "./widgets/webwriter-geogebra-geometry": {
+      "content": "text*"
+    },
+    "./widgets/webwriter-geogebra-3d": {
+      "content": "text*"
+    },
+    "./widgets/webwriter-geogebra-notes": {
+      "content": "text*"
+    },
+    "./widgets/webwriter-geogebra-scientific": {
+      "content": "text*"
+    },
+    "./widgets/webwriter-geogebra-classic": {
+      "content": "text*"
     }
+  },
+  "customElements": "custom-elements.json"
 }

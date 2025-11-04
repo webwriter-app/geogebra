@@ -1,9 +1,15 @@
 import {customElement} from "lit/decorators.js"
 import { GeogebraApp } from "../components/geogebra-app"
 
+/**
+ * A GeoGebra Scientific Calculator widget.
+ */
 @customElement("webwriter-geogebra-scientific")
 export class WebwriterGeogebraScientific extends GeogebraApp {
-  type = "scientific" as const
-  showZoomButtons = true
-  showFullscreenButton = true
+  constructor() {
+    super()
+    this.type = "scientific" as const
+    this.showZoomButtons = true
+    this.showFullscreenButton = true
+  }
 }

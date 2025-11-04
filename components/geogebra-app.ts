@@ -1,6 +1,17 @@
-import {LitElement, html, css, PropertyValues} from "lit"
-import {LitElementWw, option} from "@webwriter/lit"
-import {customElement, property, query, queryAsync} from "lit/decorators.js"
+import {html, css, PropertyValues} from "lit"
+import {LitElementWw} from "@webwriter/lit"
+import {property} from "lit/decorators.js"
+import {keyed} from "lit/directives/keyed.js"
+
+import "@shoelace-style/shoelace/dist/themes/light.css"
+import {SlButton, SlIcon, SlSwitch} from "@shoelace-style/shoelace"
+import FileEarmarkArrowUp from "../assets/icons/file-earmark-arrow-up.svg"
+
+// @ts-ignore
+import LOCALIZE from "../localization/generated"
+import {localized, msg} from "@lit/localize"
+import {geogebraAppStyles} from "./geogebra-app.styles"
+import { booleanAttributeConverter } from "../utils/boolean-attribute-converter"
 
 export interface GeogebraAPI {
   evalCommand(cmdString: string): boolean
@@ -151,183 +162,378 @@ export interface GeogebraAPI {
   remove(): void
 }
 
+/**
+ * @fires focus - Fired when the GeoGebra applet gains focus.
+ * @fires ggb-load - Fired when the GeoGebra API is ready. The event detail contains the API instance.
+ */
+@localized()
 export class GeogebraApp extends LitElementWw {
+  protected localize = LOCALIZE
 
-  static styles = css`
-    iframe {
-      border: none;
-      width: 100%;
-      aspect-ratio: 16/9;
+  protected static get scopedElements() {
+    return {
+      "sl-button": SlButton,
+      "sl-icon": SlIcon,
+      "sl-switch": SlSwitch
     }
-  `
+  }
 
+  static styles = geogebraAppStyles
+
+  /**
+   * Custom CSS styles to apply to the GeoGebra applet.
+   */
   @property({type: String})
-  ggbStyles: string
+  accessor ggbStyles: string = css`
+    .GeoGebraFrame .toolbar .header-open-landscape .center, .GeoGebraFrame .toolbar .header-close-landscape .center {
+      top: 0 !important;
+    }
+  `.cssText
 
-  @property({reflect: true})
-  type: "classic" | "geometry" | "3d" | "suite" | "evaluator" | "scientific" | "notes" = "classic"
+  /**
+   * app name, default: "classic". "graphing" …​ GeoGebra Graphing Calculator "geometry" …​ GeoGebra Geometry "3d" …​ GeoGebra 3D Graphing Calculator "classic" …​ GeoGebra Classic "suite" …​ GeoGebra Calculator Suite "evaluator" …​ Equation Editor "scientific" …​Scientific Calculator "notes" …​ GeoGebra Notes
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor type: "classic" | "geometry" | "3d" | "suite" | "evaluator" | "scientific" | "notes" = "classic"
 
-  @property({type: Number, reflect: true})
-  width: number = 800
+  /**
+   * Applet width
+   */
+  @property({type: Number, attribute: true, reflect: true})
+  accessor width: number = 800
 
-  @property({type: Number, reflect: true})
-  height: number = 450
+  /**
+   * Applet height
+   */
+  @property({type: Number, attribute: true, reflect: true})
+  accessor height: number = 450
 
-  @property({type: String, attribute: true, reflect: true}) // base64, material ID, file url
+  /**
+   * Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL)
+   */
+  @property({type: String, attribute: true, reflect: true})
   accessor src: string
 
-  @property({type: String, reflect: true})
-  borderColor: string = "gray"
+  /**
+   * Hide toolbar and menus. Note that this does not prevent editing. TODO: remove
+   */
+  @property({type: Boolean, attribute: true, reflect: true})
+  accessor hideMenus: boolean = false
 
-  @property({type: Number, reflect: true})
-  borderRadius: number = 1
+  /**
+   * Color of the border line drawn around the applet panel (as hex rgb string). Default: gray
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor borderColor: string = "gray"
 
-  @property({type: Boolean, reflect: true})
-  enableRightClick = true
+  /**
+   * Size of applet's border radius in pixels.
+   */
+  @property({type: Number, attribute: true, reflect: true})
+  accessor borderRadius: number = 1
 
-  @property({type: Boolean, reflect: true})
-  enableLabelDrags = true
+  /**
+   * States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. Default: true. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl + R (recompute all objects). Default: true
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor enableRightClick = true
 
-  @property({type: Boolean, reflect: true})
-  enableShiftDragZoom = true
+  /**
+   * States whether labels can be dragged. Default: true
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor enableLabelDrags = true
 
-  @property({type: Boolean, reflect: true})
-  showZoomButtons = false
+  /**
+   * States whether the Graphics View(s) should be moveable using Shift mouse drag (or. Ctrl + mouse drag) or zoomable using Shift + mouse wheel (or Ctrl + mouse wheel). Setting this parameter to "false" disables moving and zooming of the drawing pad. Default: true
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor enableShiftDragZoom = true
 
-  @property({type: Boolean, reflect: true})
-  errorDialogsActive = true
+  /**
+   * States whether the zoom in / zoom out / home buttons should be shown in the Graphics View or not. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showZoomButtons = false
 
-  @property({type: Boolean, reflect: true})
-  showMenuBar = false
+  /**
+   * States whether error dialogs will be shown if an invalid input is entered (using the Input Bar or JavaScript) Default: true
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor errorDialogsActive = true
 
-  @property({type: Boolean, reflect: true})
-  showToolBar = false
+  /**
+   * States whether the menubar of GeoGebra should be shown in the applet. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showMenuBar = false
 
-  @property({type: Boolean, reflect: true})
-  showToolBarHelp = false
+  /**
+   * States whether the toolbar with the construction mode buttons should be shown in the applet. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showToolBar = true
 
-  @property({type: String, reflect: true})
-  customToolBar: string
+  /**
+   * States whether the toolbar help text right to the toolbar buttons should be shown in the applet
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showToolBarHelp = false
 
-  @property({type: Boolean, reflect: true})
-  showAlgebraInput = true
+  /**
+   * Sets the toolbar according to a custom toolbar string where the int values are Toolbar Mode Values, `,` adds a separator within a menu, `|` starts a new menu and `||` adds a separator in the toolbar before starting a new menu. This will override the saved toolbar from the .ggb file / base64 string. Custom tools are numbered 100 001, 100 002, etc
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor customToolBar: string
 
-  @property({type: Boolean, reflect: true})
-  showResetIcon = false
+  /**
+   * States whether the algebra input line (with input field, greek letters and command list) should be shown in the applet. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showAlgebraInput = true
 
-  @property({type: String, reflect: true})
-  language: String
+  /**
+   * States whether a small icon (GeoGebra ellipse) should be shown in the upper right corner of the applet. Clicking on this icon resets the applet (i.e. it reloads the file given in the filename parameter). Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showResetIcon = false
 
-  @property({type: String, reflect: true})
-  country: String
+  /**
+   * ISO language string. GeoGebra tries to set your local language automatically (if it is available among the supported languages, of course). The default language for unsupported languages is English. If you want to specify a certain language manually, please use this parameter.
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor language: String
 
-  @property({type: String, reflect: true})
-  appletId: String
+  /**
+   * ISO country string. This parameter only makes sense if you use it together with the language parameter.
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor country: String
 
-  @property({type: Boolean, reflect: true})
-  allowStyleBar = false
+  /**
+   * This parameter allows you to specify the argument passed to the JavaScript function ggbOnInit(), which is called once the applet is fully initialised. This is useful when you have multiple applets on a page.
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor appletId: String
 
-  @property({type: Boolean, reflect: true})
-  randomize = true
+  /**
+   * Determines whether the Style Bar can be shown (or will be shown if just Graphics View 1 is showing). Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor allowStyleBar = false
 
-  @property({type: Number, reflect: true})
-  randomSeed: number
+  /**
+   * Determines whether random numbers should be randomized on file load. Useful when you want the app to reload in exactly the same state it was saved. Default: true
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor randomize = true
 
-  @property({type: Boolean, reflect: true})
-  useBrowserForJs = false
+  /**
+   * Specify seed for random numbers. Note that if you save a state of the app after user interacted with it and try to reload that state with the same randomSeed, you may get a different result. Use randomize for those use-cases.
+   */
+  @property({type: Number, attribute: true, reflect: true})
+  accessor randomSeed: number
 
-  @property({type: Boolean, reflect: true})
-  showLogging = false
+  /**
+   * When true, GeoGebra: runs ggbOnInit from HTML, ignores ggbOnInit from file, and ignores JS update scripts of objects in file. When false, GeoGebra: ignores ggbOnInit from HTML (use appletOnLoad parameter of GGBApplet instead), runs ggbOnInit from file, and runs JS update scripts of objects in file. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor useBrowserForJs = false
 
-  @property({type: Number, reflect: true})
-  capturingThreshold = 3
+  /**
+   * Determines whether logging is shown in the Browser's console. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showLogging = false
 
-  @property({type: Boolean, reflect: true})
-  enableFileFeatures = true
+  /**
+   * Determines the sensitivity of object selection. The default value of 3 is usually fine to select and drag objects both with the mouse and touch. Use larger values (e.g. 4 or 5) to make it easier to select and drag objects. Default: 3
+   */
+  @property({type: Number, attribute: true, reflect: true})
+  accessor capturingThreshold = 3
 
-  @property({type: Boolean, reflect: true})
-  enableUndoRedo = true
+  /**
+   * Determines whether file saving, file loading, sign in and Options > Save settings are enabled. This argument is ignored when menubar is not showing. Default: true
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor enableFileFeatures = true
 
-  @property({type: String, reflect: true})
-  perspective: String
+  /**
+   * Determines whether Undo and Redo icons are shown. This argument is ignored when toolbar is not showing. Default: true
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor enableUndoRedo = true
 
-  @property({type: Boolean, reflect: true})
-  enable3d: boolean
+  /**
+   * For values see SetPerspective_Command in the GeoGebra Manual. Just for a blank start ie shouldn't be used with material_id, filename or ggbBase64 parameters
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor perspective: String
 
-  @property({type: Boolean, reflect: true})
-  enableCAS: boolean
+  /**
+   * Whether 3D should be enabled (for exam mode).
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor enable3d: boolean
 
-  @property({type: String, reflect: true})
-  algebraInputPosition: "algebra" | "top" | "bottom"
+  /**
+   * Whether CAS should be enabled (for exam mode).
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor enableCAS: boolean
 
-  @property({type: Boolean, reflect: true})
-  preventFocus = false
+  /**
+   * Determines whether input bar should be shown in algebra, on top of the applet or under the applet. When left empty (default), the position depends on file.
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor algebraInputPosition: "algebra" | "top" | "bottom"
 
-  @property({type: String, reflect: true})
-  scaleContainerClass: string
+  /**
+   * When set to true, this prevents the applet from getting focus automatically at the start. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor preventFocus = false
 
-  @property({type: Boolean, reflect: true})
-  autoHeight = true
+  /**
+   * Name of CSS class that is used as container; applet will scale to fit into the container.
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor scaleContainerClass: string
 
-  @property({type: Boolean, reflect: true})
-  allowUpscale = false
+  /**
+   * `true` to restrict the width of the applet and compute height automatically, add autoHeight: true. `false` if you want the applet to be restricted by both width and height of the container
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor autoHeight = true
 
-  @property({type: Boolean, reflect: true})
-  playButton = false
+  /**
+   * Determines whether automatic scaling may scale the applet up. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor allowUpscale = false
 
-  @property({type: Number, reflect: true})
-  scale = 1
+  /**
+   * Determines whether a preview image and a play button should be rendered in place of the applet. Pushing the play button initializes the applet. Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor playButton = false
 
-  @property({type: Boolean, reflect: true})
-  showAnimationButton = false
+  /**
+   * Ratio by which the applet should be scaled (eg. 2 makes the applet 2 times bigger, including all texts and UI elements). Default: 1
+   */
+  @property({type: Number, attribute: true, reflect: true})
+  accessor scale = 1
 
-  @property({type: Boolean, reflect: true})
-  showFullscreenButton = false
+  /**
+   * Whether animation button should be visible
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showAnimationButton = false
 
-  @property({type: Boolean, reflect: true})
-  showSuggestionButtons = false
+  /**
+   * Whether fullscreen button should be visible
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showFullscreenButton = false
 
-  @property({type: Boolean, reflect: true})
-  showStartTooltip = false
+  /**
+   * Whether suggestion buttons (special points, solve) in Algebra View should be visible
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showSuggestionButtons = false
 
-  @property({type: String, reflect: true})
-  rounding: string
+  /**
+   * Whether "Welcome" tooltip should be shown
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showStartTooltip = false
 
-  @property({type: Boolean, reflect: true})
-  buttonShadows = false
+  /**
+   * String composed of number of decimal places and flags — valid flags are "s" for significant digits and "r" for rational numbers. Hence "10" means 10 decimal places, "10s" stands for 10 significant digits.
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor rounding: string
 
-  @property({type: Number, reflect: true})
-  buttonRounding: Number = 0.2
+  /**
+   * Whether buttons should have shadow
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor buttonShadows = false
 
-  @property({type: String, reflect: true})
-  buttonBorderColor: string
+  /**
+   * Relative radius of button's rounded border. The border radius in pixels is buttonRounding * height /2, where height is the height of the button. Default: 0.2
+   */
+  @property({type: Number, attribute: true, reflect: true})
+  accessor buttonRounding: Number = 0.2
 
-  @property({type: String, reflect: true})
-  editorBackgroundColor: string
+  /**
+   * Border color of buttons on the graphics view. Default is black, if the button background is white, otherwise one shade darker than the background color
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor buttonBorderColor: string
 
-  @property({type: String, reflect: true})
-  editorForegroundColor: string
+  /**
+   * Background color of the evaluator app
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor editorBackgroundColor: string
 
-  @property({type: Boolean, reflect: true})
-  textmode = false
+  /**
+   * Foreground (text) color of the equation editor (appname = "evaluator")
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor editorForegroundColor: string
 
-  @property({type: Boolean, reflect: true})
-  showKeyboardOnFocus: boolean
+  /**
+   * Whether editor is in text mode or not (appname = "evaluator"). Default: false
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor textmode = false
 
-  @property({type: String, reflect: true})
-  keyboardType: "scientific" | "normal" | "notes"
+  /**
+   * Whether to show keyboard when input is focused. When set to true, keyboard is always shown, for false it never appears, for auto it's shown unless closed by user. Default: true in evaluator app, auto in other apps
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor showKeyboardOnFocus: boolean
 
-  @property({type: Boolean, reflect: true})
-  transparentGraphics = false
+  /**
+   * Which keyboard is shown for equation editor (appname = "evaluator")
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor keyboardType: "scientific" | "normal" | "notes"
 
-  @property({type: Boolean, reflect: true})
-  disabledJavaScript = false
+  /**
+   * Whether the Graphics View and Graphics View 2 should be transparent
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor transparentGraphics = false
 
-  @property({type: String, reflect: true})
-  detachedKeyboardParent: string
+  /**
+   * Whether running JavaScript from material files is disabled or not.
+   */
+  @property({type: Boolean, attribute: true, reflect: true, converter: booleanAttributeConverter})
+  accessor disabledJavaScript = false
+
+  /**
+   * When set, the keyboard should be attached to the first element in DOM that fits the selector.
+   */
+  @property({type: String, attribute: true, reflect: true})
+  accessor detachedKeyboardParent: string
+
+  /**
+   * Used to force reset of the applet. Increment this property to reset the applet.
+   */
+  @property({type: Number})
+  protected accessor resetKey: number = 0
+
+  // A map of parameter names to their corresponding update functions in the GeoGebra API
+  private paramUpdateMap: Map<string, (value: number | string | boolean) => void>
 
   private get ggbProperties() {
-    const {appletId: id, type: appName, width, height, borderColor, borderRadius, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language, country, allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent} = this
+    const editingAllowed = !this.hideMenus
+    this.showToolBar = editingAllowed
+
+    const {appletId: id, type: appName, width, height, borderColor, borderRadius, enableRightClick, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language, country, allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent} = this
 
     let filename: string, material_id: string, ggbBase64: string
     if(this.src && this.src.startsWith("data:")) {
@@ -340,10 +546,10 @@ export class GeogebraApp extends LitElementWw {
       filename = this.src
     }
 
-    return {id, appName, filename, material_id, ggbBase64, width, height, borderColor, borderRadius, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language: language ?? this.lang, country, allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent}
+    return {id, appName, filename, material_id, ggbBase64, width, height, borderColor, borderRadius, enableRightClick, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language: language ?? this.lang, country, allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent}
   }
 
-  updateSrc = () => {
+  private updateSrc = () => {
     if(!this.updatingGgb) {
       this.src = `data:application/vnd.geogebra.file;base64,${this.api.getBase64()}`
     }
@@ -360,31 +566,94 @@ export class GeogebraApp extends LitElementWw {
         this.api.registerUpdateListener(this.updateSrc)
         this.api.registerRenameListener(this.updateSrc)
         this.api.registerRemoveListener(this.updateSrc)
+
+        this.paramUpdateMap = new Map<string, (value: number | string | boolean) => void>([
+          ["width", this.api.setWidth],
+          ["height", this.api.setHeight],
+          ["enableRightClick", this.api.enableRightClick],
+          ["enableLabelDrags", this.api.enableLabelDrags],
+          ["enableShiftDragZoom", this.api.enableShiftDragZoom],
+          ["errorDialogsActive", this.api.setErrorDialogsActive],
+          ["showMenuBar", this.api.showMenuBar],
+          ["showToolBar", this.api.showToolBar],
+          ["customToolBar", this.api.setCustomToolBar],
+          ["showAlgebraInput", this.api.showAlgebraInput],
+          ["showResetIcon", this.api.showResetIcon],
+          ["perspective", this.api.setPerspective],
+          ["enable3d", this.api.enable3D],
+          ["enableCAS", this.api.enableCAS],
+          ["rounding", this.api.setRounding],
+        ])
+
+        this.api.showToolBar(!this.hideMenus)
       })
     })
   }
 
-  updatingGgb = false
+  private updatingGgb = false
 
   protected updated(changed: PropertyValues): void {
+    console.log("GeogebraApp updated:", changed)
+    super.updated(changed)
 
-    if(changed.has("src") && this.src && this.src.split(",").at(-1) !== this?.api?.getBase64()) {
-      this.updatingGgb = true
-      this?.api?.setBase64(this.src.split(",").at(-1), () => this.updatingGgb = false)
+    if(!this.api) {
+      this.resetIFrame()
+      return
     }
-    else if(changed.has("src") && !this.src) {
+    if (this.paramUpdateMap) {
+      let needFullReload = false
+
+      changed.forEach((_, key: PropertyKey) => {
+        const propName = key.toString()
+        console.log(`Property changed: ${propName}`)
+        if(propName === "src") {
+          return
+        }
+        if(this.paramUpdateMap.has(propName) && this.api) {
+          const updateFunc = this.paramUpdateMap.get(propName)
+          if(updateFunc) {
+            updateFunc.call(this.api, (this as any)[propName])
+            console.log(`Updated GeoGebra property ${propName} to value ${(this as any)[propName]}`)
+          }
+        } else {
+          console.log(`No update function found for property: ${propName}, reloading entire applet...`)
+          needFullReload = true
+        }
+      })
+
+      if(needFullReload) {
+        this.resetIFrame()
+        return
+      }
+    }
+    
+
+    if(!changed.has("src") || !this.api) {
+      return
+    }
+    if(this.src && this.src.split(",").at(-1) !== this?.api?.getBase64()) {
       this.updatingGgb = true
-      this?.api?.setBase64("", () => this.updatingGgb = false)
+      this?.api?.setBase64(this.src.split(",").at(-1), () => {
+        this.updatingGgb = false
+      })
+    }
+    else if(!this.src) {
+      this.updatingGgb = true
+      this?.api?.setBase64("", () => {
+        this.updatingGgb = false
+      })
     }
   }
 
-  apiReady: Promise<GeogebraAPI>
-  api?: GeogebraAPI
+  private apiReady: Promise<GeogebraAPI>
+  private api?: GeogebraAPI
 
-  initializeIFrame(e: Event) {
-    const iframe = e.target as HTMLIFrameElement
+  private initializeIFrame(iframe: HTMLIFrameElement) {
     const doc = iframe.contentDocument
     const win = iframe.contentWindow
+    if (doc.getElementById("ggb-element")) {
+      return
+    }
     doc.body.style.margin = "0"
     if(this.ggbStyles) {
       const style = doc.createElement("style")
@@ -409,9 +678,62 @@ export class GeogebraApp extends LitElementWw {
     doc.body.append(deployScript)
   }
 
+  private resetIFrame() {
+    if(!this.api) {
+      return
+    }
+
+    this.api = undefined
+    this.apiReady = new Promise(r => {
+      this.addEventListener("ggb-load", (e: any) => {
+        r(e.detail.api)
+      }, {once: true})
+    })
+
+    this.resetKey++
+  }
+
   render() {
     return html`
-      <iframe id="ggb" @load=${this.initializeIFrame}></iframe>
+      ${keyed(this.resetKey, html`<iframe id="ggb" @load=${(e: Event) => this.initializeIFrame(e.target as HTMLIFrameElement)}></iframe>`)}
+      <div part="options" class=${!this.isContentEditable ? "hidden" : ""}>
+        <input type="file" accept=".ggb" id="ggb-upload" name="ggb-upload" @change=${(e: Event) => {
+          const input = e.target as HTMLInputElement
+          const file = input.files?.item(0)
+          if(!file) {
+            return
+          }
+          const reader = new FileReader()
+          reader.onload = () => {
+            console.log((reader.result as string).split(","))
+            const base64 = (reader.result as string).split(",").at(-1)
+            this.src = `data:application/vnd.geogebra.file;base64,${base64}`
+          }
+          reader.readAsDataURL(file)
+        }}>
+        <sl-button @click=${
+          () => {
+            const input = this.renderRoot.querySelector("#ggb-upload") as HTMLInputElement
+            input.value = ""
+            input.click()
+          }
+        }>
+          <sl-icon src=${FileEarmarkArrowUp} slot="prefix"></sl-icon>
+          ${msg("Import GeoGebra File")}
+        </sl-button>
+
+        <sl-switch 
+          ?checked=${!this.hideMenus}
+          @sl-change=${
+            (e) => {
+              this.hideMenus = !(e.target as SlSwitch).checked
+              this?.api?.showToolBar(!this.hideMenus)
+            }
+          }
+        >
+          ${msg("Show Toolbar")}
+        </sl-switch>
+      </div>
     `
   }
 }
