@@ -136,21 +136,6 @@
             },
             {
               "kind": "field",
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "attribute": "hideMenus",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "kind": "field",
               "name": "borderColor",
               "type": {
                 "text": "string"
@@ -880,6 +865,15 @@
               }
             },
             {
+              "kind": "method",
+              "name": "getConfigurableProperties",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "ggbProperties",
               "privacy": "private",
@@ -893,6 +887,40 @@
               "kind": "field",
               "name": "updateSrc",
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handlePropertyChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleFileImport",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -1027,19 +1055,6 @@
               },
               "description": "Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with \"ggbid:\", or file URL)",
               "fieldName": "src",
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "fieldName": "hideMenus",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -1873,21 +1888,6 @@
             },
             {
               "kind": "field",
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "attribute": "hideMenus",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "kind": "field",
               "name": "borderColor",
               "type": {
                 "text": "string"
@@ -2617,6 +2617,15 @@
               }
             },
             {
+              "kind": "method",
+              "name": "getConfigurableProperties",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "ggbProperties",
               "privacy": "private",
@@ -2630,6 +2639,40 @@
               "kind": "field",
               "name": "updateSrc",
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handlePropertyChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleFileImport",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -2764,19 +2807,6 @@
               },
               "description": "Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with \"ggbid:\", or file URL)",
               "fieldName": "src",
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "fieldName": "hideMenus",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -3610,21 +3640,6 @@
             },
             {
               "kind": "field",
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "attribute": "hideMenus",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "kind": "field",
               "name": "borderColor",
               "type": {
                 "text": "string"
@@ -4354,6 +4369,15 @@
               }
             },
             {
+              "kind": "method",
+              "name": "getConfigurableProperties",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "ggbProperties",
               "privacy": "private",
@@ -4367,6 +4391,40 @@
               "kind": "field",
               "name": "updateSrc",
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handlePropertyChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleFileImport",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -4501,19 +4559,6 @@
               },
               "description": "Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with \"ggbid:\", or file URL)",
               "fieldName": "src",
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "fieldName": "hideMenus",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -5347,21 +5392,6 @@
             },
             {
               "kind": "field",
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "attribute": "hideMenus",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "kind": "field",
               "name": "borderColor",
               "type": {
                 "text": "string"
@@ -6091,6 +6121,15 @@
               }
             },
             {
+              "kind": "method",
+              "name": "getConfigurableProperties",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "ggbProperties",
               "privacy": "private",
@@ -6104,6 +6143,40 @@
               "kind": "field",
               "name": "updateSrc",
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handlePropertyChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleFileImport",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -6238,19 +6311,6 @@
               },
               "description": "Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with \"ggbid:\", or file URL)",
               "fieldName": "src",
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "fieldName": "hideMenus",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -7084,21 +7144,6 @@
             },
             {
               "kind": "field",
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "attribute": "hideMenus",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "kind": "field",
               "name": "borderColor",
               "type": {
                 "text": "string"
@@ -7828,6 +7873,15 @@
               }
             },
             {
+              "kind": "method",
+              "name": "getConfigurableProperties",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "ggbProperties",
               "privacy": "private",
@@ -7841,6 +7895,40 @@
               "kind": "field",
               "name": "updateSrc",
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handlePropertyChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleFileImport",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -7975,19 +8063,6 @@
               },
               "description": "Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with \"ggbid:\", or file URL)",
               "fieldName": "src",
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "fieldName": "hideMenus",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -8851,21 +8926,6 @@
             },
             {
               "kind": "field",
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "attribute": "hideMenus",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "kind": "field",
               "name": "borderColor",
               "type": {
                 "text": "string"
@@ -9565,6 +9625,15 @@
               }
             },
             {
+              "kind": "method",
+              "name": "getConfigurableProperties",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "ggbProperties",
               "privacy": "private",
@@ -9578,6 +9647,40 @@
               "kind": "field",
               "name": "updateSrc",
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handlePropertyChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleFileImport",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "CustomEvent"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"
@@ -9712,19 +9815,6 @@
               },
               "description": "Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with \"ggbid:\", or file URL)",
               "fieldName": "src",
-              "inheritedFrom": {
-                "name": "GeogebraApp",
-                "module": "components/geogebra-app.ts"
-              }
-            },
-            {
-              "name": "hideMenus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Hide toolbar and menus. Note that this does not prevent editing. TODO: remove",
-              "fieldName": "hideMenus",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "components/geogebra-app.ts"

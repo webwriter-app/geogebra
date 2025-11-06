@@ -5,9 +5,25 @@
         <source>Import GeoGebra File</source>
         <target>Importēt GeoGebra failu</target>
       </trans-unit>
-      <trans-unit id="s282687f65d67c8f7">
-        <source>Show Toolbar</source>
-        <target>Rādīt rīkjoslu</target>
+      <trans-unit id="s74982e57a1d8896c">
+        <source>Advanced Settings</source>
+        <target>Papildu iestatījumi</target>
+      </trans-unit>
+      <trans-unit id="s247bdb7c37e6e0cd">
+        <source>These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.</source>
+        <target>Šie iestatījumi nav attiecināmi uz lielāko daļu lietotāju, un parasti tos nevajadzētu mainīt. To maiņa var pilnībā sabojāt jūsu appletu.</target>
+      </trans-unit>
+      <trans-unit id="hf8b402e743ecc09e">
+        <source>Consult the 
+              <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
+                GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;"/>
+              for more information.</source>
+        <target>Konsultējieties ar 
+          <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
+                GeoGebra dokumentus
+          <x id="1" equiv-text="&lt;/a&gt;"/>
+              .
+        </target>
       </trans-unit>
     </body>
   </file>

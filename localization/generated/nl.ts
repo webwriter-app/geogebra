@@ -2,14 +2,21 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    
+    import {html} from 'lit';
     
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      's282687f65d67c8f7': `Werkbalk weergeven`,
+      'hf8b402e743ecc09e': html`Raadpleeg de 
+          <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
+                GeoGebra-documentatie
+          </a>
+              voor meer informatie.
+        `,
+'s247bdb7c37e6e0cd': `Deze instellingen zijn voor de meeste gebruikers niet relevant en mogen normaal gesproken niet worden gewijzigd. Als u ze wijzigt, kan uw applet volledig onbruikbaar worden.`,
 's6236cc7215aadb0a': `GeoGebra-bestand importeren`,
+'s74982e57a1d8896c': `Geavanceerde instellingen`,
     };
   

@@ -1,17 +1,16 @@
-import {html, css, PropertyValues} from "lit"
+import {html, css, PropertyValues, PropertyDeclaration} from "lit"
 import {LitElementWw} from "@webwriter/lit"
 import {property} from "lit/decorators.js"
 import {keyed} from "lit/directives/keyed.js"
 
 import "@shoelace-style/shoelace/dist/themes/light.css"
-import {SlButton, SlIcon, SlSwitch} from "@shoelace-style/shoelace"
-import FileEarmarkArrowUp from "../assets/icons/file-earmark-arrow-up.svg"
 
 // @ts-ignore
 import LOCALIZE from "../localization/generated"
 import {localized, msg} from "@lit/localize"
 import {geogebraAppStyles} from "./geogebra-app.styles"
 import { booleanAttributeConverter } from "../utils/boolean-attribute-converter"
+import { GeogebraOptions, type PropertyConfig } from "./geogebra-options"
 
 export interface GeogebraAPI {
   evalCommand(cmdString: string): boolean
@@ -172,9 +171,7 @@ export class GeogebraApp extends LitElementWw {
 
   protected static get scopedElements() {
     return {
-      "sl-button": SlButton,
-      "sl-icon": SlIcon,
-      "sl-switch": SlSwitch
+      "geogebra-options-panel": GeogebraOptions
     }
   }
 
@@ -213,12 +210,6 @@ export class GeogebraApp extends LitElementWw {
    */
   @property({type: String, attribute: true, reflect: true})
   accessor src: string
-
-  /**
-   * Hide toolbar and menus. Note that this does not prevent editing. TODO: remove
-   */
-  @property({type: Boolean, attribute: true, reflect: true})
-  accessor hideMenus: boolean = false
 
   /**
    * Color of the border line drawn around the applet panel (as hex rgb string). Default: gray
@@ -529,10 +520,54 @@ export class GeogebraApp extends LitElementWw {
   // A map of parameter names to their corresponding update functions in the GeoGebra API
   private paramUpdateMap: Map<string, (value: number | string | boolean) => void>
 
-  private get ggbProperties() {
-    const editingAllowed = !this.hideMenus
-    this.showToolBar = editingAllowed
+  private getConfigurableProperties() {
+    const properties: PropertyConfig[] = []
+    const ownProperties = (this.constructor as any).elementProperties as Map<string, PropertyDeclaration>
 
+    const excludedProperties = new Set([
+      "contentEditable",
+      "lang",
+      "src",
+      "width",
+      "height",
+      "ggbStyles",
+      "resetKey"
+    ])
+
+    ownProperties.forEach((config, propName) => {
+      if (excludedProperties.has(propName)) return
+
+      const currentValue = (this as any)[propName]
+      let propConfig: PropertyConfig = {
+        name: propName,
+        type: "string",
+        value: currentValue
+      }
+
+      if (config.type === Boolean || typeof currentValue === "boolean") {
+        propConfig.type = "boolean"
+      } else if (config.type === Number || typeof currentValue === "number") {
+        propConfig.type = "number"
+      } else if (config.type === String || typeof currentValue === "string") {
+        const selectProps: Record<string, string[]> = {
+          "algebraInputPosition": ["algebra", "top", "bottom"],
+          "type": ["classic", "geometry", "3d", "suite", "evaluator", "scientific", "notes"],
+          "keyboardType": ["scientific", "normal", "notes"]
+        }
+
+        if (selectProps[propName]) {
+          propConfig.type = "select"
+          propConfig.options = selectProps[propName]
+        }
+      }
+
+      properties.push(propConfig)
+    })
+
+    return properties
+  }
+
+  private get ggbProperties() {
     const {appletId: id, type: appName, width, height, borderColor, borderRadius, enableRightClick, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language, country, allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent} = this
 
     let filename: string, material_id: string, ggbBase64: string
@@ -549,7 +584,8 @@ export class GeogebraApp extends LitElementWw {
     return {id, appName, filename, material_id, ggbBase64, width, height, borderColor, borderRadius, enableRightClick, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language: language ?? this.lang, country, allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent}
   }
 
-  private updateSrc = () => {
+  private updateSrc = (a) => {
+    console.log("updateSrc called", a)
     if(!this.updatingGgb) {
       this.src = `data:application/vnd.geogebra.file;base64,${this.api.getBase64()}`
     }
@@ -574,7 +610,7 @@ export class GeogebraApp extends LitElementWw {
           ["enableLabelDrags", this.api.enableLabelDrags],
           ["enableShiftDragZoom", this.api.enableShiftDragZoom],
           ["errorDialogsActive", this.api.setErrorDialogsActive],
-          ["showMenuBar", this.api.showMenuBar],
+          // ["showMenuBar", this.api.showMenuBar], // disabled because showMenuBar(false) does not work
           ["showToolBar", this.api.showToolBar],
           ["customToolBar", this.api.setCustomToolBar],
           ["showAlgebraInput", this.api.showAlgebraInput],
@@ -584,10 +620,18 @@ export class GeogebraApp extends LitElementWw {
           ["enableCAS", this.api.enableCAS],
           ["rounding", this.api.setRounding],
         ])
-
-        this.api.showToolBar(!this.hideMenus)
       })
     })
+  }
+
+  private handlePropertyChange(e: CustomEvent) {
+    const {name, value} = e.detail;
+    (this as any)[name] = value
+  }
+
+  private handleFileImport(e: CustomEvent) {
+    const { base64 } = e.detail
+    this.src = `data:application/vnd.geogebra.file;base64,${base64}`
   }
 
   private updatingGgb = false
@@ -696,44 +740,13 @@ export class GeogebraApp extends LitElementWw {
   render() {
     return html`
       ${keyed(this.resetKey, html`<iframe id="ggb" @load=${(e: Event) => this.initializeIFrame(e.target as HTMLIFrameElement)}></iframe>`)}
-      <div part="options" class=${!this.isContentEditable ? "hidden" : ""}>
-        <input type="file" accept=".ggb" id="ggb-upload" name="ggb-upload" @change=${(e: Event) => {
-          const input = e.target as HTMLInputElement
-          const file = input.files?.item(0)
-          if(!file) {
-            return
-          }
-          const reader = new FileReader()
-          reader.onload = () => {
-            console.log((reader.result as string).split(","))
-            const base64 = (reader.result as string).split(",").at(-1)
-            this.src = `data:application/vnd.geogebra.file;base64,${base64}`
-          }
-          reader.readAsDataURL(file)
-        }}>
-        <sl-button @click=${
-          () => {
-            const input = this.renderRoot.querySelector("#ggb-upload") as HTMLInputElement
-            input.value = ""
-            input.click()
-          }
-        }>
-          <sl-icon src=${FileEarmarkArrowUp} slot="prefix"></sl-icon>
-          ${msg("Import GeoGebra File")}
-        </sl-button>
-
-        <sl-switch 
-          ?checked=${!this.hideMenus}
-          @sl-change=${
-            (e) => {
-              this.hideMenus = !(e.target as SlSwitch).checked
-              this?.api?.showToolBar(!this.hideMenus)
-            }
-          }
-        >
-          ${msg("Show Toolbar")}
-        </sl-switch>
-      </div>
+      <geogebra-options-panel
+        part="options"
+        ?visible=${this.isContentEditable}
+        .properties=${this.getConfigurableProperties()}
+        @property-change=${this.handlePropertyChange}
+        @import-file=${this.handleFileImport}
+      ></geogebra-options-panel>
     `
   }
 }

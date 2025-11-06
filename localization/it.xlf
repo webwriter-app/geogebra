@@ -5,9 +5,25 @@
         <source>Import GeoGebra File</source>
         <target>Importa file GeoGebra</target>
       </trans-unit>
-      <trans-unit id="s282687f65d67c8f7">
-        <source>Show Toolbar</source>
-        <target>Mostra barra degli strumenti</target>
+      <trans-unit id="s74982e57a1d8896c">
+        <source>Advanced Settings</source>
+        <target>Impostazioni avanzate</target>
+      </trans-unit>
+      <trans-unit id="s247bdb7c37e6e0cd">
+        <source>These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.</source>
+        <target>Queste impostazioni non sono rilevanti per la maggior parte degli utenti e di solito non dovrebbero essere modificate. Modificarle può compromettere completamente il funzionamento dell'applet.</target>
+      </trans-unit>
+      <trans-unit id="hf8b402e743ecc09e">
+        <source>Consult the 
+              <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
+                GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;"/>
+              for more information.</source>
+        <target>Consultare il 
+          <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
+                documentazione di GeoGebra
+          <x id="1" equiv-text="&lt;/a&gt;"/>
+              per ulteriori informazioni.
+        </target>
       </trans-unit>
     </body>
   </file>

@@ -43,7 +43,6 @@ npm install @webwriter/geogebra
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
 | `height` (`height`) | `number` | Applet height | `450` | ✓ |
 | `src` (`src`) | `string` | Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL) | - | ✓ |
-| `hideMenus` (`hideMenus`) | `boolean` | Hide toolbar and menus. Note that this does not prevent editing. TODO: remove | `false` | ✓ |
 | `borderColor` (`borderColor`) | `string` | Color of the border line drawn around the applet panel (as hex rgb string). Default: gray | `"gray"` | ✓ |
 | `borderRadius` (`borderRadius`) | `number` | Size of applet's border radius in pixels. | `1` | ✓ |
 | `enableRightClick` (`enableRightClick`) | `boolean` | States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. Default: true. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl + R (recompute all objects). Default: true | `true` | ✓ |
@@ -145,7 +144,6 @@ npm install @webwriter/geogebra
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
 | `height` (`height`) | `number` | Applet height | `450` | ✓ |
 | `src` (`src`) | `string` | Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL) | - | ✓ |
-| `hideMenus` (`hideMenus`) | `boolean` | Hide toolbar and menus. Note that this does not prevent editing. TODO: remove | `false` | ✓ |
 | `borderColor` (`borderColor`) | `string` | Color of the border line drawn around the applet panel (as hex rgb string). Default: gray | `"gray"` | ✓ |
 | `borderRadius` (`borderRadius`) | `number` | Size of applet's border radius in pixels. | `1` | ✓ |
 | `enableRightClick` (`enableRightClick`) | `boolean` | States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. Default: true. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl + R (recompute all objects). Default: true | `true` | ✓ |
@@ -249,7 +247,6 @@ npm install @webwriter/geogebra
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
 | `height` (`height`) | `number` | Applet height | `450` | ✓ |
 | `src` (`src`) | `string` | Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL) | - | ✓ |
-| `hideMenus` (`hideMenus`) | `boolean` | Hide toolbar and menus. Note that this does not prevent editing. TODO: remove | `false` | ✓ |
 | `borderColor` (`borderColor`) | `string` | Color of the border line drawn around the applet panel (as hex rgb string). Default: gray | `"gray"` | ✓ |
 | `borderRadius` (`borderRadius`) | `number` | Size of applet's border radius in pixels. | `1` | ✓ |
 | `enableRightClick` (`enableRightClick`) | `boolean` | States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. Default: true. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl + R (recompute all objects). Default: true | `true` | ✓ |
@@ -353,7 +350,6 @@ npm install @webwriter/geogebra
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
 | `height` (`height`) | `number` | Applet height | `450` | ✓ |
 | `src` (`src`) | `string` | Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL) | - | ✓ |
-| `hideMenus` (`hideMenus`) | `boolean` | Hide toolbar and menus. Note that this does not prevent editing. TODO: remove | `false` | ✓ |
 | `borderColor` (`borderColor`) | `string` | Color of the border line drawn around the applet panel (as hex rgb string). Default: gray | `"gray"` | ✓ |
 | `borderRadius` (`borderRadius`) | `number` | Size of applet's border radius in pixels. | `1` | ✓ |
 | `enableRightClick` (`enableRightClick`) | `boolean` | States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. Default: true. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl + R (recompute all objects). Default: true | `true` | ✓ |
@@ -457,7 +453,6 @@ npm install @webwriter/geogebra
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
 | `height` (`height`) | `number` | Applet height | `450` | ✓ |
 | `src` (`src`) | `string` | Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL) | - | ✓ |
-| `hideMenus` (`hideMenus`) | `boolean` | Hide toolbar and menus. Note that this does not prevent editing. TODO: remove | `false` | ✓ |
 | `borderColor` (`borderColor`) | `string` | Color of the border line drawn around the applet panel (as hex rgb string). Default: gray | `"gray"` | ✓ |
 | `borderRadius` (`borderRadius`) | `number` | Size of applet's border radius in pixels. | `1` | ✓ |
 | `enableRightClick` (`enableRightClick`) | `boolean` | States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. Default: true. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl + R (recompute all objects). Default: true | `true` | ✓ |
@@ -561,7 +556,6 @@ npm install @webwriter/geogebra
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
 | `height` (`height`) | `number` | Applet height | `450` | ✓ |
 | `src` (`src`) | `string` | Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL) | - | ✓ |
-| `hideMenus` (`hideMenus`) | `boolean` | Hide toolbar and menus. Note that this does not prevent editing. TODO: remove | `false` | ✓ |
 | `borderColor` (`borderColor`) | `string` | Color of the border line drawn around the applet panel (as hex rgb string). Default: gray | `"gray"` | ✓ |
 | `borderRadius` (`borderRadius`) | `number` | Size of applet's border radius in pixels. | `1` | ✓ |
 | `enableRightClick` (`enableRightClick`) | `boolean` | States whether right clicks should be handled by the applet. Setting this parameter to "false" disables context menus, properties dialogs and right-click-zooming. Default: true. NB also enables/disables some keyboard shortcuts eg Delete and Ctrl + R (recompute all objects). Default: true | `true` | ✓ |
