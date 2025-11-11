@@ -13,16 +13,16 @@
         <source>These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.</source>
         <target>이 설정은 대부분의 사용자에게 관련이 없으며 일반적으로 변경해서는 안 됩니다. 변경 시 애플릿이 완전히 작동하지 않을 수 있습니다.</target>
       </trans-unit>
-      <trans-unit id="hf8b402e743ecc09e">
-        <source>Consult the 
+      <trans-unit id="haaf9676c372c5a97">
+        <source>See the 
               <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
                 GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;"/>
               for more information.</source>
-        <target>참조하십시오 
+        <target>보십시오 
           <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
                 GeoGebra 문서
           <x id="1" equiv-text="&lt;/a&gt;"/>
-              를 참조하십시오.
+              자세한 내용은
         </target>
       </trans-unit>
     </body>

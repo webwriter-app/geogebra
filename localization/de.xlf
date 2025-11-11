@@ -13,15 +13,15 @@
         <source>These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.</source>
         <target>Diese Einstellungen sind für die meisten Benutzer nicht relevant und sollten in der Regel nicht geändert werden. Eine Änderung kann dazu führen, dass Ihr Applet vollständig beschädigt wird.</target>
       </trans-unit>
-      <trans-unit id="hf8b402e743ecc09e">
-        <source>Consult the 
+      <trans-unit id="haaf9676c372c5a97">
+        <source>See the 
               <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
                 GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;"/>
               for more information.</source>
-        <target>Mehr Informationen finden Sie in der 
+        <target>Siehe 
           <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
-                GeoGebra-Dokumentation
-          <x id="1" equiv-text="&lt;/a&gt;"/>.
+                GeoGebra-Dokumentation<x id="1" equiv-text="&lt;/a&gt;"/>
+              für mehr Informationen.
         </target>
       </trans-unit>
     </body>

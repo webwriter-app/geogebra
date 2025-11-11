@@ -9,7 +9,7 @@
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      'hf8b402e743ecc09e': html`Konsultasikan dengan 
+      'haaf9676c372c5a97': html`Lihat 
           <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
                 Dokumen GeoGebra
           </a>

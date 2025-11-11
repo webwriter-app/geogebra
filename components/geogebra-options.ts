@@ -171,7 +171,7 @@ export class GeogebraOptions extends LitElementWw {
         <sl-details summary=${msg("Advanced Settings")}>
           <p>
             ${msg("These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.")} 
-            ${msg(html`Consult the 
+            ${msg(html`See the 
               <a 
                 href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/"
                 target="_blank">
