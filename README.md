@@ -1,5 +1,5 @@
-# Geogebra (`@webwriter/geogebra@1.0.1`)
-[License: MIT](LICENSE) | Version: 1.0.1
+# Geogebra (`@webwriter/geogebra@1.1.0`)
+[License: MIT](LICENSE) | Version: 1.1.0
 
 Use the mathematics learning apps of GeoGebra for algebra and geometry.
 
