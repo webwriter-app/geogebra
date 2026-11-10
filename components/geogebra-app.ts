@@ -172,6 +172,7 @@ export class GeogebraApp extends LitElementWw {
   private getWidgetOptions() {
     return Object.fromEntries(this.getConfigurableProperties().map(({name, type, options}) => [name, {
       type: type === "boolean" ? Boolean : type === "number" ? Number : type === "select" ? "select" : String,
+      ...(name === "type" ? {control: "select"} : {}),
       ...(options ? {options: options.map(value => ({value}))} : {}),
     }]))
   }
