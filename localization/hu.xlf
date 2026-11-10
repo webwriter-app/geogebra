@@ -38,6 +38,183 @@
 <trans-unit id="s2706a162264c46f1">
   <source>Scale</source>
 <target>Skála</target></trans-unit>
+<trans-unit id="s863f73e2a453afb1">
+  <source>Import construction</source>
+<target>Szerkesztés importálása</target></trans-unit>
+<trans-unit id="s1dbb9f50e16c92a3">
+  <source>Border radius</source>
+<target>Saroklekerekítés</target></trans-unit>
+<trans-unit id="s54bd98ffebeb3d60">
+  <source>Enable right click</source>
+<target>Jobb kattintás engedélyezése</target></trans-unit>
+<trans-unit id="s56580e5b30f758fe">
+  <source>Allow dragging labels</source>
+<target>Címkék húzásának engedélyezése</target></trans-unit>
+<trans-unit id="saef300913edb0126">
+  <source>Enable Shift-drag zoom</source>
+<target>Nagyítás engedélyezése Shift és húzás használatával</target></trans-unit>
+<trans-unit id="s06b20d3b54dd6066">
+  <source>Show zoom buttons</source>
+<target>Nagyítási gombok megjelenítése</target></trans-unit>
+<trans-unit id="s1058c562357a8d6f">
+  <source>Show error dialogs</source>
+<target>Hibaüzenetek megjelenítése</target></trans-unit>
+<trans-unit id="s78f4dc5b3c94465e">
+  <source>Show menu bar</source>
+<target>Menüsor megjelenítése</target></trans-unit>
+<trans-unit id="se3b6f7ca373b562a">
+  <source>Show toolbar help</source>
+<target>Eszköztár súgójának megjelenítése</target></trans-unit>
+<trans-unit id="s2a2087a80bb0f041">
+  <source>Custom toolbar</source>
+<target>Egyéni eszköztár</target></trans-unit>
+<trans-unit id="s6f938c9b3edccc50">
+  <source>Show algebra input</source>
+<target>Algebrai beviteli mező megjelenítése</target></trans-unit>
+<trans-unit id="sb28deeeaae032dc4">
+  <source>Show reset icon</source>
+<target>Visszaállítás ikon megjelenítése</target></trans-unit>
+<trans-unit id="sefcf950b3cc4fc3b">
+  <source>Language</source>
+<target>Nyelv</target></trans-unit>
+<trans-unit id="s9cf7402fe920f7d1">
+  <source>Country</source>
+<target>Ország</target></trans-unit>
+<trans-unit id="saeb13f692234024e">
+  <source>Applet ID</source>
+<target>Appletazonosító</target></trans-unit>
+<trans-unit id="s661cdb4d93a8e54e">
+  <source>Allow style bar</source>
+<target>Stílussáv engedélyezése</target></trans-unit>
+<trans-unit id="s23b3474a6fc7117c">
+  <source>Randomize</source>
+<target>Értékek véletlenszerűvé tétele</target></trans-unit>
+<trans-unit id="s5673f8676474a97f">
+  <source>Random seed</source>
+<target>Véletlenszám-mag</target></trans-unit>
+<trans-unit id="s53b2d7548cb6adde">
+  <source>Use browser for JavaScript</source>
+<target>Böngésző használata JavaScripthez</target></trans-unit>
+<trans-unit id="s969e74ec195a3d1e">
+  <source>Show log messages</source>
+<target>Naplóüzenetek megjelenítése</target></trans-unit>
+<trans-unit id="s09b245636cd95634">
+  <source>Point capture threshold</source>
+<target>Pontillesztési küszöb</target></trans-unit>
+<trans-unit id="s363dd43b17bf9763">
+  <source>Enable file features</source>
+<target>Fájlkezelési funkciók engedélyezése</target></trans-unit>
+<trans-unit id="s7772dd68615d21c7">
+  <source>Enable undo and redo</source>
+<target>Visszavonás és ismétlés engedélyezése</target></trans-unit>
+<trans-unit id="s36b3cefdcb897f15">
+  <source>Perspective</source>
+<target>Nézőpont</target></trans-unit>
+<trans-unit id="s89381f62aa15dbad">
+  <source>Enable 3D</source>
+<target>3D engedélyezése</target></trans-unit>
+<trans-unit id="scc72e2a75307a637">
+  <source>Enable CAS</source>
+<target>CAS engedélyezése</target></trans-unit>
+<trans-unit id="s3e0f20426463dcc6">
+  <source>Algebra input position</source>
+<target>Algebrai beviteli mező helye</target></trans-unit>
+<trans-unit id="s746da3186a6a89c1">
+  <source>Prevent focus</source>
+<target>Fókusz megakadályozása</target></trans-unit>
+<trans-unit id="se46b941eb5937265">
+  <source>Scale container CSS class</source>
+<target>Méretezőtároló CSS-osztálya</target></trans-unit>
+<trans-unit id="sdd7188a7f00971cf">
+  <source>Automatic height</source>
+<target>Automatikus magasság</target></trans-unit>
+<trans-unit id="sf9d9117bfca0dc24">
+  <source>Allow upscaling</source>
+<target>Nagyítás engedélyezése</target></trans-unit>
+<trans-unit id="sa1aae96e8297634d">
+  <source>Play button</source>
+<target>Lejátszás gomb</target></trans-unit>
+<trans-unit id="s6e98e322aceafe26">
+  <source>Show animation button</source>
+<target>Animációs gomb megjelenítése</target></trans-unit>
+<trans-unit id="sbb6d1a91c9e95cf7">
+  <source>Show fullscreen button</source>
+<target>Teljes képernyős gomb megjelenítése</target></trans-unit>
+<trans-unit id="s4b2e7180fe27f135">
+  <source>Show suggestion buttons</source>
+<target>Javaslatgombok megjelenítése</target></trans-unit>
+<trans-unit id="sb51b84779159e4be">
+  <source>Show startup tooltip</source>
+<target>Indítási súgóbuborék megjelenítése</target></trans-unit>
+<trans-unit id="s7b1e60b2847f5b7d">
+  <source>Rounding</source>
+<target>Kerekítés</target></trans-unit>
+<trans-unit id="s673e2c332b665100">
+  <source>Button shadows</source>
+<target>Gombárnyékok</target></trans-unit>
+<trans-unit id="s6fc32c633aae26f2">
+  <source>Button corner rounding</source>
+<target>Gombsarkok lekerekítése</target></trans-unit>
+<trans-unit id="s9aa2591b039e5c9e">
+  <source>Button border color</source>
+<target>Gomb szegélyszíne</target></trans-unit>
+<trans-unit id="s9fa68fc246cd24bb">
+  <source>Editor background color</source>
+<target>Szerkesztő háttérszíne</target></trans-unit>
+<trans-unit id="s9e3ad5a2611dd7ea">
+  <source>Editor foreground color</source>
+<target>Szerkesztő előtérszíne</target></trans-unit>
+<trans-unit id="sf4389ae40ebee3e1">
+  <source>Text mode</source>
+<target>Szöveges mód</target></trans-unit>
+<trans-unit id="s4ff8671a02a650a6">
+  <source>Show keyboard on focus</source>
+<target>Billentyűzet megjelenítése fókusz esetén</target></trans-unit>
+<trans-unit id="s739f15d69b9e85d4">
+  <source>Keyboard type</source>
+<target>Billentyűzet típusa</target></trans-unit>
+<trans-unit id="sdece6428e0a266c6">
+  <source>Transparent graphics</source>
+<target>Átlátszó grafika</target></trans-unit>
+<trans-unit id="s8ca6612c8e7ff87e">
+  <source>Disable JavaScript</source>
+<target>JavaScript letiltása</target></trans-unit>
+<trans-unit id="sfea113b833d237d0">
+  <source>Detached keyboard parent</source>
+<target>Leválasztott billentyűzet szülőeleme</target></trans-unit>
+<trans-unit id="s98aa8b9481114f33">
+  <source>Classic</source>
+<target>Klasszikus</target></trans-unit>
+<trans-unit id="sbdc034b9c96937b1">
+  <source>Geometry</source>
+<target>Geometria</target></trans-unit>
+<trans-unit id="s07ff5207b4bfba92">
+  <source>3D</source>
+<target>3D</target></trans-unit>
+<trans-unit id="sf2b8fc0623fd6279">
+  <source>Calculator Suite</source>
+<target>Számológépcsomag</target></trans-unit>
+<trans-unit id="sfe8e8a1db9e7a91a">
+  <source>Evaluator</source>
+<target>Kifejezéskiértékelő</target></trans-unit>
+<trans-unit id="sa8754b2e68c07f48">
+  <source>Scientific</source>
+<target>Tudományos</target></trans-unit>
+<trans-unit id="s005053d82b712e0a">
+  <source>Notes</source>
+<target>Jegyzetek</target></trans-unit>
+<trans-unit id="s16fc93b22f0b6007">
+  <source>Algebra</source>
+<target>Algebra</target></trans-unit>
+<trans-unit id="s6d02dc19e21eb49c">
+  <source>Top</source>
+<target>Felül</target></trans-unit>
+<trans-unit id="sc980855a000b76ea">
+  <source>Bottom</source>
+<target>Alul</target></trans-unit>
+<trans-unit id="s9ff3121d30f88d52">
+  <source>Normal</source>
+<target>Normál</target></trans-unit>
 </body>
   </file>
 </xliff>

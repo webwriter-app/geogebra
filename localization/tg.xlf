@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<file target-language="tg" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s6236cc7215aadb0a">
+  <source>Import GeoGebra File</source>
+<target>Ворид кардани файли GeoGebra</target></trans-unit>
+<trans-unit id="s74982e57a1d8896c">
+  <source>Advanced Settings</source>
+<target>Танзимоти пешрафта</target></trans-unit>
+<trans-unit id="s247bdb7c37e6e0cd">
+  <source>These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.</source>
+<target>Аксари корбарон ба ин танзимот ниёз надоранд ва одатан онҳоро набояд тағйир дод. Тағйирот метавонад апплетро пурра аз кор барорад.</target></trans-unit>
+<trans-unit id="haaf9676c372c5a97">
+  <source>See the&#32;
+              <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />
+                GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;" />
+              for more information.</source>
+<target>Барои маълумоти бештар ба <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />ҳуҷҷатҳои GeoGebra<x id="1" equiv-text="&lt;/a&gt;" /> нигаред.</target></trans-unit>
+<trans-unit id="s863f73e2a453afb1">
+  <source>Import construction</source>
+<target>Ворид кардани сохти геометрӣ</target></trans-unit>
+<trans-unit id="sd2223afb7d6b100d">
+  <source>Type</source>
+<target>Навъ</target></trans-unit>
+<trans-unit id="sabe465e6eb12f208">
+  <source>Border color</source>
+<target>Ранги ҳошия</target></trans-unit>
+<trans-unit id="s1dbb9f50e16c92a3">
+  <source>Border radius</source>
+<target>Радиуси гирдии ҳошия</target></trans-unit>
+<trans-unit id="s54bd98ffebeb3d60">
+  <source>Enable right click</source>
+<target>Фаъол кардани пахши рости муш</target></trans-unit>
+<trans-unit id="s56580e5b30f758fe">
+  <source>Allow dragging labels</source>
+<target>Иҷозаи кашидани барчаспҳо</target></trans-unit>
+<trans-unit id="saef300913edb0126">
+  <source>Enable Shift-drag zoom</source>
+<target>Фаъол кардани тағйири андоза бо Shift ва кашидан</target></trans-unit>
+<trans-unit id="s06b20d3b54dd6066">
+  <source>Show zoom buttons</source>
+<target>Намоиши тугмаҳои тағйири андоза</target></trans-unit>
+<trans-unit id="s1058c562357a8d6f">
+  <source>Show error dialogs</source>
+<target>Намоиши равзанаҳои хато</target></trans-unit>
+<trans-unit id="s78f4dc5b3c94465e">
+  <source>Show menu bar</source>
+<target>Намоиши навори меню</target></trans-unit>
+<trans-unit id="s47e91aa5cba9dc97">
+  <source>Show toolbar</source>
+<target>Намоиши навори абзор</target></trans-unit>
+<trans-unit id="se3b6f7ca373b562a">
+  <source>Show toolbar help</source>
+<target>Намоиши роҳнамои навори абзор</target></trans-unit>
+<trans-unit id="s2a2087a80bb0f041">
+  <source>Custom toolbar</source>
+<target>Навори абзори фармоишӣ</target></trans-unit>
+<trans-unit id="s6f938c9b3edccc50">
+  <source>Show algebra input</source>
+<target>Намоиши майдони вуруди алгебра</target></trans-unit>
+<trans-unit id="sb28deeeaae032dc4">
+  <source>Show reset icon</source>
+<target>Намоиши нишонаи бознишонӣ</target></trans-unit>
+<trans-unit id="sefcf950b3cc4fc3b">
+  <source>Language</source>
+<target>Забон</target></trans-unit>
+<trans-unit id="s9cf7402fe920f7d1">
+  <source>Country</source>
+<target>Кишвар</target></trans-unit>
+<trans-unit id="saeb13f692234024e">
+  <source>Applet ID</source>
+<target>Шиносаи апплет</target></trans-unit>
+<trans-unit id="s661cdb4d93a8e54e">
+  <source>Allow style bar</source>
+<target>Иҷозаи навори услуб</target></trans-unit>
+<trans-unit id="s23b3474a6fc7117c">
+  <source>Randomize</source>
+<target>Тасодуфӣ кардан</target></trans-unit>
+<trans-unit id="s5673f8676474a97f">
+  <source>Random seed</source>
+<target>Қимати ибтидоии ададҳои тасодуфӣ</target></trans-unit>
+<trans-unit id="s53b2d7548cb6adde">
+  <source>Use browser for JavaScript</source>
+<target>Истифодаи браузер барои JavaScript</target></trans-unit>
+<trans-unit id="s969e74ec195a3d1e">
+  <source>Show log messages</source>
+<target>Намоиши паёмҳои сабт</target></trans-unit>
+<trans-unit id="s09b245636cd95634">
+  <source>Point capture threshold</source>
+<target>Ҳадди ҷалби нуқта</target></trans-unit>
+<trans-unit id="s363dd43b17bf9763">
+  <source>Enable file features</source>
+<target>Фаъол кардани имкониятҳои файл</target></trans-unit>
+<trans-unit id="s7772dd68615d21c7">
+  <source>Enable undo and redo</source>
+<target>Фаъол кардани бозгашт ва такрор</target></trans-unit>
+<trans-unit id="s36b3cefdcb897f15">
+  <source>Perspective</source>
+<target>Дурнамо</target></trans-unit>
+<trans-unit id="s89381f62aa15dbad">
+  <source>Enable 3D</source>
+<target>Фаъол кардани 3D</target></trans-unit>
+<trans-unit id="scc72e2a75307a637">
+  <source>Enable CAS</source>
+<target>Фаъол кардани CAS</target></trans-unit>
+<trans-unit id="s3e0f20426463dcc6">
+  <source>Algebra input position</source>
+<target>Ҷойи майдони вуруди алгебра</target></trans-unit>
+<trans-unit id="s746da3186a6a89c1">
+  <source>Prevent focus</source>
+<target>Пешгирӣ аз гирифтани фокус</target></trans-unit>
+<trans-unit id="se46b941eb5937265">
+  <source>Scale container CSS class</source>
+<target>Синфи CSS-и зарфи тағйири андоза</target></trans-unit>
+<trans-unit id="sdd7188a7f00971cf">
+  <source>Automatic height</source>
+<target>Баландии худкор</target></trans-unit>
+<trans-unit id="sf9d9117bfca0dc24">
+  <source>Allow upscaling</source>
+<target>Иҷозаи калон кардан</target></trans-unit>
+<trans-unit id="sa1aae96e8297634d">
+  <source>Play button</source>
+<target>Тугмаи пахш</target></trans-unit>
+<trans-unit id="s2706a162264c46f1">
+  <source>Scale</source>
+<target>Миқёс</target></trans-unit>
+<trans-unit id="s6e98e322aceafe26">
+  <source>Show animation button</source>
+<target>Намоиши тугмаи аниматсия</target></trans-unit>
+<trans-unit id="sbb6d1a91c9e95cf7">
+  <source>Show fullscreen button</source>
+<target>Намоиши тугмаи экрани пурра</target></trans-unit>
+<trans-unit id="s4b2e7180fe27f135">
+  <source>Show suggestion buttons</source>
+<target>Намоиши тугмаҳои пешниҳод</target></trans-unit>
+<trans-unit id="sb51b84779159e4be">
+  <source>Show startup tooltip</source>
+<target>Намоиши роҳнамо дар оғоз</target></trans-unit>
+<trans-unit id="s7b1e60b2847f5b7d">
+  <source>Rounding</source>
+<target>Гирдкунӣ</target></trans-unit>
+<trans-unit id="s673e2c332b665100">
+  <source>Button shadows</source>
+<target>Сояи тугмаҳо</target></trans-unit>
+<trans-unit id="s6fc32c633aae26f2">
+  <source>Button corner rounding</source>
+<target>Гирдкунии кунҷҳои тугма</target></trans-unit>
+<trans-unit id="s9aa2591b039e5c9e">
+  <source>Button border color</source>
+<target>Ранги ҳошияи тугма</target></trans-unit>
+<trans-unit id="s9fa68fc246cd24bb">
+  <source>Editor background color</source>
+<target>Ранги пасзаминаи муҳаррир</target></trans-unit>
+<trans-unit id="s9e3ad5a2611dd7ea">
+  <source>Editor foreground color</source>
+<target>Ранги матни муҳаррир</target></trans-unit>
+<trans-unit id="sf4389ae40ebee3e1">
+  <source>Text mode</source>
+<target>Ҳолати матн</target></trans-unit>
+<trans-unit id="s4ff8671a02a650a6">
+  <source>Show keyboard on focus</source>
+<target>Намоиши сафҳакалид ҳангоми фокус</target></trans-unit>
+<trans-unit id="s739f15d69b9e85d4">
+  <source>Keyboard type</source>
+<target>Навъи сафҳакалид</target></trans-unit>
+<trans-unit id="sdece6428e0a266c6">
+  <source>Transparent graphics</source>
+<target>Графикаи шаффоф</target></trans-unit>
+<trans-unit id="s8ca6612c8e7ff87e">
+  <source>Disable JavaScript</source>
+<target>Хомӯш кардани JavaScript</target></trans-unit>
+<trans-unit id="sfea113b833d237d0">
+  <source>Detached keyboard parent</source>
+<target>Унсури волидайни сафҳакалиди ҷудогона</target></trans-unit>
+<trans-unit id="s98aa8b9481114f33">
+  <source>Classic</source>
+<target>Классикӣ</target></trans-unit>
+<trans-unit id="sbdc034b9c96937b1">
+  <source>Geometry</source>
+<target>Геометрия</target></trans-unit>
+<trans-unit id="s07ff5207b4bfba92">
+  <source>3D</source>
+<target>3D</target></trans-unit>
+<trans-unit id="sf2b8fc0623fd6279">
+  <source>Calculator Suite</source>
+<target>Маҷмӯи ҳисобкунакҳо</target></trans-unit>
+<trans-unit id="sfe8e8a1db9e7a91a">
+  <source>Evaluator</source>
+<target>Ҳисобкунаки ифодаҳо</target></trans-unit>
+<trans-unit id="sa8754b2e68c07f48">
+  <source>Scientific</source>
+<target>Илмӣ</target></trans-unit>
+<trans-unit id="s005053d82b712e0a">
+  <source>Notes</source>
+<target>Ёддоштҳо</target></trans-unit>
+<trans-unit id="s16fc93b22f0b6007">
+  <source>Algebra</source>
+<target>Алгебра</target></trans-unit>
+<trans-unit id="s6d02dc19e21eb49c">
+  <source>Top</source>
+<target>Боло</target></trans-unit>
+<trans-unit id="sc980855a000b76ea">
+  <source>Bottom</source>
+<target>Поён</target></trans-unit>
+<trans-unit id="s9ff3121d30f88d52">
+  <source>Normal</source>
+<target>Одатӣ</target></trans-unit>
+</body>
+</file>
+</xliff>
