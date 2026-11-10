@@ -7,10 +7,10 @@ import "@shoelace-style/shoelace/dist/themes/light.css"
 
 // @ts-ignore
 import LOCALIZE from "../localization/generated"
-import {localized, msg} from "@lit/localize"
+import {localized} from "@lit/localize"
 import {geogebraAppStyles} from "./geogebra-app.styles"
 import { booleanAttributeConverter } from "../utils/boolean-attribute-converter"
-import { GeogebraOptions, type PropertyConfig } from "./geogebra-options"
+import { type PropertyConfig } from "./geogebra-options"
 
 export interface GeogebraAPI {
   evalCommand(cmdString: string): boolean
@@ -169,9 +169,37 @@ export interface GeogebraAPI {
 export class GeogebraApp extends LitElementWw {
   protected localize = LOCALIZE
 
+  private getWidgetOptions() {
+    return Object.fromEntries(this.getConfigurableProperties().map(({name, type, options}) => [name, {
+      type: type === "boolean" ? Boolean : type === "number" ? Number : type === "select" ? "select" : String,
+      ...(options ? {options: options.map(value => ({value}))} : {}),
+    }]))
+  }
+
+  constructor() {
+    super()
+    Object.defineProperty(this, "options", { configurable: true, get: () => this.getWidgetOptions() })
+  }
+
+  static actions = {
+    importConstruction: {
+      label: { _: "Import construction" },
+      input: { type: "file", accept: ".ggb", multiple: false },
+    },
+  }
+  readonly actions = GeogebraApp.actions
+
+  async importConstruction(files: File[]) {
+    const file = files[0]
+    if (!file || !this.isConnected) return
+    const bytes = new Uint8Array(await file.arrayBuffer())
+    let binary = ""
+    for (const byte of bytes) binary += String.fromCharCode(byte)
+    this.src = `data:application/vnd.geogebra.file;base64,${btoa(binary)}`
+  }
+
   protected static get scopedElements() {
     return {
-      "geogebra-options-panel": GeogebraOptions
     }
   }
 
@@ -208,8 +236,15 @@ export class GeogebraApp extends LitElementWw {
   /**
    * Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL)
    */
-  @property({type: String, attribute: true, reflect: true})
+  @property({type: String, attribute: true, reflect: true, converter: {
+    fromAttribute: (value: string | null) => value,
+    toAttribute: (value: string | null) => value?.startsWith("data:") ? null : value,
+  }})
   accessor src: string
+
+  private sourceDataObserver?: MutationObserver
+  private savedSourceData: string | null = null
+  private applyingSourceData = false
 
   /**
    * Color of the border line drawn around the applet panel (as hex rgb string). Default: gray
@@ -593,6 +628,10 @@ export class GeogebraApp extends LitElementWw {
 
   connectedCallback(): void {
     super.connectedCallback()
+    this.sourceDataObserver = new MutationObserver(() => this.readEmbeddedSource())
+    this.sourceDataObserver.observe(this, { childList: true, characterData: true, subtree: true, attributes: true, attributeFilter: ["slot", "type"] })
+    if (this.sourceDataBlock()) this.readEmbeddedSource()
+    else this.persistEmbeddedSource()
     this.apiReady = new Promise(r => {
       this.addEventListener("ggb-load", (e: any) => {
         r(e.detail.api)
@@ -624,6 +663,56 @@ export class GeogebraApp extends LitElementWw {
     })
   }
 
+  disconnectedCallback(): void {
+    this.sourceDataObserver?.disconnect()
+    this.sourceDataObserver = undefined
+    super.disconnectedCallback()
+  }
+
+  private sourceDataBlock(): HTMLScriptElement | null {
+    return this.querySelector(':scope > script[type="application/json"][slot="data"]')
+  }
+
+  private readEmbeddedSource() {
+    const block = this.sourceDataBlock()
+    if (!block || this.applyingSourceData) return
+    try {
+      const value = JSON.parse(block.textContent ?? "")
+      if (typeof value?.src !== "string" || !value.src.startsWith("data:")) return
+      const snapshot = JSON.stringify({src: value.src})
+      if (snapshot === this.savedSourceData) return
+      this.applyingSourceData = true
+      this.src = value.src
+      this.savedSourceData = snapshot
+    } catch (error) {
+      console.error("Unable to read GeoGebra source data block", error)
+    } finally {
+      this.applyingSourceData = false
+    }
+  }
+
+  private persistEmbeddedSource() {
+    if (!this.isConnected || this.applyingSourceData) return
+    if (!this.src?.startsWith("data:")) {
+      this.sourceDataBlock()?.remove()
+      this.savedSourceData = null
+      return
+    }
+    const snapshot = JSON.stringify({src: this.src})
+    if (snapshot === this.savedSourceData) return
+    let block = this.sourceDataBlock()
+    if (!block) {
+      block = this.ownerDocument.createElement("script")
+      block.type = "application/json"
+      block.slot = "data"
+      this.append(block)
+    }
+    this.applyingSourceData = true
+    block.textContent = snapshot.replace(/</g, "\\u003c")
+    this.savedSourceData = snapshot
+    this.applyingSourceData = false
+  }
+
   private handlePropertyChange(e: CustomEvent) {
     const {name, value} = e.detail;
     (this as any)[name] = value
@@ -639,6 +728,8 @@ export class GeogebraApp extends LitElementWw {
   protected updated(changed: PropertyValues): void {
     console.log("GeogebraApp updated:", changed)
     super.updated(changed)
+
+    if (changed.has("src") && !this.applyingSourceData) this.persistEmbeddedSource()
 
     if(!this.api) {
       this.resetIFrame()
@@ -740,13 +831,6 @@ export class GeogebraApp extends LitElementWw {
   render() {
     return html`
       ${keyed(this.resetKey, html`<iframe id="ggb" @load=${(e: Event) => this.initializeIFrame(e.target as HTMLIFrameElement)}></iframe>`)}
-      <geogebra-options-panel
-        part="options"
-        ?visible=${this.isContentEditable}
-        .properties=${this.getConfigurableProperties()}
-        @property-change=${this.handlePropertyChange}
-        @import-file=${this.handleFileImport}
-      ></geogebra-options-panel>
     `
   }
 }
