@@ -1,4 +1,5 @@
-<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd" xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd" version="1.2">
   <file original="lit-localize-inputs" datatype="plaintext" source-language="en" target-language="ro">
     <body>
       <trans-unit id="s6236cc7215aadb0a">
@@ -14,17 +15,29 @@
         <target>Aceste setări nu sunt relevante pentru majoritatea utilizatorilor și, de obicei, nu trebuie modificate. Modificarea lor poate duce la defectarea completă a appletului.</target>
       </trans-unit>
       <trans-unit id="haaf9676c372c5a97">
-        <source>See the 
-              <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
-                GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;"/>
+        <source>See the&#32;
+              <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />
+                GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;" />
               for more information.</source>
-        <target>Vezi 
-          <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;"/>
+        <target>Vezi&#32;
+          <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />
                 documentația GeoGebra
-          <x id="1" equiv-text="&lt;/a&gt;"/>
+          <x id="1" equiv-text="&lt;/a&gt;" />
               pentru mai multe informații.
         </target>
       </trans-unit>
-    </body>
+    <trans-unit id="sd2223afb7d6b100d">
+  <source>Type</source>
+<target>Tip</target></trans-unit>
+<trans-unit id="sabe465e6eb12f208">
+  <source>Border color</source>
+<target>Culoarea chenarului</target></trans-unit>
+<trans-unit id="s47e91aa5cba9dc97">
+  <source>Show toolbar</source>
+<target>Afișează bara de instrumente</target></trans-unit>
+<trans-unit id="s2706a162264c46f1">
+  <source>Scale</source>
+<target>Scară</target></trans-unit>
+</body>
   </file>
 </xliff>

@@ -31,7 +31,157 @@
       "zh-hans": "使用GeoGebra数学学习应用程序进行代数和几何学习。",
       "ja": "代数と幾何学の学習には、GeoGebraの数学学習アプリをご利用ください。",
       "pt-BR": "Use os aplicativos de aprendizagem matemática do GeoGebra para álgebra e geometria.",
-      "zh-hant": "使用GeoGebra的數學學習應用程式來學習代數與幾何。"
+      "zh-hant": "使用GeoGebra的數學學習應用程式來學習代數與幾何。",
+      "_": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
+      "en": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
+      "en-US": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
+      "en-GB": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
+      "en-CA": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
+      "en-AU": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
+      "en-IN": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
+      "zh": "使用GeoGebra数学学习应用程序进行代数和几何学习。",
+      "zh-Hans": "使用GeoGebra数学学习应用程序进行代数和几何学习。",
+      "zh-Hant": "使用GeoGebra的數學學習應用程式來學習代數與幾何。",
+      "pt": "Use os aplicativos de aprendizagem matemática do GeoGebra para álgebra e geometria.",
+      "no": "Bruk GeoGebras matematikk-apper for algebra og geometri."
+    },
+    "label": {
+      "_": "Geogebra",
+      "en": "Geogebra",
+      "en-US": "Geogebra",
+      "en-GB": "Geogebra",
+      "en-CA": "Geogebra",
+      "en-AU": "Geogebra",
+      "en-IN": "Geogebra",
+      "fr": "GeoGebra",
+      "de": "GeoGebra",
+      "es": "GeoGebra",
+      "nl": "GeoGebra",
+      "it": "GeoGebra",
+      "pt": "GeoGebra",
+      "pt-PT": "GeoGebra",
+      "ar": "GeoGebra",
+      "ja": "GeoGebra"
+    }
+  },
+  "./widgets/webwriter-geogebra": {
+    "label": {
+      "_": "Geogebra",
+      "en": "Geogebra",
+      "en-US": "Geogebra",
+      "en-GB": "Geogebra",
+      "en-CA": "Geogebra",
+      "en-AU": "Geogebra",
+      "en-IN": "Geogebra",
+      "fr": "GeoGebra",
+      "de": "GeoGebra",
+      "es": "GeoGebra",
+      "nl": "GeoGebra",
+      "it": "GeoGebra",
+      "pt": "GeoGebra",
+      "pt-PT": "GeoGebra",
+      "ar": "GeoGebra",
+      "ja": "GeoGebra"
+    }
+  },
+  "./widgets/webwriter-geogebra-geometry": {
+    "label": {
+      "_": "Geogebra Geometry",
+      "en": "Geogebra Geometry",
+      "en-US": "Geogebra Geometry",
+      "en-GB": "Geogebra Geometry",
+      "en-CA": "Geogebra Geometry",
+      "en-AU": "Geogebra Geometry",
+      "en-IN": "Geogebra Geometry",
+      "fr": "GeoGebra Géométrie",
+      "de": "GeoGebra Geometrie",
+      "es": "GeoGebra Geometría",
+      "nl": "GeoGebra Meetkunde",
+      "it": "GeoGebra Geometria",
+      "pt": "GeoGebra Geometria",
+      "pt-PT": "GeoGebra Geometria",
+      "ar": "GeoGebra للهندسة",
+      "ja": "GeoGebra 幾何"
+    }
+  },
+  "./widgets/webwriter-geogebra-3d": {
+    "label": {
+      "_": "Geogebra-3d",
+      "en": "Geogebra-3d",
+      "en-US": "Geogebra-3d",
+      "en-GB": "Geogebra-3d",
+      "en-CA": "Geogebra-3d",
+      "en-AU": "Geogebra-3d",
+      "en-IN": "Geogebra-3d",
+      "fr": "GeoGebra 3D",
+      "de": "GeoGebra 3D",
+      "es": "GeoGebra 3D",
+      "nl": "GeoGebra 3D",
+      "it": "GeoGebra 3D",
+      "pt": "GeoGebra 3D",
+      "pt-PT": "GeoGebra 3D",
+      "ar": "GeoGebra ثلاثي الأبعاد",
+      "ja": "GeoGebra 3D"
+    }
+  },
+  "./widgets/webwriter-geogebra-notes": {
+    "label": {
+      "_": "Geogebra Notes",
+      "en": "Geogebra Notes",
+      "en-US": "Geogebra Notes",
+      "en-GB": "Geogebra Notes",
+      "en-CA": "Geogebra Notes",
+      "en-AU": "Geogebra Notes",
+      "en-IN": "Geogebra Notes",
+      "fr": "GeoGebra Notes",
+      "de": "GeoGebra Notizen",
+      "es": "GeoGebra Notas",
+      "nl": "GeoGebra Notities",
+      "it": "GeoGebra Note",
+      "pt": "GeoGebra Notas",
+      "pt-PT": "GeoGebra Notas",
+      "ar": "ملاحظات GeoGebra",
+      "ja": "GeoGebra ノート"
+    }
+  },
+  "./widgets/webwriter-geogebra-scientific": {
+    "label": {
+      "_": "Geogebra Scientific",
+      "en": "Geogebra Scientific",
+      "en-US": "Geogebra Scientific",
+      "en-GB": "Geogebra Scientific",
+      "en-CA": "Geogebra Scientific",
+      "en-AU": "Geogebra Scientific",
+      "en-IN": "Geogebra Scientific",
+      "fr": "GeoGebra Calculatrice scientifique",
+      "de": "GeoGebra Wissenschaftlicher Rechner",
+      "es": "GeoGebra Calculadora científica",
+      "nl": "GeoGebra Wetenschappelijke rekenmachine",
+      "it": "GeoGebra Calcolatrice scientifica",
+      "pt": "GeoGebra Calculadora científica",
+      "pt-PT": "GeoGebra Calculadora científica",
+      "ar": "آلة GeoGebra الحاسبة العلمية",
+      "ja": "GeoGebra 関数電卓"
+    }
+  },
+  "./widgets/webwriter-geogebra-classic": {
+    "label": {
+      "_": "Geogebra Classic",
+      "en": "Geogebra Classic",
+      "en-US": "Geogebra Classic",
+      "en-GB": "Geogebra Classic",
+      "en-CA": "Geogebra Classic",
+      "en-AU": "Geogebra Classic",
+      "en-IN": "Geogebra Classic",
+      "fr": "GeoGebra Classique",
+      "de": "GeoGebra Classic",
+      "es": "GeoGebra Clásico",
+      "nl": "GeoGebra Klassiek",
+      "it": "GeoGebra Classico",
+      "pt": "GeoGebra Clássico",
+      "pt-PT": "GeoGebra Clássico",
+      "ar": "GeoGebra كلاسيك",
+      "ja": "GeoGebra クラシック"
     }
   }
 }
