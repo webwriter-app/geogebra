@@ -105,7 +105,16 @@
       "ms": "Gunakan aplikasi pembelajaran matematik GeoGebra untuk algebra dan geometri.",
       "tl": "Gamitin ang mga app ng GeoGebra sa pag-aaral ng matematika para sa algebra at geometry.",
       "my": "အက္ခရာသင်္ချာနှင့် ဂျီဩမေတြီအတွက် GeoGebra သင်္ချာလေ့လာရေးအက်ပ်များကို အသုံးပြုပါ။",
-      "th": "ใช้แอปเรียนคณิตศาสตร์ของ GeoGebra สำหรับพีชคณิตและเรขาคณิต"
+      "th": "ใช้แอปเรียนคณิตศาสตร์ของ GeoGebra สำหรับพีชคณิตและเรขาคณิต",
+      "yue-Hans": "使用 GeoGebra 嘅数学学习应用程式学代数同几何。",
+      "yue-Hant": "使用 GeoGebra 嘅數學學習應用程式學代數同幾何。",
+      "kmr": "Sepanên fêrbûna matematîkê yên GeoGebra ji bo cebr û geometrîyê bi kar bînin.",
+      "kmr-Latn": "Sepanên fêrbûna matematîkê yên GeoGebra ji bo cebr û geometrîyê bi kar bînin.",
+      "kmr-Arab": "سەپانێن فێربوونا ماتەماتیکێ یێن GeoGebra ژ بۆ جەبر ئوو گەۆمەترییێ ب کار بینن.",
+      "ckb": "ئەپە فێرکارییەکانی بیرکاریی GeoGebra بۆ جەبر و ئەندازە بەکاربهێنە.",
+      "ckb-Arab": "ئەپە فێرکارییەکانی بیرکاریی GeoGebra بۆ جەبر و ئەندازە بەکاربهێنە.",
+      "af-ZA": "Gebruik GeoGebra se wiskundetoepassings vir algebra en meetkunde.",
+      "af-NA": "Gebruik GeoGebra se wiskundetoepassings vir algebra en meetkunde."
     },
     "label": {
       "_": "Geogebra",
@@ -210,7 +219,16 @@
       "ms": "GeoGebra",
       "tl": "GeoGebra",
       "my": "GeoGebra",
-      "th": "GeoGebra"
+      "th": "GeoGebra",
+      "yue-Hans": "GeoGebra",
+      "yue-Hant": "GeoGebra",
+      "kmr": "GeoGebra",
+      "kmr-Latn": "GeoGebra",
+      "kmr-Arab": "GeoGebra",
+      "ckb": "GeoGebra",
+      "ckb-Arab": "GeoGebra",
+      "af-ZA": "GeoGebra",
+      "af-NA": "GeoGebra"
     }
   },
   "./widgets/webwriter-geogebra": {
@@ -317,7 +335,16 @@
       "ms": "GeoGebra",
       "tl": "GeoGebra",
       "my": "GeoGebra",
-      "th": "GeoGebra"
+      "th": "GeoGebra",
+      "yue-Hans": "GeoGebra",
+      "yue-Hant": "GeoGebra",
+      "kmr": "GeoGebra",
+      "kmr-Latn": "GeoGebra",
+      "kmr-Arab": "GeoGebra",
+      "ckb": "GeoGebra",
+      "ckb-Arab": "GeoGebra",
+      "af-ZA": "GeoGebra",
+      "af-NA": "GeoGebra"
     }
   },
   "./widgets/webwriter-geogebra-geometry": {
@@ -424,7 +451,16 @@
       "ms": "GeoGebra Geometri",
       "tl": "GeoGebra Geometry",
       "my": "GeoGebra ဂျီဩမေတြီ",
-      "th": "GeoGebra เรขาคณิต"
+      "th": "GeoGebra เรขาคณิต",
+      "yue-Hans": "GeoGebra 几何",
+      "yue-Hant": "GeoGebra 幾何",
+      "kmr": "Geometrîya GeoGebra",
+      "kmr-Latn": "Geometrîya GeoGebra",
+      "kmr-Arab": "گەۆمەترییا GeoGebra",
+      "ckb": "ئەندازەی GeoGebra",
+      "ckb-Arab": "ئەندازەی GeoGebra",
+      "af-ZA": "GeoGebra Meetkunde",
+      "af-NA": "GeoGebra Meetkunde"
     }
   },
   "./widgets/webwriter-geogebra-3d": {
@@ -531,7 +567,16 @@
       "ms": "GeoGebra 3D",
       "tl": "GeoGebra 3D",
       "my": "GeoGebra 3D",
-      "th": "GeoGebra 3D"
+      "th": "GeoGebra 3D",
+      "yue-Hans": "GeoGebra 3D",
+      "yue-Hant": "GeoGebra 3D",
+      "kmr": "GeoGebra-3D",
+      "kmr-Latn": "GeoGebra-3D",
+      "kmr-Arab": "GeoGebra-3D",
+      "ckb": "GeoGebra-3D",
+      "ckb-Arab": "GeoGebra-3D",
+      "af-ZA": "GeoGebra 3D",
+      "af-NA": "GeoGebra 3D"
     }
   },
   "./widgets/webwriter-geogebra-notes": {
@@ -638,7 +683,16 @@
       "ms": "GeoGebra Nota",
       "tl": "GeoGebra Notes",
       "my": "GeoGebra မှတ်စုများ",
-      "th": "GeoGebra โน้ต"
+      "th": "GeoGebra โน้ต",
+      "yue-Hans": "GeoGebra 笔记",
+      "yue-Hant": "GeoGebra 筆記",
+      "kmr": "Nîşeyên GeoGebra",
+      "kmr-Latn": "Nîşeyên GeoGebra",
+      "kmr-Arab": "نیشەیێن GeoGebra",
+      "ckb": "تێبینییەکانی GeoGebra",
+      "ckb-Arab": "تێبینییەکانی GeoGebra",
+      "af-ZA": "GeoGebra Notas",
+      "af-NA": "GeoGebra Notas"
     }
   },
   "./widgets/webwriter-geogebra-scientific": {
@@ -745,7 +799,16 @@
       "ms": "GeoGebra Saintifik",
       "tl": "GeoGebra Scientific",
       "my": "GeoGebra သိပ္ပံ",
-      "th": "GeoGebra วิทยาศาสตร์"
+      "th": "GeoGebra วิทยาศาสตร์",
+      "yue-Hans": "GeoGebra 科学计算器",
+      "yue-Hant": "GeoGebra 科學計算器",
+      "kmr": "GeoGebra Zanistî",
+      "kmr-Latn": "GeoGebra Zanistî",
+      "kmr-Arab": "GeoGebra زانستی",
+      "ckb": "زانستیی GeoGebra",
+      "ckb-Arab": "زانستیی GeoGebra",
+      "af-ZA": "GeoGebra Wetenskaplik",
+      "af-NA": "GeoGebra Wetenskaplik"
     }
   },
   "./widgets/webwriter-geogebra-classic": {
@@ -852,7 +915,16 @@
       "ms": "GeoGebra Klasik",
       "tl": "GeoGebra Classic",
       "my": "GeoGebra Classic",
-      "th": "GeoGebra คลาสสิก"
+      "th": "GeoGebra คลาสสิก",
+      "yue-Hans": "GeoGebra 经典版",
+      "yue-Hant": "GeoGebra 經典版",
+      "kmr": "GeoGebra Klasîk",
+      "kmr-Latn": "GeoGebra Klasîk",
+      "kmr-Arab": "GeoGebra کلاسیک",
+      "ckb": "GeoGebra Classic",
+      "ckb-Arab": "GeoGebra Classic",
+      "af-ZA": "GeoGebra Klassiek",
+      "af-NA": "GeoGebra Klassiek"
     }
   }
 }
