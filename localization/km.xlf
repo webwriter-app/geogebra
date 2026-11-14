@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<file target-language="km" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s6236cc7215aadb0a">
+  <source>Import GeoGebra File</source>
+<target>នាំចូលឯកសារ GeoGebra</target></trans-unit>
+<trans-unit id="s74982e57a1d8896c">
+  <source>Advanced Settings</source>
+<target>ការកំណត់កម្រិតខ្ពស់</target></trans-unit>
+<trans-unit id="s247bdb7c37e6e0cd">
+  <source>These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.</source>
+<target>អ្នកប្រើភាគច្រើនមិនត្រូវការការកំណត់ទាំងនេះ ហើយជាទូទៅមិនគួរផ្លាស់ប្ដូរទេ។ ការផ្លាស់ប្ដូរអាចធ្វើឱ្យកម្មវិធីឈប់ដំណើរការទាំងស្រុង។</target></trans-unit>
+<trans-unit id="haaf9676c372c5a97">
+  <source>See the&#32;
+              <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />
+                GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;" />
+              for more information.</source>
+<target>សូមមើល <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />ឯកសារណែនាំ GeoGebra<x id="1" equiv-text="&lt;/a&gt;" /> សម្រាប់ព័ត៌មានបន្ថែម។</target></trans-unit>
+<trans-unit id="s863f73e2a453afb1">
+  <source>Import construction</source>
+<target>នាំចូលសំណង់ធរណីមាត្រ</target></trans-unit>
+<trans-unit id="sd2223afb7d6b100d">
+  <source>Type</source>
+<target>ប្រភេទ</target></trans-unit>
+<trans-unit id="sabe465e6eb12f208">
+  <source>Border color</source>
+<target>ពណ៌ស៊ុម</target></trans-unit>
+<trans-unit id="s1dbb9f50e16c92a3">
+  <source>Border radius</source>
+<target>កាំកោងនៃស៊ុម</target></trans-unit>
+<trans-unit id="s54bd98ffebeb3d60">
+  <source>Enable right click</source>
+<target>បើកការចុចកណ្ដុរស្ដាំ</target></trans-unit>
+<trans-unit id="s56580e5b30f758fe">
+  <source>Allow dragging labels</source>
+<target>អនុញ្ញាតឱ្យអូសស្លាក</target></trans-unit>
+<trans-unit id="saef300913edb0126">
+  <source>Enable Shift-drag zoom</source>
+<target>បើកការពង្រីកដោយចុច Shift ហើយអូស</target></trans-unit>
+<trans-unit id="s06b20d3b54dd6066">
+  <source>Show zoom buttons</source>
+<target>បង្ហាញប៊ូតុងពង្រីក</target></trans-unit>
+<trans-unit id="s1058c562357a8d6f">
+  <source>Show error dialogs</source>
+<target>បង្ហាញប្រអប់កំហុស</target></trans-unit>
+<trans-unit id="s78f4dc5b3c94465e">
+  <source>Show menu bar</source>
+<target>បង្ហាញរបារម៉ឺនុយ</target></trans-unit>
+<trans-unit id="s47e91aa5cba9dc97">
+  <source>Show toolbar</source>
+<target>បង្ហាញរបារឧបករណ៍</target></trans-unit>
+<trans-unit id="se3b6f7ca373b562a">
+  <source>Show toolbar help</source>
+<target>បង្ហាញជំនួយរបារឧបករណ៍</target></trans-unit>
+<trans-unit id="s2a2087a80bb0f041">
+  <source>Custom toolbar</source>
+<target>របារឧបករណ៍ផ្ទាល់ខ្លួន</target></trans-unit>
+<trans-unit id="s6f938c9b3edccc50">
+  <source>Show algebra input</source>
+<target>បង្ហាញប្រអប់បញ្ចូលពិជគណិត</target></trans-unit>
+<trans-unit id="sb28deeeaae032dc4">
+  <source>Show reset icon</source>
+<target>បង្ហាញរូបតំណាងកំណត់ឡើងវិញ</target></trans-unit>
+<trans-unit id="sefcf950b3cc4fc3b">
+  <source>Language</source>
+<target>ភាសា</target></trans-unit>
+<trans-unit id="s9cf7402fe920f7d1">
+  <source>Country</source>
+<target>ប្រទេស</target></trans-unit>
+<trans-unit id="saeb13f692234024e">
+  <source>Applet ID</source>
+<target>លេខសម្គាល់កម្មវិធី</target></trans-unit>
+<trans-unit id="s661cdb4d93a8e54e">
+  <source>Allow style bar</source>
+<target>អនុញ្ញាតរបាររចនាប័ទ្ម</target></trans-unit>
+<trans-unit id="s23b3474a6fc7117c">
+  <source>Randomize</source>
+<target>រៀបចំដោយចៃដន្យ</target></trans-unit>
+<trans-unit id="s5673f8676474a97f">
+  <source>Random seed</source>
+<target>តម្លៃដើមសម្រាប់បង្កើតលេខចៃដន្យ</target></trans-unit>
+<trans-unit id="s53b2d7548cb6adde">
+  <source>Use browser for JavaScript</source>
+<target>ប្រើកម្មវិធីរុករកសម្រាប់ JavaScript</target></trans-unit>
+<trans-unit id="s969e74ec195a3d1e">
+  <source>Show log messages</source>
+<target>បង្ហាញសារកំណត់ហេតុ</target></trans-unit>
+<trans-unit id="s09b245636cd95634">
+  <source>Point capture threshold</source>
+<target>ចម្ងាយកំណត់សម្រាប់ចាប់ចំណុច</target></trans-unit>
+<trans-unit id="s363dd43b17bf9763">
+  <source>Enable file features</source>
+<target>បើកមុខងារឯកសារ</target></trans-unit>
+<trans-unit id="s7772dd68615d21c7">
+  <source>Enable undo and redo</source>
+<target>បើកមុខងារមិនធ្វើវិញ និងធ្វើម្ដងទៀត</target></trans-unit>
+<trans-unit id="s36b3cefdcb897f15">
+  <source>Perspective</source>
+<target>ទិដ្ឋភាព</target></trans-unit>
+<trans-unit id="s89381f62aa15dbad">
+  <source>Enable 3D</source>
+<target>បើក 3D</target></trans-unit>
+<trans-unit id="scc72e2a75307a637">
+  <source>Enable CAS</source>
+<target>បើក CAS</target></trans-unit>
+<trans-unit id="s3e0f20426463dcc6">
+  <source>Algebra input position</source>
+<target>ទីតាំងប្រអប់បញ្ចូលពិជគណិត</target></trans-unit>
+<trans-unit id="s746da3186a6a89c1">
+  <source>Prevent focus</source>
+<target>រារាំងការទទួលផ្តោត</target></trans-unit>
+<trans-unit id="se46b941eb5937265">
+  <source>Scale container CSS class</source>
+<target>ថ្នាក់ CSS នៃធុងកែទំហំ</target></trans-unit>
+<trans-unit id="sdd7188a7f00971cf">
+  <source>Automatic height</source>
+<target>កម្ពស់ស្វ័យប្រវត្តិ</target></trans-unit>
+<trans-unit id="sf9d9117bfca0dc24">
+  <source>Allow upscaling</source>
+<target>អនុញ្ញាតឱ្យពង្រីក</target></trans-unit>
+<trans-unit id="sa1aae96e8297634d">
+  <source>Play button</source>
+<target>ប៊ូតុងចាក់</target></trans-unit>
+<trans-unit id="s2706a162264c46f1">
+  <source>Scale</source>
+<target>មាត្រដ្ឋាន</target></trans-unit>
+<trans-unit id="s6e98e322aceafe26">
+  <source>Show animation button</source>
+<target>បង្ហាញប៊ូតុងចលនា</target></trans-unit>
+<trans-unit id="sbb6d1a91c9e95cf7">
+  <source>Show fullscreen button</source>
+<target>បង្ហាញប៊ូតុងពេញអេក្រង់</target></trans-unit>
+<trans-unit id="s4b2e7180fe27f135">
+  <source>Show suggestion buttons</source>
+<target>បង្ហាញប៊ូតុងសំណើ</target></trans-unit>
+<trans-unit id="sb51b84779159e4be">
+  <source>Show startup tooltip</source>
+<target>បង្ហាញការណែនាំពេលចាប់ផ្តើម</target></trans-unit>
+<trans-unit id="s7b1e60b2847f5b7d">
+  <source>Rounding</source>
+<target>បង្គត់លេខ</target></trans-unit>
+<trans-unit id="s673e2c332b665100">
+  <source>Button shadows</source>
+<target>ស្រមោលប៊ូតុង</target></trans-unit>
+<trans-unit id="s6fc32c633aae26f2">
+  <source>Button corner rounding</source>
+<target>បង្គត់ជ្រុងប៊ូតុង</target></trans-unit>
+<trans-unit id="s9aa2591b039e5c9e">
+  <source>Button border color</source>
+<target>ពណ៌ស៊ុមប៊ូតុង</target></trans-unit>
+<trans-unit id="s9fa68fc246cd24bb">
+  <source>Editor background color</source>
+<target>ពណ៌ផ្ទៃខាងក្រោយកម្មវិធីកែសម្រួល</target></trans-unit>
+<trans-unit id="s9e3ad5a2611dd7ea">
+  <source>Editor foreground color</source>
+<target>ពណ៌អត្ថបទកម្មវិធីកែសម្រួល</target></trans-unit>
+<trans-unit id="sf4389ae40ebee3e1">
+  <source>Text mode</source>
+<target>របៀបអត្ថបទ</target></trans-unit>
+<trans-unit id="s4ff8671a02a650a6">
+  <source>Show keyboard on focus</source>
+<target>បង្ហាញក្តារចុចពេលទទួលផ្តោត</target></trans-unit>
+<trans-unit id="s739f15d69b9e85d4">
+  <source>Keyboard type</source>
+<target>ប្រភេទក្តារចុច</target></trans-unit>
+<trans-unit id="sdece6428e0a266c6">
+  <source>Transparent graphics</source>
+<target>ក្រាហ្វិកថ្លា</target></trans-unit>
+<trans-unit id="s8ca6612c8e7ff87e">
+  <source>Disable JavaScript</source>
+<target>បិទ JavaScript</target></trans-unit>
+<trans-unit id="sfea113b833d237d0">
+  <source>Detached keyboard parent</source>
+<target>ធាតុមេនៃក្តារចុចដាច់ដោយឡែក</target></trans-unit>
+<trans-unit id="s98aa8b9481114f33">
+  <source>Classic</source>
+<target>បុរាណ</target></trans-unit>
+<trans-unit id="sbdc034b9c96937b1">
+  <source>Geometry</source>
+<target>ធរណីមាត្រ</target></trans-unit>
+<trans-unit id="s07ff5207b4bfba92">
+  <source>3D</source>
+<target>3D</target></trans-unit>
+<trans-unit id="sf2b8fc0623fd6279">
+  <source>Calculator Suite</source>
+<target>សំណុំម៉ាស៊ីនគិតលេខ</target></trans-unit>
+<trans-unit id="sfe8e8a1db9e7a91a">
+  <source>Evaluator</source>
+<target>កម្មវិធីគណនាកន្សោម</target></trans-unit>
+<trans-unit id="sa8754b2e68c07f48">
+  <source>Scientific</source>
+<target>វិទ្យាសាស្ត្រ</target></trans-unit>
+<trans-unit id="s005053d82b712e0a">
+  <source>Notes</source>
+<target>កំណត់ត្រា</target></trans-unit>
+<trans-unit id="s16fc93b22f0b6007">
+  <source>Algebra</source>
+<target>ពិជគណិត</target></trans-unit>
+<trans-unit id="s6d02dc19e21eb49c">
+  <source>Top</source>
+<target>ខាងលើ</target></trans-unit>
+<trans-unit id="sc980855a000b76ea">
+  <source>Bottom</source>
+<target>ខាងក្រោម</target></trans-unit>
+<trans-unit id="s9ff3121d30f88d52">
+  <source>Normal</source>
+<target>ធម្មតា</target></trans-unit>
+</body>
+</file>
+</xliff>

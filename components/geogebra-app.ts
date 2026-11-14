@@ -1,16 +1,14 @@
+import { localizeElement, parseLocale, LocalizedElement } from "../localization/localizer";
 import {html, css, PropertyValues, PropertyDeclaration} from "lit"
-import {LitElementWw} from "@webwriter/lit"
 import {property} from "lit/decorators.js"
 import {keyed} from "lit/directives/keyed.js"
 
 import "@shoelace-style/shoelace/dist/themes/light.css"
 
 // @ts-ignore
-import LOCALIZE from "../localization/generated"
-import {localized, msg} from "@lit/localize"
 import {geogebraAppStyles} from "./geogebra-app.styles"
 import { booleanAttributeConverter } from "../utils/boolean-attribute-converter"
-import { GeogebraOptions, type PropertyConfig } from "./geogebra-options"
+import { type PropertyConfig } from "./geogebra-options"
 
 export interface GeogebraAPI {
   evalCommand(cmdString: string): boolean
@@ -165,13 +163,113 @@ export interface GeogebraAPI {
  * @fires focus - Fired when the GeoGebra applet gains focus.
  * @fires ggb-load - Fired when the GeoGebra API is ready. The event detail contains the API instance.
  */
-@localized()
-export class GeogebraApp extends LitElementWw {
-  protected localize = LOCALIZE
+export class GeogebraApp extends LocalizedElement {
+  protected readonly messages = localizeElement(this);
+
+  private getWidgetOptions() {
+    const msg = this.messages.msg
+    const labels: Record<string, () => string> = {
+      type: () => msg("Type"),
+      borderColor: () => msg("Border color"),
+      borderRadius: () => msg("Border radius"),
+      enableRightClick: () => msg("Enable right click"),
+      enableLabelDrags: () => msg("Allow dragging labels"),
+      enableShiftDragZoom: () => msg("Enable Shift-drag zoom"),
+      showZoomButtons: () => msg("Show zoom buttons"),
+      errorDialogsActive: () => msg("Show error dialogs"),
+      showMenuBar: () => msg("Show menu bar"),
+      showToolBar: () => msg("Show toolbar"),
+      showToolBarHelp: () => msg("Show toolbar help"),
+      customToolBar: () => msg("Custom toolbar"),
+      showAlgebraInput: () => msg("Show algebra input"),
+      showResetIcon: () => msg("Show reset icon"),
+      language: () => msg("Language"),
+      country: () => msg("Country"),
+      appletId: () => msg("Applet ID"),
+      allowStyleBar: () => msg("Allow style bar"),
+      randomize: () => msg("Randomize"),
+      randomSeed: () => msg("Random seed"),
+      useBrowserForJs: () => msg("Use browser for JavaScript"),
+      showLogging: () => msg("Show log messages"),
+      capturingThreshold: () => msg("Point capture threshold"),
+      enableFileFeatures: () => msg("Enable file features"),
+      enableUndoRedo: () => msg("Enable undo and redo"),
+      perspective: () => msg("Perspective"),
+      enable3d: () => msg("Enable 3D"),
+      enableCAS: () => msg("Enable CAS"),
+      algebraInputPosition: () => msg("Algebra input position"),
+      preventFocus: () => msg("Prevent focus"),
+      scaleContainerClass: () => msg("Scale container CSS class"),
+      autoHeight: () => msg("Automatic height"),
+      allowUpscale: () => msg("Allow upscaling"),
+      playButton: () => msg("Play button"),
+      scale: () => msg("Scale"),
+      showAnimationButton: () => msg("Show animation button"),
+      showFullscreenButton: () => msg("Show fullscreen button"),
+      showSuggestionButtons: () => msg("Show suggestion buttons"),
+      showStartTooltip: () => msg("Show startup tooltip"),
+      rounding: () => msg("Rounding"),
+      buttonShadows: () => msg("Button shadows"),
+      buttonRounding: () => msg("Button corner rounding"),
+      buttonBorderColor: () => msg("Button border color"),
+      editorBackgroundColor: () => msg("Editor background color"),
+      editorForegroundColor: () => msg("Editor foreground color"),
+      textmode: () => msg("Text mode"),
+      showKeyboardOnFocus: () => msg("Show keyboard on focus"),
+      keyboardType: () => msg("Keyboard type"),
+      transparentGraphics: () => msg("Transparent graphics"),
+      disabledJavaScript: () => msg("Disable JavaScript"),
+      detachedKeyboardParent: () => msg("Detached keyboard parent"),
+    }
+    const choices: Record<string, () => string> = {
+      classic: () => msg("Classic"),
+      geometry: () => msg("Geometry"),
+      "3d": () => msg("3D"),
+      suite: () => msg("Calculator Suite"),
+      evaluator: () => msg("Evaluator"),
+      scientific: () => msg("Scientific"),
+      notes: () => msg("Notes"),
+      algebra: () => msg("Algebra"),
+      top: () => msg("Top"),
+      bottom: () => msg("Bottom"),
+      normal: () => msg("Normal"),
+    }
+    return Object.fromEntries(this.getConfigurableProperties().map(({name, type, options}) => [name, {
+      type: type === "boolean" ? Boolean : type === "number" ? Number : type === "select" ? "select" : String,
+      label: { _: labels[name]?.() ?? name },
+      ...(name === "type" ? {control: "select"} : {}),
+      ...(options ? {options: options.map(value => ({value, label: { _: choices[value]?.() ?? value }}))} : {}),
+    }]))
+  }
+
+  constructor() {
+    super()
+    Object.defineProperties(this, {
+      options: { configurable: true, get: () => this.getWidgetOptions() },
+      actions: { configurable: true, get: () => this.getWidgetActions() },
+    })
+  }
+
+  private getWidgetActions() {
+    return {
+      importConstruction: {
+        label: { _: this.messages.msg("Import construction") },
+        input: { type: "file", accept: ".ggb", multiple: false },
+      },
+    };
+  }
+
+  async importConstruction(files: File[]) {
+    const file = files[0]
+    if (!file || !this.isConnected) return
+    const bytes = new Uint8Array(await file.arrayBuffer())
+    let binary = ""
+    for (const byte of bytes) binary += String.fromCharCode(byte)
+    this.src = `data:application/vnd.geogebra.file;base64,${btoa(binary)}`
+  }
 
   protected static get scopedElements() {
     return {
-      "geogebra-options-panel": GeogebraOptions
     }
   }
 
@@ -208,8 +306,15 @@ export class GeogebraApp extends LitElementWw {
   /**
    * Source of the GeoGebra file to load (base64-encoded string, material ID prefixed with "ggbid:", or file URL)
    */
-  @property({type: String, attribute: true, reflect: true})
+  @property({type: String, attribute: true, reflect: true, converter: {
+    fromAttribute: (value: string | null) => value,
+    toAttribute: (value: string | null) => value?.startsWith("data:") ? null : value,
+  }})
   accessor src: string
+
+  private sourceDataObserver?: MutationObserver
+  private savedSourceData: string | null = null
+  private applyingSourceData = false
 
   /**
    * Color of the border line drawn around the applet panel (as hex rgb string). Default: gray
@@ -570,6 +675,7 @@ export class GeogebraApp extends LitElementWw {
   private get ggbProperties() {
     const {appletId: id, type: appName, width, height, borderColor, borderRadius, enableRightClick, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language, country, allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent} = this
 
+    const locale = parseLocale(this.messages.getLanguage())
     let filename: string, material_id: string, ggbBase64: string
     if(this.src && this.src.startsWith("data:")) {
       ggbBase64 = this.src.split(",").at(-1)
@@ -581,7 +687,7 @@ export class GeogebraApp extends LitElementWw {
       filename = this.src
     }
 
-    return {id, appName, filename, material_id, ggbBase64, width, height, borderColor, borderRadius, enableRightClick, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language: language ?? this.lang, country, allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent}
+    return {id, appName, filename, material_id, ggbBase64, width, height, borderColor, borderRadius, enableRightClick, enableLabelDrags, enableShiftDragZoom, showZoomButtons, errorDialogsActive, showMenuBar, showToolBar, showToolBarHelp, customToolBar, showAlgebraInput, showResetIcon, language: language ?? locale.language, country: country ?? (language ? undefined : locale.region ?? (locale.script ? locale.maximize().region : undefined)), allowStyleBar, randomize, randomSeed, useBrowserForJs, showLogging, capturingThreshold, enableFileFeatures, perspective, enable3d, enableCAS, algebraInputPosition, preventFocus, scaleContainerClass, autoHeight, allowUpscale, playButton, scale, showAnimationButton, showFullscreenButton, showSuggestionButtons, showStartTooltip, rounding, buttonShadows, buttonRounding, buttonBorderColor, editorBackgroundColor, editorForegroundColor, textmode, showKeyboardOnFocus, keyboardType, transparentGraphics, disabledJavaScript, detachedKeyboardParent}
   }
 
   private updateSrc = (a) => {
@@ -593,6 +699,10 @@ export class GeogebraApp extends LitElementWw {
 
   connectedCallback(): void {
     super.connectedCallback()
+    this.sourceDataObserver = new MutationObserver(() => this.readEmbeddedSource())
+    this.sourceDataObserver.observe(this, { childList: true, characterData: true, subtree: true, attributes: true, attributeFilter: ["slot", "type"] })
+    if (this.sourceDataBlock()) this.readEmbeddedSource()
+    else this.persistEmbeddedSource()
     this.apiReady = new Promise(r => {
       this.addEventListener("ggb-load", (e: any) => {
         r(e.detail.api)
@@ -624,6 +734,56 @@ export class GeogebraApp extends LitElementWw {
     })
   }
 
+  disconnectedCallback(): void {
+    this.sourceDataObserver?.disconnect()
+    this.sourceDataObserver = undefined
+    super.disconnectedCallback()
+  }
+
+  private sourceDataBlock(): HTMLScriptElement | null {
+    return this.querySelector(':scope > script[type="application/json"][slot="data"]')
+  }
+
+  private readEmbeddedSource() {
+    const block = this.sourceDataBlock()
+    if (!block || this.applyingSourceData) return
+    try {
+      const value = JSON.parse(block.textContent ?? "")
+      if (typeof value?.src !== "string" || !value.src.startsWith("data:")) return
+      const snapshot = JSON.stringify({src: value.src})
+      if (snapshot === this.savedSourceData) return
+      this.applyingSourceData = true
+      this.src = value.src
+      this.savedSourceData = snapshot
+    } catch (error) {
+      console.error("Unable to read GeoGebra source data block", error)
+    } finally {
+      this.applyingSourceData = false
+    }
+  }
+
+  private persistEmbeddedSource() {
+    if (!this.isConnected || this.applyingSourceData) return
+    if (!this.src?.startsWith("data:")) {
+      this.sourceDataBlock()?.remove()
+      this.savedSourceData = null
+      return
+    }
+    const snapshot = JSON.stringify({src: this.src})
+    if (snapshot === this.savedSourceData) return
+    let block = this.sourceDataBlock()
+    if (!block) {
+      block = this.ownerDocument.createElement("script")
+      block.type = "application/json"
+      block.slot = "data"
+      this.append(block)
+    }
+    this.applyingSourceData = true
+    block.textContent = snapshot.replace(/</g, "\\u003c")
+    this.savedSourceData = snapshot
+    this.applyingSourceData = false
+  }
+
   private handlePropertyChange(e: CustomEvent) {
     const {name, value} = e.detail;
     (this as any)[name] = value
@@ -639,6 +799,8 @@ export class GeogebraApp extends LitElementWw {
   protected updated(changed: PropertyValues): void {
     console.log("GeogebraApp updated:", changed)
     super.updated(changed)
+
+    if (changed.has("src") && !this.applyingSourceData) this.persistEmbeddedSource()
 
     if(!this.api) {
       this.resetIFrame()
@@ -740,13 +902,6 @@ export class GeogebraApp extends LitElementWw {
   render() {
     return html`
       ${keyed(this.resetKey, html`<iframe id="ggb" @load=${(e: Event) => this.initializeIFrame(e.target as HTMLIFrameElement)}></iframe>`)}
-      <geogebra-options-panel
-        part="options"
-        ?visible=${this.isContentEditable}
-        .properties=${this.getConfigurableProperties()}
-        @property-change=${this.handlePropertyChange}
-        @import-file=${this.handleFileImport}
-      ></geogebra-options-panel>
     `
   }
 }

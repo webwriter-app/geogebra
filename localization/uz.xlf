@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<file target-language="uz" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s6236cc7215aadb0a">
+  <source>Import GeoGebra File</source>
+<target>GeoGebra faylini import qilish</target></trans-unit>
+<trans-unit id="s74982e57a1d8896c">
+  <source>Advanced Settings</source>
+<target>Qo‘shimcha sozlamalar</target></trans-unit>
+<trans-unit id="s247bdb7c37e6e0cd">
+  <source>These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.</source>
+<target>Bu sozlamalar ko‘pchilik foydalanuvchilarga kerak emas va odatda o‘zgartirilmaydi. O‘zgartirish appletni butunlay ishdan chiqarishi mumkin.</target></trans-unit>
+<trans-unit id="haaf9676c372c5a97">
+  <source>See the&#32;
+              <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />
+                GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;" />
+              for more information.</source>
+<target>Batafsil ma’lumot uchun <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />GeoGebra hujjatlarini<x id="1" equiv-text="&lt;/a&gt;" /> ko‘ring.</target></trans-unit>
+<trans-unit id="s863f73e2a453afb1">
+  <source>Import construction</source>
+<target>Yasamani import qilish</target></trans-unit>
+<trans-unit id="sd2223afb7d6b100d">
+  <source>Type</source>
+<target>Turi</target></trans-unit>
+<trans-unit id="sabe465e6eb12f208">
+  <source>Border color</source>
+<target>Chegara rangi</target></trans-unit>
+<trans-unit id="s1dbb9f50e16c92a3">
+  <source>Border radius</source>
+<target>Chegarani yumaloqlash radiusi</target></trans-unit>
+<trans-unit id="s54bd98ffebeb3d60">
+  <source>Enable right click</source>
+<target>O‘ng tugmani yoqish</target></trans-unit>
+<trans-unit id="s56580e5b30f758fe">
+  <source>Allow dragging labels</source>
+<target>Yorliqlarni sudrashga ruxsat berish</target></trans-unit>
+<trans-unit id="saef300913edb0126">
+  <source>Enable Shift-drag zoom</source>
+<target>Shift bilan sudrab masshtablashni yoqish</target></trans-unit>
+<trans-unit id="s06b20d3b54dd6066">
+  <source>Show zoom buttons</source>
+<target>Masshtab tugmalarini ko‘rsatish</target></trans-unit>
+<trans-unit id="s1058c562357a8d6f">
+  <source>Show error dialogs</source>
+<target>Xato oynalarini ko‘rsatish</target></trans-unit>
+<trans-unit id="s78f4dc5b3c94465e">
+  <source>Show menu bar</source>
+<target>Menyu panelini ko‘rsatish</target></trans-unit>
+<trans-unit id="s47e91aa5cba9dc97">
+  <source>Show toolbar</source>
+<target>Asboblar panelini ko‘rsatish</target></trans-unit>
+<trans-unit id="se3b6f7ca373b562a">
+  <source>Show toolbar help</source>
+<target>Asboblar paneli yordamini ko‘rsatish</target></trans-unit>
+<trans-unit id="s2a2087a80bb0f041">
+  <source>Custom toolbar</source>
+<target>Moslangan asboblar paneli</target></trans-unit>
+<trans-unit id="s6f938c9b3edccc50">
+  <source>Show algebra input</source>
+<target>Algebra kiritish maydonini ko‘rsatish</target></trans-unit>
+<trans-unit id="sb28deeeaae032dc4">
+  <source>Show reset icon</source>
+<target>Tiklash belgisini ko‘rsatish</target></trans-unit>
+<trans-unit id="sefcf950b3cc4fc3b">
+  <source>Language</source>
+<target>Til</target></trans-unit>
+<trans-unit id="s9cf7402fe920f7d1">
+  <source>Country</source>
+<target>Mamlakat</target></trans-unit>
+<trans-unit id="saeb13f692234024e">
+  <source>Applet ID</source>
+<target>Applet identifikatori</target></trans-unit>
+<trans-unit id="s661cdb4d93a8e54e">
+  <source>Allow style bar</source>
+<target>Uslub paneliga ruxsat berish</target></trans-unit>
+<trans-unit id="s23b3474a6fc7117c">
+  <source>Randomize</source>
+<target>Tasodifiylashtirish</target></trans-unit>
+<trans-unit id="s5673f8676474a97f">
+  <source>Random seed</source>
+<target>Tasodifiy sonlarning boshlang‘ich qiymati</target></trans-unit>
+<trans-unit id="s53b2d7548cb6adde">
+  <source>Use browser for JavaScript</source>
+<target>JavaScript uchun brauzerdan foydalanish</target></trans-unit>
+<trans-unit id="s969e74ec195a3d1e">
+  <source>Show log messages</source>
+<target>Jurnal xabarlarini ko‘rsatish</target></trans-unit>
+<trans-unit id="s09b245636cd95634">
+  <source>Point capture threshold</source>
+<target>Nuqtani tutish chegarasi</target></trans-unit>
+<trans-unit id="s363dd43b17bf9763">
+  <source>Enable file features</source>
+<target>Fayl imkoniyatlarini yoqish</target></trans-unit>
+<trans-unit id="s7772dd68615d21c7">
+  <source>Enable undo and redo</source>
+<target>Bekor qilish va qaytarishni yoqish</target></trans-unit>
+<trans-unit id="s36b3cefdcb897f15">
+  <source>Perspective</source>
+<target>Perspektiva</target></trans-unit>
+<trans-unit id="s89381f62aa15dbad">
+  <source>Enable 3D</source>
+<target>3D rejimini yoqish</target></trans-unit>
+<trans-unit id="scc72e2a75307a637">
+  <source>Enable CAS</source>
+<target>CAS tizimini yoqish</target></trans-unit>
+<trans-unit id="s3e0f20426463dcc6">
+  <source>Algebra input position</source>
+<target>Algebra kiritish maydonining joyi</target></trans-unit>
+<trans-unit id="s746da3186a6a89c1">
+  <source>Prevent focus</source>
+<target>Fokusni taqiqlash</target></trans-unit>
+<trans-unit id="se46b941eb5937265">
+  <source>Scale container CSS class</source>
+<target>Masshtab konteynerining CSS sinfi</target></trans-unit>
+<trans-unit id="sdd7188a7f00971cf">
+  <source>Automatic height</source>
+<target>Avtomatik balandlik</target></trans-unit>
+<trans-unit id="sf9d9117bfca0dc24">
+  <source>Allow upscaling</source>
+<target>Kattalashtirishga ruxsat berish</target></trans-unit>
+<trans-unit id="sa1aae96e8297634d">
+  <source>Play button</source>
+<target>Ijro tugmasi</target></trans-unit>
+<trans-unit id="s2706a162264c46f1">
+  <source>Scale</source>
+<target>Masshtab</target></trans-unit>
+<trans-unit id="s6e98e322aceafe26">
+  <source>Show animation button</source>
+<target>Animatsiya tugmasini ko‘rsatish</target></trans-unit>
+<trans-unit id="sbb6d1a91c9e95cf7">
+  <source>Show fullscreen button</source>
+<target>To‘liq ekran tugmasini ko‘rsatish</target></trans-unit>
+<trans-unit id="s4b2e7180fe27f135">
+  <source>Show suggestion buttons</source>
+<target>Taklif tugmalarini ko‘rsatish</target></trans-unit>
+<trans-unit id="sb51b84779159e4be">
+  <source>Show startup tooltip</source>
+<target>Ishga tushirish maslahatini ko‘rsatish</target></trans-unit>
+<trans-unit id="s7b1e60b2847f5b7d">
+  <source>Rounding</source>
+<target>Yaxlitlash</target></trans-unit>
+<trans-unit id="s673e2c332b665100">
+  <source>Button shadows</source>
+<target>Tugma soyalari</target></trans-unit>
+<trans-unit id="s6fc32c633aae26f2">
+  <source>Button corner rounding</source>
+<target>Tugma burchaklarini yumaloqlash</target></trans-unit>
+<trans-unit id="s9aa2591b039e5c9e">
+  <source>Button border color</source>
+<target>Tugma chegarasining rangi</target></trans-unit>
+<trans-unit id="s9fa68fc246cd24bb">
+  <source>Editor background color</source>
+<target>Muharrir foni rangi</target></trans-unit>
+<trans-unit id="s9e3ad5a2611dd7ea">
+  <source>Editor foreground color</source>
+<target>Muharrir matni rangi</target></trans-unit>
+<trans-unit id="sf4389ae40ebee3e1">
+  <source>Text mode</source>
+<target>Matn rejimi</target></trans-unit>
+<trans-unit id="s4ff8671a02a650a6">
+  <source>Show keyboard on focus</source>
+<target>Fokus olganda klaviaturani ko‘rsatish</target></trans-unit>
+<trans-unit id="s739f15d69b9e85d4">
+  <source>Keyboard type</source>
+<target>Klaviatura turi</target></trans-unit>
+<trans-unit id="sdece6428e0a266c6">
+  <source>Transparent graphics</source>
+<target>Shaffof grafika</target></trans-unit>
+<trans-unit id="s8ca6612c8e7ff87e">
+  <source>Disable JavaScript</source>
+<target>JavaScript’ni o‘chirish</target></trans-unit>
+<trans-unit id="sfea113b833d237d0">
+  <source>Detached keyboard parent</source>
+<target>Ajratilgan klaviaturaning bosh elementi</target></trans-unit>
+<trans-unit id="s98aa8b9481114f33">
+  <source>Classic</source>
+<target>Klassik</target></trans-unit>
+<trans-unit id="sbdc034b9c96937b1">
+  <source>Geometry</source>
+<target>Geometriya</target></trans-unit>
+<trans-unit id="s07ff5207b4bfba92">
+  <source>3D</source>
+<target>3D</target></trans-unit>
+<trans-unit id="sf2b8fc0623fd6279">
+  <source>Calculator Suite</source>
+<target>Kalkulyatorlar to‘plami</target></trans-unit>
+<trans-unit id="sfe8e8a1db9e7a91a">
+  <source>Evaluator</source>
+<target>Ifoda hisoblagichi</target></trans-unit>
+<trans-unit id="sa8754b2e68c07f48">
+  <source>Scientific</source>
+<target>Ilmiy</target></trans-unit>
+<trans-unit id="s005053d82b712e0a">
+  <source>Notes</source>
+<target>Qaydlar</target></trans-unit>
+<trans-unit id="s16fc93b22f0b6007">
+  <source>Algebra</source>
+<target>Algebra</target></trans-unit>
+<trans-unit id="s6d02dc19e21eb49c">
+  <source>Top</source>
+<target>Tepada</target></trans-unit>
+<trans-unit id="sc980855a000b76ea">
+  <source>Bottom</source>
+<target>Pastda</target></trans-unit>
+<trans-unit id="s9ff3121d30f88d52">
+  <source>Normal</source>
+<target>Oddiy</target></trans-unit>
+</body>
+</file>
+</xliff>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<file target-language="sr-Cyrl" source-language="en" original="lit-localize-inputs" datatype="plaintext">
+<body>
+<trans-unit id="s6236cc7215aadb0a">
+  <source>Import GeoGebra File</source>
+<target>Увези GeoGebra датотеку</target></trans-unit>
+<trans-unit id="s74982e57a1d8896c">
+  <source>Advanced Settings</source>
+<target>Напредна подешавања</target></trans-unit>
+<trans-unit id="s247bdb7c37e6e0cd">
+  <source>These settings are not relevant for most users and should not usually be changed. Changing them can completely break your applet.</source>
+<target>Ова подешавања углавном нису важна за већину корисника и обично их не треба мењати. Промена може потпуно да поквари аплет.</target></trans-unit>
+<trans-unit id="haaf9676c372c5a97">
+  <source>See the&#32;
+              <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />
+                GeoGebra docs<x id="1" equiv-text="&lt;/a&gt;" />
+              for more information.</source>
+<target>За више информација погледајте <x id="0" equiv-text="&lt;a href=&quot;https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/&quot; target=&quot;_blank&quot;&gt;" />GeoGebra документацију<x id="1" equiv-text="&lt;/a&gt;" />.</target></trans-unit>
+<trans-unit id="s863f73e2a453afb1">
+  <source>Import construction</source>
+<target>Увези конструкцију</target></trans-unit>
+<trans-unit id="sd2223afb7d6b100d">
+  <source>Type</source>
+<target>Тип</target></trans-unit>
+<trans-unit id="sabe465e6eb12f208">
+  <source>Border color</source>
+<target>Боја ивице</target></trans-unit>
+<trans-unit id="s1dbb9f50e16c92a3">
+  <source>Border radius</source>
+<target>Заобљење углова</target></trans-unit>
+<trans-unit id="s54bd98ffebeb3d60">
+  <source>Enable right click</source>
+<target>Омогући десни клик</target></trans-unit>
+<trans-unit id="s56580e5b30f758fe">
+  <source>Allow dragging labels</source>
+<target>Дозволи превлачење ознака</target></trans-unit>
+<trans-unit id="saef300913edb0126">
+  <source>Enable Shift-drag zoom</source>
+<target>Омогући зумирање превлачењем уз притиснут Shift</target></trans-unit>
+<trans-unit id="s06b20d3b54dd6066">
+  <source>Show zoom buttons</source>
+<target>Прикажи дугмад за зумирање</target></trans-unit>
+<trans-unit id="s1058c562357a8d6f">
+  <source>Show error dialogs</source>
+<target>Прикажи дијалоге грешака</target></trans-unit>
+<trans-unit id="s78f4dc5b3c94465e">
+  <source>Show menu bar</source>
+<target>Прикажи траку менија</target></trans-unit>
+<trans-unit id="s47e91aa5cba9dc97">
+  <source>Show toolbar</source>
+<target>Прикажи траку са алаткама</target></trans-unit>
+<trans-unit id="se3b6f7ca373b562a">
+  <source>Show toolbar help</source>
+<target>Прикажи помоћ траке са алаткама</target></trans-unit>
+<trans-unit id="s2a2087a80bb0f041">
+  <source>Custom toolbar</source>
+<target>Прилагођена трака са алаткама</target></trans-unit>
+<trans-unit id="s6f938c9b3edccc50">
+  <source>Show algebra input</source>
+<target>Прикажи алгебарски унос</target></trans-unit>
+<trans-unit id="sb28deeeaae032dc4">
+  <source>Show reset icon</source>
+<target>Прикажи икону за ресетовање</target></trans-unit>
+<trans-unit id="sefcf950b3cc4fc3b">
+  <source>Language</source>
+<target>Језик</target></trans-unit>
+<trans-unit id="s9cf7402fe920f7d1">
+  <source>Country</source>
+<target>Држава</target></trans-unit>
+<trans-unit id="saeb13f692234024e">
+  <source>Applet ID</source>
+<target>ИД аплета</target></trans-unit>
+<trans-unit id="s661cdb4d93a8e54e">
+  <source>Allow style bar</source>
+<target>Дозволи траку са стиловима</target></trans-unit>
+<trans-unit id="s23b3474a6fc7117c">
+  <source>Randomize</source>
+<target>Насумичне вредности</target></trans-unit>
+<trans-unit id="s5673f8676474a97f">
+  <source>Random seed</source>
+<target>Семе генератора случајних бројева</target></trans-unit>
+<trans-unit id="s53b2d7548cb6adde">
+  <source>Use browser for JavaScript</source>
+<target>Користи прегледач за JavaScript</target></trans-unit>
+<trans-unit id="s969e74ec195a3d1e">
+  <source>Show log messages</source>
+<target>Прикажи поруке дневника</target></trans-unit>
+<trans-unit id="s09b245636cd95634">
+  <source>Point capture threshold</source>
+<target>Праг хватања тачке</target></trans-unit>
+<trans-unit id="s363dd43b17bf9763">
+  <source>Enable file features</source>
+<target>Омогући функције датотека</target></trans-unit>
+<trans-unit id="s7772dd68615d21c7">
+  <source>Enable undo and redo</source>
+<target>Омогући опозив и понављање</target></trans-unit>
+<trans-unit id="s36b3cefdcb897f15">
+  <source>Perspective</source>
+<target>Перспектива</target></trans-unit>
+<trans-unit id="s89381f62aa15dbad">
+  <source>Enable 3D</source>
+<target>Омогући 3D</target></trans-unit>
+<trans-unit id="scc72e2a75307a637">
+  <source>Enable CAS</source>
+<target>Омогући CAS</target></trans-unit>
+<trans-unit id="s3e0f20426463dcc6">
+  <source>Algebra input position</source>
+<target>Положај алгебарског уноса</target></trans-unit>
+<trans-unit id="s746da3186a6a89c1">
+  <source>Prevent focus</source>
+<target>Спречи фокус</target></trans-unit>
+<trans-unit id="se46b941eb5937265">
+  <source>Scale container CSS class</source>
+<target>CSS класа контејнера за скалирање</target></trans-unit>
+<trans-unit id="sdd7188a7f00971cf">
+  <source>Automatic height</source>
+<target>Аутоматска висина</target></trans-unit>
+<trans-unit id="sf9d9117bfca0dc24">
+  <source>Allow upscaling</source>
+<target>Дозволи увећање</target></trans-unit>
+<trans-unit id="sa1aae96e8297634d">
+  <source>Play button</source>
+<target>Дугме за репродукцију</target></trans-unit>
+<trans-unit id="s2706a162264c46f1">
+  <source>Scale</source>
+<target>Размера</target></trans-unit>
+<trans-unit id="s6e98e322aceafe26">
+  <source>Show animation button</source>
+<target>Прикажи дугме за анимацију</target></trans-unit>
+<trans-unit id="sbb6d1a91c9e95cf7">
+  <source>Show fullscreen button</source>
+<target>Прикажи дугме за цео екран</target></trans-unit>
+<trans-unit id="s4b2e7180fe27f135">
+  <source>Show suggestion buttons</source>
+<target>Прикажи дугмад са предлозима</target></trans-unit>
+<trans-unit id="sb51b84779159e4be">
+  <source>Show startup tooltip</source>
+<target>Прикажи почетни савет</target></trans-unit>
+<trans-unit id="s7b1e60b2847f5b7d">
+  <source>Rounding</source>
+<target>Заокруживање</target></trans-unit>
+<trans-unit id="s673e2c332b665100">
+  <source>Button shadows</source>
+<target>Сенке дугмади</target></trans-unit>
+<trans-unit id="s6fc32c633aae26f2">
+  <source>Button corner rounding</source>
+<target>Заобљење углова дугмади</target></trans-unit>
+<trans-unit id="s9aa2591b039e5c9e">
+  <source>Button border color</source>
+<target>Боја ивице дугмета</target></trans-unit>
+<trans-unit id="s9fa68fc246cd24bb">
+  <source>Editor background color</source>
+<target>Боја позадине уређивача</target></trans-unit>
+<trans-unit id="s9e3ad5a2611dd7ea">
+  <source>Editor foreground color</source>
+<target>Боја предњег плана уређивача</target></trans-unit>
+<trans-unit id="sf4389ae40ebee3e1">
+  <source>Text mode</source>
+<target>Текстуални режим</target></trans-unit>
+<trans-unit id="s4ff8671a02a650a6">
+  <source>Show keyboard on focus</source>
+<target>Прикажи тастатуру када је поље фокусирано</target></trans-unit>
+<trans-unit id="s739f15d69b9e85d4">
+  <source>Keyboard type</source>
+<target>Тип тастатуре</target></trans-unit>
+<trans-unit id="sdece6428e0a266c6">
+  <source>Transparent graphics</source>
+<target>Провидна графика</target></trans-unit>
+<trans-unit id="s8ca6612c8e7ff87e">
+  <source>Disable JavaScript</source>
+<target>Онемогући JavaScript</target></trans-unit>
+<trans-unit id="sfea113b833d237d0">
+  <source>Detached keyboard parent</source>
+<target>Надређени елемент одвојене тастатуре</target></trans-unit>
+<trans-unit id="s98aa8b9481114f33">
+  <source>Classic</source>
+<target>Класични</target></trans-unit>
+<trans-unit id="sbdc034b9c96937b1">
+  <source>Geometry</source>
+<target>Геометрија</target></trans-unit>
+<trans-unit id="s07ff5207b4bfba92">
+  <source>3D</source>
+<target>3D</target></trans-unit>
+<trans-unit id="sf2b8fc0623fd6279">
+  <source>Calculator Suite</source>
+<target>Пакет калкулатора</target></trans-unit>
+<trans-unit id="sfe8e8a1db9e7a91a">
+  <source>Evaluator</source>
+<target>Евалуатор</target></trans-unit>
+<trans-unit id="sa8754b2e68c07f48">
+  <source>Scientific</source>
+<target>Научни</target></trans-unit>
+<trans-unit id="s005053d82b712e0a">
+  <source>Notes</source>
+<target>Белешке</target></trans-unit>
+<trans-unit id="s16fc93b22f0b6007">
+  <source>Algebra</source>
+<target>Алгебра</target></trans-unit>
+<trans-unit id="s6d02dc19e21eb49c">
+  <source>Top</source>
+<target>Горе</target></trans-unit>
+<trans-unit id="sc980855a000b76ea">
+  <source>Bottom</source>
+<target>Доле</target></trans-unit>
+<trans-unit id="s9ff3121d30f88d52">
+  <source>Normal</source>
+<target>Нормално</target></trans-unit>
+</body>
+</file>
+</xliff>
