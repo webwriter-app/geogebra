@@ -135,44 +135,58 @@
   "license": "MIT",
   "author": "Frederic Salmen <frederic@fsalmen.de>",
   "scripts": {
-    "prepublishOnly": "npx @webwriter/build",
-    "dev": "npx @webwriter/build dev",
+    "prepublishOnly": "npx @webwriter/build --shared-dependencies",
+    "dev": "npx @webwriter/build dev --shared-dependencies",
     "localize": "lit-localize extract && npx @webwriter/build localize && lit-localize build"
   },
   "dependencies": {
     "@lit/localize": "^0.12.2",
     "@shoelace-style/shoelace": "^2.20.1",
-    "@webwriter/lit": "^3.0.0",
-    "lit": "^3.3.3"
+    "@webwriter/lit": "^3.2.0",
+    "@webwriter/widget": "^1.2.0",
+    "lit": "^3.3.0"
   },
   "devDependencies": {
-    "@webwriter/build": "^1.13.1",
-    "@lit/localize-tools": "^0.8.2"
+    "@lit/localize-tools": "^0.8.2",
+    "@types/chai": "^5.2.3",
+    "@types/mocha": "^10.0.10",
+    "@webwriter/build": "^1.14.0",
+    "chai": "^6.3.0",
+    "mocha": "^12.0.3",
+    "typescript": "^7.0.2"
   },
   "exports": {
     "./widgets/webwriter-geogebra.*": {
-      "source": "./widgets/webwriter-geogebra.ts",
+      "source": "./src/widgets/webwriter-geogebra.ts",
       "default": "./dist/widgets/webwriter-geogebra.*"
     },
     "./widgets/webwriter-geogebra-geometry.*": {
-      "source": "./widgets/webwriter-geogebra-geometry.ts",
+      "source": "./src/widgets/webwriter-geogebra-geometry.ts",
       "default": "./dist/widgets/webwriter-geogebra-geometry.*"
     },
     "./widgets/webwriter-geogebra-3d.*": {
-      "source": "./widgets/webwriter-geogebra-3d.ts",
+      "source": "./src/widgets/webwriter-geogebra-3d.ts",
       "default": "./dist/widgets/webwriter-geogebra-3d.*"
     },
     "./widgets/webwriter-geogebra-notes.*": {
-      "source": "./widgets/webwriter-geogebra-notes.ts",
+      "source": "./src/widgets/webwriter-geogebra-notes.ts",
       "default": "./dist/widgets/webwriter-geogebra-notes.*"
     },
     "./widgets/webwriter-geogebra-scientific.*": {
-      "source": "./widgets/webwriter-geogebra-scientific.ts",
+      "source": "./src/widgets/webwriter-geogebra-scientific.ts",
       "default": "./dist/widgets/webwriter-geogebra-scientific.*"
     },
     "./widgets/webwriter-geogebra-classic.*": {
-      "source": "./widgets/webwriter-geogebra-classic.ts",
+      "source": "./src/widgets/webwriter-geogebra-classic.ts",
       "default": "./dist/widgets/webwriter-geogebra-classic.*"
+    },
+    "./tests/data-block.*": {
+      "source": "./tests/data-block.test.ts",
+      "default": "./dist/tests/data-block.*"
+    },
+    "./tests/language.*": {
+      "source": "./tests/language.test.ts",
+      "default": "./dist/tests/language.*"
     },
     "./icon": "./icon.svg",
     "./editing-config.json": "./editing-config.json",
