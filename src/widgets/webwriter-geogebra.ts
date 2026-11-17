@@ -1,5 +1,4 @@
-import {html, css} from "lit"
-import {LitElementWw} from "@webwriter/lit"
+import {css} from "lit"
 import {customElement} from "lit/decorators.js"
 import { GeogebraApp } from "../components/geogebra-app"
 

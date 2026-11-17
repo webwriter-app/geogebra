@@ -401,8 +401,9 @@ export class GeogebraApp extends LitElementWw {
   // A map of parameter names to their corresponding update functions in the GeoGebra API
   private paramUpdateMap?: Map<string, (value: never) => void>
 
-  private apiReady?: Promise<GeogebraAPI>
   private api?: GeogebraAPI
+  private listeners?: AbortController
+  private srcFrame = 0
   private updatingGgb = false
 
   private get ggbProperties() {
@@ -411,36 +412,44 @@ export class GeogebraApp extends LitElementWw {
 
   connectedCallback(): void {
     super.connectedCallback()
-    this.apiReady = new Promise(resolve => {
-      this.addEventListener("ggb-load", (e) => {
-        const api = e.detail.api
-        resolve(api)
-        this.api = api
-        api.registerAddListener(this.updateSrc)
-        api.registerClearListener(this.updateSrc)
-        api.registerUpdateListener(this.updateSrc)
-        api.registerRenameListener(this.updateSrc)
-        api.registerRemoveListener(this.updateSrc)
+    this.listeners = new AbortController()
+    this.addEventListener("ggb-load", (e) => {
+      const api = e.detail.api
+      this.api = api
+      api.registerAddListener(this.updateSrc)
+      api.registerClearListener(this.updateSrc)
+      api.registerUpdateListener(this.updateSrc)
+      api.registerRenameListener(this.updateSrc)
+      api.registerRemoveListener(this.updateSrc)
 
-        // showMenuBar is not updated live, because showMenuBar(false) does not work.
-        this.paramUpdateMap = new Map<string, (value: never) => void>([
-          ["width", api.setWidth],
-          ["height", api.setHeight],
-          ["enableRightClick", api.enableRightClick],
-          ["enableLabelDrags", api.enableLabelDrags],
-          ["enableShiftDragZoom", api.enableShiftDragZoom],
-          ["errorDialogsActive", api.setErrorDialogsActive],
-          ["showToolBar", api.showToolBar],
-          ["customToolBar", api.setCustomToolBar],
-          ["showAlgebraInput", api.showAlgebraInput],
-          ["showResetIcon", api.showResetIcon],
-          ["perspective", api.setPerspective],
-          ["enable3d", api.enable3D],
-          ["enableCAS", api.enableCAS],
-          ["rounding", api.setRounding],
-        ])
-      })
-    })
+      // showMenuBar is not updated live, because showMenuBar(false) does not work.
+      this.paramUpdateMap = new Map<string, (value: never) => void>([
+        ["width", api.setWidth],
+        ["height", api.setHeight],
+        ["enableRightClick", api.enableRightClick],
+        ["enableLabelDrags", api.enableLabelDrags],
+        ["enableShiftDragZoom", api.enableShiftDragZoom],
+        ["errorDialogsActive", api.setErrorDialogsActive],
+        ["showToolBar", api.showToolBar],
+        ["customToolBar", api.setCustomToolBar],
+        ["showAlgebraInput", api.showAlgebraInput],
+        ["showResetIcon", api.showResetIcon],
+        ["perspective", api.setPerspective],
+        ["enable3d", api.enable3D],
+        ["enableCAS", api.enableCAS],
+        ["rounding", api.setRounding],
+      ])
+    }, {signal: this.listeners.signal})
+  }
+
+  disconnectedCallback(): void {
+    super.disconnectedCallback()
+    this.listeners?.abort()
+    if (this.srcFrame) {
+      cancelAnimationFrame(this.srcFrame)
+      this.writeSrc()
+    }
+    this.api = undefined
   }
 
   protected updated(changed: PropertyValues<this>): void {
@@ -501,7 +510,14 @@ export class GeogebraApp extends LitElementWw {
     this.src = `data:application/vnd.geogebra.file;base64,${btoa(binary)}`
   }
 
+  // Serializing the construction is costly and the applet reports every change of a drag, so it runs once per frame.
   private updateSrc = () => {
+    if (this.updatingGgb || !this.api || this.srcFrame) return
+    this.srcFrame = requestAnimationFrame(this.writeSrc)
+  }
+
+  private writeSrc = () => {
+    this.srcFrame = 0
     if(!this.updatingGgb && this.api) {
       this.src = `data:application/vnd.geogebra.file;base64,${this.api.getBase64()}`
     }
@@ -542,12 +558,6 @@ export class GeogebraApp extends LitElementWw {
     }
 
     this.api = undefined
-    this.apiReady = new Promise(resolve => {
-      this.addEventListener("ggb-load", (e) => {
-        resolve(e.detail.api)
-      }, {once: true})
-    })
-
     this.resetKey++
   }
 
