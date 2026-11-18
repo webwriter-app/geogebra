@@ -81,6 +81,32 @@
             },
             {
               "kind": "field",
+              "name": "convertFrom",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"importGgb\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "convertTo",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"exportGgb\", \"image/png\": \"exportPng\", \"image/svg+xml\": \"exportSvg\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
               "name": "localize",
               "privacy": "protected",
               "readonly": true,
@@ -899,9 +925,9 @@
             },
             {
               "kind": "field",
-              "name": "apiReady",
+              "name": "api",
               "type": {
-                "text": "Promise<GeogebraAPI> | undefined"
+                "text": "GeogebraAPI | undefined"
               },
               "privacy": "private",
               "inheritedFrom": {
@@ -911,11 +937,62 @@
             },
             {
               "kind": "field",
-              "name": "api",
+              "name": "listeners",
               "type": {
-                "text": "GeogebraAPI | undefined"
+                "text": "AbortController | undefined"
               },
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "srcFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "ready",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizer",
+              "type": {
+                "text": "ResizeObserver | undefined"
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizeFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "src/components/geogebra-app.ts"
@@ -961,8 +1038,57 @@
               }
             },
             {
+              "kind": "method",
+              "name": "importGgb",
+              "parameters": [
+                {
+                  "name": "file",
+                  "type": {
+                    "text": "File"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportGgb",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportPng",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportSvg",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "updateSrc",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "writeSrc",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "GeogebraApp",
@@ -988,6 +1114,32 @@
             },
             {
               "kind": "method",
+              "name": "observeSize",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
               "name": "resetIFrame",
               "privacy": "private",
               "inheritedFrom": {
@@ -1002,6 +1154,16 @@
           },
           "tagName": "webwriter-geogebra-3d",
           "customElement": true,
+          "cssParts": [
+            {
+              "description": "The iframe that holds the GeoGebra applet.",
+              "name": "applet",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            }
+          ],
           "attributes": [
             {
               "name": "ggbStyles",
@@ -1839,6 +2001,32 @@
             },
             {
               "kind": "field",
+              "name": "convertFrom",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"importGgb\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "convertTo",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"exportGgb\", \"image/png\": \"exportPng\", \"image/svg+xml\": \"exportSvg\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
               "name": "localize",
               "privacy": "protected",
               "readonly": true,
@@ -2657,9 +2845,9 @@
             },
             {
               "kind": "field",
-              "name": "apiReady",
+              "name": "api",
               "type": {
-                "text": "Promise<GeogebraAPI> | undefined"
+                "text": "GeogebraAPI | undefined"
               },
               "privacy": "private",
               "inheritedFrom": {
@@ -2669,11 +2857,62 @@
             },
             {
               "kind": "field",
-              "name": "api",
+              "name": "listeners",
               "type": {
-                "text": "GeogebraAPI | undefined"
+                "text": "AbortController | undefined"
               },
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "srcFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "ready",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizer",
+              "type": {
+                "text": "ResizeObserver | undefined"
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizeFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "src/components/geogebra-app.ts"
@@ -2719,8 +2958,57 @@
               }
             },
             {
+              "kind": "method",
+              "name": "importGgb",
+              "parameters": [
+                {
+                  "name": "file",
+                  "type": {
+                    "text": "File"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportGgb",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportPng",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportSvg",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "updateSrc",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "writeSrc",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "GeogebraApp",
@@ -2746,6 +3034,32 @@
             },
             {
               "kind": "method",
+              "name": "observeSize",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
               "name": "resetIFrame",
               "privacy": "private",
               "inheritedFrom": {
@@ -2760,6 +3074,16 @@
           },
           "tagName": "webwriter-geogebra-classic",
           "customElement": true,
+          "cssParts": [
+            {
+              "description": "The iframe that holds the GeoGebra applet.",
+              "name": "applet",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            }
+          ],
           "attributes": [
             {
               "name": "ggbStyles",
@@ -3597,6 +3921,32 @@
             },
             {
               "kind": "field",
+              "name": "convertFrom",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"importGgb\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "convertTo",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"exportGgb\", \"image/png\": \"exportPng\", \"image/svg+xml\": \"exportSvg\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
               "name": "localize",
               "privacy": "protected",
               "readonly": true,
@@ -4415,9 +4765,9 @@
             },
             {
               "kind": "field",
-              "name": "apiReady",
+              "name": "api",
               "type": {
-                "text": "Promise<GeogebraAPI> | undefined"
+                "text": "GeogebraAPI | undefined"
               },
               "privacy": "private",
               "inheritedFrom": {
@@ -4427,11 +4777,62 @@
             },
             {
               "kind": "field",
-              "name": "api",
+              "name": "listeners",
               "type": {
-                "text": "GeogebraAPI | undefined"
+                "text": "AbortController | undefined"
               },
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "srcFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "ready",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizer",
+              "type": {
+                "text": "ResizeObserver | undefined"
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizeFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "src/components/geogebra-app.ts"
@@ -4477,8 +4878,57 @@
               }
             },
             {
+              "kind": "method",
+              "name": "importGgb",
+              "parameters": [
+                {
+                  "name": "file",
+                  "type": {
+                    "text": "File"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportGgb",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportPng",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportSvg",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "updateSrc",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "writeSrc",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "GeogebraApp",
@@ -4504,6 +4954,32 @@
             },
             {
               "kind": "method",
+              "name": "observeSize",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
               "name": "resetIFrame",
               "privacy": "private",
               "inheritedFrom": {
@@ -4518,6 +4994,16 @@
           },
           "tagName": "webwriter-geogebra-geometry",
           "customElement": true,
+          "cssParts": [
+            {
+              "description": "The iframe that holds the GeoGebra applet.",
+              "name": "applet",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            }
+          ],
           "attributes": [
             {
               "name": "ggbStyles",
@@ -5355,6 +5841,32 @@
             },
             {
               "kind": "field",
+              "name": "convertFrom",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"importGgb\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "convertTo",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"exportGgb\", \"image/png\": \"exportPng\", \"image/svg+xml\": \"exportSvg\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
               "name": "localize",
               "privacy": "protected",
               "readonly": true,
@@ -6173,9 +6685,9 @@
             },
             {
               "kind": "field",
-              "name": "apiReady",
+              "name": "api",
               "type": {
-                "text": "Promise<GeogebraAPI> | undefined"
+                "text": "GeogebraAPI | undefined"
               },
               "privacy": "private",
               "inheritedFrom": {
@@ -6185,11 +6697,62 @@
             },
             {
               "kind": "field",
-              "name": "api",
+              "name": "listeners",
               "type": {
-                "text": "GeogebraAPI | undefined"
+                "text": "AbortController | undefined"
               },
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "srcFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "ready",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizer",
+              "type": {
+                "text": "ResizeObserver | undefined"
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizeFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "src/components/geogebra-app.ts"
@@ -6235,8 +6798,57 @@
               }
             },
             {
+              "kind": "method",
+              "name": "importGgb",
+              "parameters": [
+                {
+                  "name": "file",
+                  "type": {
+                    "text": "File"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportGgb",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportPng",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportSvg",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "updateSrc",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "writeSrc",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "GeogebraApp",
@@ -6262,6 +6874,32 @@
             },
             {
               "kind": "method",
+              "name": "observeSize",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
               "name": "resetIFrame",
               "privacy": "private",
               "inheritedFrom": {
@@ -6276,6 +6914,16 @@
           },
           "tagName": "webwriter-geogebra-notes",
           "customElement": true,
+          "cssParts": [
+            {
+              "description": "The iframe that holds the GeoGebra applet.",
+              "name": "applet",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            }
+          ],
           "attributes": [
             {
               "name": "ggbStyles",
@@ -7113,6 +7761,32 @@
             },
             {
               "kind": "field",
+              "name": "convertFrom",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"importGgb\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "convertTo",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"exportGgb\", \"image/png\": \"exportPng\", \"image/svg+xml\": \"exportSvg\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
               "name": "localize",
               "privacy": "protected",
               "readonly": true,
@@ -7931,9 +8605,9 @@
             },
             {
               "kind": "field",
-              "name": "apiReady",
+              "name": "api",
               "type": {
-                "text": "Promise<GeogebraAPI> | undefined"
+                "text": "GeogebraAPI | undefined"
               },
               "privacy": "private",
               "inheritedFrom": {
@@ -7943,11 +8617,62 @@
             },
             {
               "kind": "field",
-              "name": "api",
+              "name": "listeners",
               "type": {
-                "text": "GeogebraAPI | undefined"
+                "text": "AbortController | undefined"
               },
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "srcFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "ready",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizer",
+              "type": {
+                "text": "ResizeObserver | undefined"
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizeFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "src/components/geogebra-app.ts"
@@ -7993,8 +8718,57 @@
               }
             },
             {
+              "kind": "method",
+              "name": "importGgb",
+              "parameters": [
+                {
+                  "name": "file",
+                  "type": {
+                    "text": "File"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportGgb",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportPng",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportSvg",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "updateSrc",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "writeSrc",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "GeogebraApp",
@@ -8020,6 +8794,32 @@
             },
             {
               "kind": "method",
+              "name": "observeSize",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
               "name": "resetIFrame",
               "privacy": "private",
               "inheritedFrom": {
@@ -8034,6 +8834,16 @@
           },
           "tagName": "webwriter-geogebra-scientific",
           "customElement": true,
+          "cssParts": [
+            {
+              "description": "The iframe that holds the GeoGebra applet.",
+              "name": "applet",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            }
+          ],
           "attributes": [
             {
               "name": "ggbStyles",
@@ -8914,6 +9724,32 @@
             },
             {
               "kind": "field",
+              "name": "convertFrom",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"importGgb\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "convertTo",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{\".ggb\": \"exportGgb\", \"image/png\": \"exportPng\", \"image/svg+xml\": \"exportSvg\"}",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
               "name": "localize",
               "privacy": "protected",
               "readonly": true,
@@ -9689,9 +10525,9 @@
             },
             {
               "kind": "field",
-              "name": "apiReady",
+              "name": "api",
               "type": {
-                "text": "Promise<GeogebraAPI> | undefined"
+                "text": "GeogebraAPI | undefined"
               },
               "privacy": "private",
               "inheritedFrom": {
@@ -9701,11 +10537,62 @@
             },
             {
               "kind": "field",
-              "name": "api",
+              "name": "listeners",
               "type": {
-                "text": "GeogebraAPI | undefined"
+                "text": "AbortController | undefined"
               },
               "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "srcFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "ready",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizer",
+              "type": {
+                "text": "ResizeObserver | undefined"
+              },
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizeFrame",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0",
               "inheritedFrom": {
                 "name": "GeogebraApp",
                 "module": "src/components/geogebra-app.ts"
@@ -9751,8 +10638,57 @@
               }
             },
             {
+              "kind": "method",
+              "name": "importGgb",
+              "parameters": [
+                {
+                  "name": "file",
+                  "type": {
+                    "text": "File"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportGgb",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportPng",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "exportSvg",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
               "kind": "field",
               "name": "updateSrc",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "writeSrc",
               "privacy": "private",
               "inheritedFrom": {
                 "name": "GeogebraApp",
@@ -9778,6 +10714,32 @@
             },
             {
               "kind": "method",
+              "name": "observeSize",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "focus",
+              "parameters": [
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "FocusOptions"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            },
+            {
+              "kind": "method",
               "name": "resetIFrame",
               "privacy": "private",
               "inheritedFrom": {
@@ -9792,6 +10754,16 @@
           },
           "tagName": "webwriter-geogebra",
           "customElement": true,
+          "cssParts": [
+            {
+              "description": "The iframe that holds the GeoGebra applet.",
+              "name": "applet",
+              "inheritedFrom": {
+                "name": "GeogebraApp",
+                "module": "src/components/geogebra-app.ts"
+              }
+            }
+          ],
           "attributes": [
             {
               "name": "ggbStyles",

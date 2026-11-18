@@ -4,10 +4,10 @@
   "description": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
   "keywords": [
     "webwriter-widget",
-    "widget-conceptual",
-    "widget-informational",
+    "widget-simulational",
     "widget-online",
     "iscedf2013-05",
+    "iscedf2013-0541",
     "isced2011-2",
     "isced2011-3",
     "isced2011-4",
@@ -15,10 +15,22 @@
     "isced2011-6",
     "isced2011-7",
     "isced2011-8",
+    "widget-allows-pointer-input",
+    "widget-allows-keyboard-input",
+    "widget-allows-touch-input",
+    "widget-responsive",
+    "widget-themeable",
+    "widget-printable",
+    "widget-stateful",
+    "widget-configurable",
+    "widget-testable",
+    "widget-convertible-from-application/vnd.geogebra.file",
+    "widget-convertible-to-application/vnd.geogebra.file",
+    "widget-convertible-to-image/png",
+    "widget-convertible-to-image/svg+xml",
     "algebra",
     "geometry",
     "spreadsheet",
-    "table",
     "graph",
     "widget-lang-en",
     "widget-lang-en-US",
@@ -188,6 +200,14 @@
       "source": "./tests/language.test.ts",
       "default": "./dist/tests/language.*"
     },
+    "./tests/presentation.*": {
+      "source": "./tests/presentation.test.ts",
+      "default": "./dist/tests/presentation.*"
+    },
+    "./tests/conversions.*": {
+      "source": "./tests/conversions.test.ts",
+      "default": "./dist/tests/conversions.*"
+    },
     "./icon": "./icon.svg",
     "./editing-config.json": "./editing-config.json",
     "./custom-elements.json": "./custom-elements.json"
@@ -195,22 +215,70 @@
   "editingConfig": {
     ".": {},
     "./widgets/webwriter-geogebra": {
-      "content": "text*"
+      "content": "text*",
+      "importFormats": [
+        ".ggb"
+      ],
+      "exportFormats": [
+        ".ggb",
+        "image/png",
+        "image/svg+xml"
+      ]
     },
     "./widgets/webwriter-geogebra-geometry": {
-      "content": "text*"
+      "content": "text*",
+      "importFormats": [
+        ".ggb"
+      ],
+      "exportFormats": [
+        ".ggb",
+        "image/png",
+        "image/svg+xml"
+      ]
     },
     "./widgets/webwriter-geogebra-3d": {
-      "content": "text*"
+      "content": "text*",
+      "importFormats": [
+        ".ggb"
+      ],
+      "exportFormats": [
+        ".ggb",
+        "image/png",
+        "image/svg+xml"
+      ]
     },
     "./widgets/webwriter-geogebra-notes": {
-      "content": "text*"
+      "content": "text*",
+      "importFormats": [
+        ".ggb"
+      ],
+      "exportFormats": [
+        ".ggb",
+        "image/png",
+        "image/svg+xml"
+      ]
     },
     "./widgets/webwriter-geogebra-scientific": {
-      "content": "text*"
+      "content": "text*",
+      "importFormats": [
+        ".ggb"
+      ],
+      "exportFormats": [
+        ".ggb",
+        "image/png",
+        "image/svg+xml"
+      ]
     },
     "./widgets/webwriter-geogebra-classic": {
-      "content": "text*"
+      "content": "text*",
+      "importFormats": [
+        ".ggb"
+      ],
+      "exportFormats": [
+        ".ggb",
+        "image/png",
+        "image/svg+xml"
+      ]
     }
   },
   "customElements": "custom-elements.json"

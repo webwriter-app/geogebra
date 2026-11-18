@@ -345,7 +345,15 @@
       "ckb-Arab": "GeoGebra",
       "af-ZA": "GeoGebra",
       "af-NA": "GeoGebra"
-    }
+    },
+    "importFormats": [
+      ".ggb"
+    ],
+    "exportFormats": [
+      ".ggb",
+      "image/png",
+      "image/svg+xml"
+    ]
   },
   "./widgets/webwriter-geogebra-geometry": {
     "label": {
@@ -461,7 +469,15 @@
       "ckb-Arab": "ئەندازەی GeoGebra",
       "af-ZA": "GeoGebra Meetkunde",
       "af-NA": "GeoGebra Meetkunde"
-    }
+    },
+    "importFormats": [
+      ".ggb"
+    ],
+    "exportFormats": [
+      ".ggb",
+      "image/png",
+      "image/svg+xml"
+    ]
   },
   "./widgets/webwriter-geogebra-3d": {
     "label": {
@@ -577,7 +593,15 @@
       "ckb-Arab": "GeoGebra-3D",
       "af-ZA": "GeoGebra 3D",
       "af-NA": "GeoGebra 3D"
-    }
+    },
+    "importFormats": [
+      ".ggb"
+    ],
+    "exportFormats": [
+      ".ggb",
+      "image/png",
+      "image/svg+xml"
+    ]
   },
   "./widgets/webwriter-geogebra-notes": {
     "label": {
@@ -693,7 +717,15 @@
       "ckb-Arab": "تێبینییەکانی GeoGebra",
       "af-ZA": "GeoGebra Notas",
       "af-NA": "GeoGebra Notas"
-    }
+    },
+    "importFormats": [
+      ".ggb"
+    ],
+    "exportFormats": [
+      ".ggb",
+      "image/png",
+      "image/svg+xml"
+    ]
   },
   "./widgets/webwriter-geogebra-scientific": {
     "label": {
@@ -809,7 +841,15 @@
       "ckb-Arab": "زانستیی GeoGebra",
       "af-ZA": "GeoGebra Wetenskaplik",
       "af-NA": "GeoGebra Wetenskaplik"
-    }
+    },
+    "importFormats": [
+      ".ggb"
+    ],
+    "exportFormats": [
+      ".ggb",
+      "image/png",
+      "image/svg+xml"
+    ]
   },
   "./widgets/webwriter-geogebra-classic": {
     "label": {
@@ -925,6 +965,14 @@
       "ckb-Arab": "GeoGebra Classic",
       "af-ZA": "GeoGebra Klassiek",
       "af-NA": "GeoGebra Klassiek"
-    }
+    },
+    "importFormats": [
+      ".ggb"
+    ],
+    "exportFormats": [
+      ".ggb",
+      "image/png",
+      "image/svg+xml"
+    ]
   }
 }

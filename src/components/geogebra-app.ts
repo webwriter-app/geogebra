@@ -4,7 +4,7 @@ import { jsonData } from "@webwriter/lit/data"
 import type { MsgFn } from "@lit/localize"
 import { sourceLocale, targetLocales } from "../../localization/generated/locale-codes"
 import {html, css, type PropertyValues} from "lit"
-import {property} from "lit/decorators.js"
+import {property, state} from "lit/decorators.js"
 import {keyed} from "lit/directives/keyed.js"
 
 import {geogebraAppStyles} from "./geogebra-app.styles"
@@ -12,6 +12,7 @@ import { booleanAttributeConverter } from "../model/boolean-attribute-converter"
 import type { GeogebraAPI } from "../model/geogebra-api"
 import { geogebraOptions } from "../model/geogebra-options"
 import { appletParameters } from "../model/geogebra-parameters"
+import { base64ToBytes, bytesToBase64, dataUrlPayload, ggbDataUrl, GGB_MEDIA_TYPE, isGgbArchive } from "../model/ggb-file"
 
 export type { GeogebraAPI }
 
@@ -22,6 +23,16 @@ declare global {
 }
 
 /**
+ * The applet runs in an iframe and handles keyboard, pointer and touch input itself. The widget resizes it with its container (300 to 2100 px):
+ * the applet fills the iframe (16:9, at least 18rem high), so `width` and `height` only set its size before the first resize.
+ *
+ * Theme: the host takes `--ww-text-color` and `--ww-font-family`; the focus ring uses `--ww-link-color`. The applet's own content is not themed.
+ *
+ * Conversions: a `.ggb` file replaces the construction (import) and the current construction downloads as `.ggb` (export).
+ * `image/png` and `image/svg+xml` export the picture of the graphics view; both need the loaded applet and are lossy
+ * (no construction steps, no algebra view). A file that is no zip archive is refused before the widget changes.
+ *
+ * @part applet - The iframe that holds the GeoGebra applet.
  * @fires focus - Fired when the GeoGebra applet gains focus.
  * @fires ggb-load - Fired when the GeoGebra API is ready. The event detail contains the API instance.
  */
@@ -36,6 +47,10 @@ export class GeogebraApp extends LitElementWw {
       input: {type: "file" as const, accept: ".ggb", multiple: false},
     },
   }
+
+  static convertFrom = {".ggb": "importGgb"}
+
+  static convertTo = {".ggb": "exportGgb", "image/png": "exportPng", "image/svg+xml": "exportSvg"}
 
   // The labels of the options are computed with msg, so the editor reads them again after a language change.
   protected readonly localize = localizer(this, {
@@ -404,6 +419,11 @@ export class GeogebraApp extends LitElementWw {
   private api?: GeogebraAPI
   private listeners?: AbortController
   private srcFrame = 0
+  @state()
+  private accessor ready = false
+
+  private resizer?: ResizeObserver
+  private resizeFrame = 0
   private updatingGgb = false
 
   private get ggbProperties() {
@@ -416,6 +436,8 @@ export class GeogebraApp extends LitElementWw {
     this.addEventListener("ggb-load", (e) => {
       const api = e.detail.api
       this.api = api
+      this.ready = true
+      this.observeSize()
       api.registerAddListener(this.updateSrc)
       api.registerClearListener(this.updateSrc)
       api.registerUpdateListener(this.updateSrc)
@@ -445,6 +467,11 @@ export class GeogebraApp extends LitElementWw {
   disconnectedCallback(): void {
     super.disconnectedCallback()
     this.listeners?.abort()
+    this.resizer?.disconnect()
+    this.resizer = undefined
+    cancelAnimationFrame(this.resizeFrame)
+    this.resizeFrame = 0
+    this.ready = false
     if (this.srcFrame) {
       cancelAnimationFrame(this.srcFrame)
       this.writeSrc()
@@ -466,7 +493,7 @@ export class GeogebraApp extends LitElementWw {
       let needFullReload = false
 
       changed.forEach((_, key) => {
-        if(key === "src") {
+        if(key === "src" || key === "ready") {
           return
         }
         const updateFunc = this.paramUpdateMap?.get(key.toString())
@@ -504,10 +531,38 @@ export class GeogebraApp extends LitElementWw {
   async importConstruction(files: File[]) {
     const file = files[0]
     if (!file || !this.isConnected) return
+    this.src = ggbDataUrl(bytesToBase64(new Uint8Array(await file.arrayBuffer())))
+  }
+
+  async importGgb(file: File) {
     const bytes = new Uint8Array(await file.arrayBuffer())
-    let binary = ""
-    for (const byte of bytes) binary += String.fromCharCode(byte)
-    this.src = `data:application/vnd.geogebra.file;base64,${btoa(binary)}`
+    if (!isGgbArchive(bytes)) throw new Error(this.msg("The file is not a GeoGebra construction (.ggb)."))
+    const src = ggbDataUrl(bytesToBase64(bytes))
+    return () => { this.src = src }
+  }
+
+  exportGgb() {
+    const base64 = this.api?.getBase64() || dataUrlPayload(this.src)
+    if (!base64) return null
+    return new File([base64ToBytes(base64) as BlobPart], "construction.ggb", {type: GGB_MEDIA_TYPE})
+  }
+
+  exportPng() {
+    const base64 = this.api?.getPNGBase64(1, false, 72)
+    if (!base64) return null
+    return new File([base64ToBytes(base64) as BlobPart], "construction.png", {type: "image/png"})
+  }
+
+  exportSvg() {
+    const api = this.api
+    if (!api) return null
+    return new Promise<File | null>(resolve => {
+      const timeout = setTimeout(() => resolve(null), 8000)
+      api.exportSVG((svg: string) => {
+        clearTimeout(timeout)
+        resolve(svg ? new File([svg], "construction.svg", {type: "image/svg+xml"}) : null)
+      })
+    })
   }
 
   // Serializing the construction is costly and the applet reports every change of a drag, so it runs once per frame.
@@ -552,18 +607,45 @@ export class GeogebraApp extends LitElementWw {
     doc.body.append(deployScript)
   }
 
+  // The applet follows the size of the iframe, which follows the container; one resize per frame avoids loops.
+  private observeSize() {
+    const iframe = this.renderRoot.querySelector("iframe")
+    if (!iframe) return
+    this.resizer?.disconnect()
+    let last = ""
+    this.resizer = new ResizeObserver(() => {
+      cancelAnimationFrame(this.resizeFrame)
+      this.resizeFrame = requestAnimationFrame(() => {
+        const {width, height} = iframe.getBoundingClientRect()
+        const size = `${Math.round(width)}x${Math.round(height)}`
+        if (!this.api || !iframe.isConnected || width < 1 || size === last) return
+        last = size
+        this.api.setSize(Math.round(width), Math.round(height))
+      })
+    })
+    this.resizer.observe(iframe)
+  }
+
+  focus(options?: FocusOptions) {
+    this.renderRoot.querySelector("iframe")?.focus(options)
+  }
+
   private resetIFrame() {
     if(!this.api) {
       return
     }
 
     this.api = undefined
+    this.ready = false
     this.resetKey++
   }
 
   render() {
     return html`
-      ${keyed(this.resetKey, html`<iframe id="ggb" @load=${(e: Event) => this.initializeIFrame(e.target as HTMLIFrameElement)}></iframe>`)}
+      <div class="applet" ?data-ready=${this.ready}>
+      ${keyed(this.resetKey, html`<iframe id="ggb" part="applet" title=${this.msg("GeoGebra applet")} @load=${(e: Event) => this.initializeIFrame(e.target as HTMLIFrameElement)}></iframe>`)}
+      <p class="print-note">${this.msg("Interactive content: open the document online to use the GeoGebra applet.")}</p>
+      </div>
     `
   }
 }

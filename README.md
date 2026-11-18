@@ -42,6 +42,8 @@ npm install @webwriter/geogebra
 | `ggbStyles` (`ggbStyles`) | `string` | Custom CSS styles to apply to the GeoGebra applet. | - | ✗ |
 | `WebwriterGeogebra.options` | - | - | `geogebraOptions` | ✗ |
 | `WebwriterGeogebra.actions` | `object` | - | `{ importConstruction: { label: (widget: {msg: MsgFn}) => ({_: widget.msg("Import construction")}), input: {type: "file" as const, accept: ".ggb", multiple: false}, }, }` | ✗ |
+| `WebwriterGeogebra.convertFrom` | `object` | - | `{".ggb": "importGgb"}` | ✗ |
+| `WebwriterGeogebra.convertTo` | `object` | - | `{".ggb": "exportGgb", "image/png": "exportPng", "image/svg+xml": "exportSvg"}` | ✗ |
 | `msg` | `MsgFn` | - | - | ✗ |
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
 | `height` (`height`) | `number` | Applet height | `450` | ✓ |
@@ -99,6 +101,11 @@ npm install @webwriter/geogebra
 | Name | Description | Parameters |
 | :--: | :---------: | :-------: |
 | `importConstruction` | - | `files: File[]`
+| `importGgb` | - | `file: File`
+| `exportGgb` | - | -
+| `exportPng` | - | -
+| `exportSvg` | - | -
+| `focus` | - | `options: FocusOptions`
 
 *[Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) allow programmatic access to the widget.*
 
@@ -110,14 +117,23 @@ npm install @webwriter/geogebra
 
 *[Events](https://developer.mozilla.org/en-US/docs/Web/Events) are dispatched by the widget after certain triggers.*
 
+## CSS parts
+| Name | Description |
+| :--: | :---------: |
+| applet | The iframe that holds the GeoGebra applet. |
+
+*[CSS parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) allow freely styling internals of the widget with CSS.*
+
 ## Editing config
 | Name | Value |
 | :--: | :---------: |
 | `content` | `text*` |
+| `importFormats` | `.ggb` |
+| `exportFormats` | `.ggb,image/png,image/svg+xml` |
 
 *The [editing config](https://webwriter.app/docs/packages/configuring/#editingconfig) defines how explorable authoring tools such as [WebWriter](https://webwriter.app) treat the widget.*
 
-*No public slots, custom CSS properties, or CSS parts.*
+*No public slots, or custom CSS properties.*
 
 
 ## `WebwriterGeogebraGeometry` (`<webwriter-geogebra-geometry>`)
@@ -152,6 +168,8 @@ npm install @webwriter/geogebra
 | `showFullscreenButton` (`showFullscreenButton`) | `boolean` | Whether fullscreen button should be visible | `true` | ✓ |
 | `WebwriterGeogebraGeometry.options` | - | - | `geogebraOptions` | ✗ |
 | `WebwriterGeogebraGeometry.actions` | `object` | - | `{ importConstruction: { label: (widget: {msg: MsgFn}) => ({_: widget.msg("Import construction")}), input: {type: "file" as const, accept: ".ggb", multiple: false}, }, }` | ✗ |
+| `WebwriterGeogebraGeometry.convertFrom` | `object` | - | `{".ggb": "importGgb"}` | ✗ |
+| `WebwriterGeogebraGeometry.convertTo` | `object` | - | `{".ggb": "exportGgb", "image/png": "exportPng", "image/svg+xml": "exportSvg"}` | ✗ |
 | `msg` | `MsgFn` | - | - | ✗ |
 | `ggbStyles` (`ggbStyles`) | `string` | Custom CSS styles to apply to the GeoGebra applet. | - | ✗ |
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
@@ -212,6 +230,11 @@ npm install @webwriter/geogebra
 | Name | Description | Parameters |
 | :--: | :---------: | :-------: |
 | `importConstruction` | - | `files: File[]`
+| `importGgb` | - | `file: File`
+| `exportGgb` | - | -
+| `exportPng` | - | -
+| `exportSvg` | - | -
+| `focus` | - | `options: FocusOptions`
 
 *[Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) allow programmatic access to the widget.*
 
@@ -223,14 +246,23 @@ npm install @webwriter/geogebra
 
 *[Events](https://developer.mozilla.org/en-US/docs/Web/Events) are dispatched by the widget after certain triggers.*
 
+## CSS parts
+| Name | Description |
+| :--: | :---------: |
+| applet | The iframe that holds the GeoGebra applet. |
+
+*[CSS parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) allow freely styling internals of the widget with CSS.*
+
 ## Editing config
 | Name | Value |
 | :--: | :---------: |
 | `content` | `text*` |
+| `importFormats` | `.ggb` |
+| `exportFormats` | `.ggb,image/png,image/svg+xml` |
 
 *The [editing config](https://webwriter.app/docs/packages/configuring/#editingconfig) defines how explorable authoring tools such as [WebWriter](https://webwriter.app) treat the widget.*
 
-*No public slots, custom CSS properties, or CSS parts.*
+*No public slots, or custom CSS properties.*
 
 
 ## `WebwriterGeogebra3d` (`<webwriter-geogebra-3d>`)
@@ -265,6 +297,8 @@ npm install @webwriter/geogebra
 | `showFullscreenButton` (`showFullscreenButton`) | `boolean` | Whether fullscreen button should be visible | `true` | ✓ |
 | `WebwriterGeogebra3d.options` | - | - | `geogebraOptions` | ✗ |
 | `WebwriterGeogebra3d.actions` | `object` | - | `{ importConstruction: { label: (widget: {msg: MsgFn}) => ({_: widget.msg("Import construction")}), input: {type: "file" as const, accept: ".ggb", multiple: false}, }, }` | ✗ |
+| `WebwriterGeogebra3d.convertFrom` | `object` | - | `{".ggb": "importGgb"}` | ✗ |
+| `WebwriterGeogebra3d.convertTo` | `object` | - | `{".ggb": "exportGgb", "image/png": "exportPng", "image/svg+xml": "exportSvg"}` | ✗ |
 | `msg` | `MsgFn` | - | - | ✗ |
 | `ggbStyles` (`ggbStyles`) | `string` | Custom CSS styles to apply to the GeoGebra applet. | - | ✗ |
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
@@ -325,6 +359,11 @@ npm install @webwriter/geogebra
 | Name | Description | Parameters |
 | :--: | :---------: | :-------: |
 | `importConstruction` | - | `files: File[]`
+| `importGgb` | - | `file: File`
+| `exportGgb` | - | -
+| `exportPng` | - | -
+| `exportSvg` | - | -
+| `focus` | - | `options: FocusOptions`
 
 *[Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) allow programmatic access to the widget.*
 
@@ -336,14 +375,23 @@ npm install @webwriter/geogebra
 
 *[Events](https://developer.mozilla.org/en-US/docs/Web/Events) are dispatched by the widget after certain triggers.*
 
+## CSS parts
+| Name | Description |
+| :--: | :---------: |
+| applet | The iframe that holds the GeoGebra applet. |
+
+*[CSS parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) allow freely styling internals of the widget with CSS.*
+
 ## Editing config
 | Name | Value |
 | :--: | :---------: |
 | `content` | `text*` |
+| `importFormats` | `.ggb` |
+| `exportFormats` | `.ggb,image/png,image/svg+xml` |
 
 *The [editing config](https://webwriter.app/docs/packages/configuring/#editingconfig) defines how explorable authoring tools such as [WebWriter](https://webwriter.app) treat the widget.*
 
-*No public slots, custom CSS properties, or CSS parts.*
+*No public slots, or custom CSS properties.*
 
 
 ## `WebwriterGeogebraNotes` (`<webwriter-geogebra-notes>`)
@@ -378,6 +426,8 @@ npm install @webwriter/geogebra
 | `showFullscreenButton` (`showFullscreenButton`) | `boolean` | Whether fullscreen button should be visible | `true` | ✓ |
 | `WebwriterGeogebraNotes.options` | - | - | `geogebraOptions` | ✗ |
 | `WebwriterGeogebraNotes.actions` | `object` | - | `{ importConstruction: { label: (widget: {msg: MsgFn}) => ({_: widget.msg("Import construction")}), input: {type: "file" as const, accept: ".ggb", multiple: false}, }, }` | ✗ |
+| `WebwriterGeogebraNotes.convertFrom` | `object` | - | `{".ggb": "importGgb"}` | ✗ |
+| `WebwriterGeogebraNotes.convertTo` | `object` | - | `{".ggb": "exportGgb", "image/png": "exportPng", "image/svg+xml": "exportSvg"}` | ✗ |
 | `msg` | `MsgFn` | - | - | ✗ |
 | `ggbStyles` (`ggbStyles`) | `string` | Custom CSS styles to apply to the GeoGebra applet. | - | ✗ |
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
@@ -438,6 +488,11 @@ npm install @webwriter/geogebra
 | Name | Description | Parameters |
 | :--: | :---------: | :-------: |
 | `importConstruction` | - | `files: File[]`
+| `importGgb` | - | `file: File`
+| `exportGgb` | - | -
+| `exportPng` | - | -
+| `exportSvg` | - | -
+| `focus` | - | `options: FocusOptions`
 
 *[Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) allow programmatic access to the widget.*
 
@@ -449,14 +504,23 @@ npm install @webwriter/geogebra
 
 *[Events](https://developer.mozilla.org/en-US/docs/Web/Events) are dispatched by the widget after certain triggers.*
 
+## CSS parts
+| Name | Description |
+| :--: | :---------: |
+| applet | The iframe that holds the GeoGebra applet. |
+
+*[CSS parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) allow freely styling internals of the widget with CSS.*
+
 ## Editing config
 | Name | Value |
 | :--: | :---------: |
 | `content` | `text*` |
+| `importFormats` | `.ggb` |
+| `exportFormats` | `.ggb,image/png,image/svg+xml` |
 
 *The [editing config](https://webwriter.app/docs/packages/configuring/#editingconfig) defines how explorable authoring tools such as [WebWriter](https://webwriter.app) treat the widget.*
 
-*No public slots, custom CSS properties, or CSS parts.*
+*No public slots, or custom CSS properties.*
 
 
 ## `WebwriterGeogebraScientific` (`<webwriter-geogebra-scientific>`)
@@ -491,6 +555,8 @@ npm install @webwriter/geogebra
 | `showFullscreenButton` (`showFullscreenButton`) | `boolean` | Whether fullscreen button should be visible | `true` | ✓ |
 | `WebwriterGeogebraScientific.options` | - | - | `geogebraOptions` | ✗ |
 | `WebwriterGeogebraScientific.actions` | `object` | - | `{ importConstruction: { label: (widget: {msg: MsgFn}) => ({_: widget.msg("Import construction")}), input: {type: "file" as const, accept: ".ggb", multiple: false}, }, }` | ✗ |
+| `WebwriterGeogebraScientific.convertFrom` | `object` | - | `{".ggb": "importGgb"}` | ✗ |
+| `WebwriterGeogebraScientific.convertTo` | `object` | - | `{".ggb": "exportGgb", "image/png": "exportPng", "image/svg+xml": "exportSvg"}` | ✗ |
 | `msg` | `MsgFn` | - | - | ✗ |
 | `ggbStyles` (`ggbStyles`) | `string` | Custom CSS styles to apply to the GeoGebra applet. | - | ✗ |
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
@@ -551,6 +617,11 @@ npm install @webwriter/geogebra
 | Name | Description | Parameters |
 | :--: | :---------: | :-------: |
 | `importConstruction` | - | `files: File[]`
+| `importGgb` | - | `file: File`
+| `exportGgb` | - | -
+| `exportPng` | - | -
+| `exportSvg` | - | -
+| `focus` | - | `options: FocusOptions`
 
 *[Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) allow programmatic access to the widget.*
 
@@ -562,14 +633,23 @@ npm install @webwriter/geogebra
 
 *[Events](https://developer.mozilla.org/en-US/docs/Web/Events) are dispatched by the widget after certain triggers.*
 
+## CSS parts
+| Name | Description |
+| :--: | :---------: |
+| applet | The iframe that holds the GeoGebra applet. |
+
+*[CSS parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) allow freely styling internals of the widget with CSS.*
+
 ## Editing config
 | Name | Value |
 | :--: | :---------: |
 | `content` | `text*` |
+| `importFormats` | `.ggb` |
+| `exportFormats` | `.ggb,image/png,image/svg+xml` |
 
 *The [editing config](https://webwriter.app/docs/packages/configuring/#editingconfig) defines how explorable authoring tools such as [WebWriter](https://webwriter.app) treat the widget.*
 
-*No public slots, custom CSS properties, or CSS parts.*
+*No public slots, or custom CSS properties.*
 
 
 ## `WebwriterGeogebraClassic` (`<webwriter-geogebra-classic>`)
@@ -604,6 +684,8 @@ npm install @webwriter/geogebra
 | `showFullscreenButton` (`showFullscreenButton`) | `boolean` | Whether fullscreen button should be visible | `true` | ✓ |
 | `WebwriterGeogebraClassic.options` | - | - | `geogebraOptions` | ✗ |
 | `WebwriterGeogebraClassic.actions` | `object` | - | `{ importConstruction: { label: (widget: {msg: MsgFn}) => ({_: widget.msg("Import construction")}), input: {type: "file" as const, accept: ".ggb", multiple: false}, }, }` | ✗ |
+| `WebwriterGeogebraClassic.convertFrom` | `object` | - | `{".ggb": "importGgb"}` | ✗ |
+| `WebwriterGeogebraClassic.convertTo` | `object` | - | `{".ggb": "exportGgb", "image/png": "exportPng", "image/svg+xml": "exportSvg"}` | ✗ |
 | `msg` | `MsgFn` | - | - | ✗ |
 | `ggbStyles` (`ggbStyles`) | `string` | Custom CSS styles to apply to the GeoGebra applet. | - | ✗ |
 | `width` (`width`) | `number` | Applet width | `800` | ✓ |
@@ -664,6 +746,11 @@ npm install @webwriter/geogebra
 | Name | Description | Parameters |
 | :--: | :---------: | :-------: |
 | `importConstruction` | - | `files: File[]`
+| `importGgb` | - | `file: File`
+| `exportGgb` | - | -
+| `exportPng` | - | -
+| `exportSvg` | - | -
+| `focus` | - | `options: FocusOptions`
 
 *[Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) allow programmatic access to the widget.*
 
@@ -675,15 +762,24 @@ npm install @webwriter/geogebra
 
 *[Events](https://developer.mozilla.org/en-US/docs/Web/Events) are dispatched by the widget after certain triggers.*
 
+## CSS parts
+| Name | Description |
+| :--: | :---------: |
+| applet | The iframe that holds the GeoGebra applet. |
+
+*[CSS parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) allow freely styling internals of the widget with CSS.*
+
 ## Editing config
 | Name | Value |
 | :--: | :---------: |
 | `content` | `text*` |
+| `importFormats` | `.ggb` |
+| `exportFormats` | `.ggb,image/png,image/svg+xml` |
 
 *The [editing config](https://webwriter.app/docs/packages/configuring/#editingconfig) defines how explorable authoring tools such as [WebWriter](https://webwriter.app) treat the widget.*
 
-*No public slots, custom CSS properties, or CSS parts.*
+*No public slots, or custom CSS properties.*
 
 
 ---
-*Generated with @webwriter/build@1.9.1*
+*Generated with @webwriter/build@1.14.0*
