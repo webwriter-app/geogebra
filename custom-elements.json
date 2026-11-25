@@ -1898,9 +1898,7 @@
                 "module": "src/components/geogebra-app.ts"
               }
             }
-          ],
-          "modulePath": "src/widgets/webwriter-geogebra-3d.ts",
-          "definitionPath": "src/widgets/webwriter-geogebra-3d.ts"
+          ]
         }
       ],
       "exports": [
@@ -3818,9 +3816,7 @@
                 "module": "src/components/geogebra-app.ts"
               }
             }
-          ],
-          "modulePath": "src/widgets/webwriter-geogebra-classic.ts",
-          "definitionPath": "src/widgets/webwriter-geogebra-classic.ts"
+          ]
         }
       ],
       "exports": [
@@ -5738,9 +5734,7 @@
                 "module": "src/components/geogebra-app.ts"
               }
             }
-          ],
-          "modulePath": "src/widgets/webwriter-geogebra-geometry.ts",
-          "definitionPath": "src/widgets/webwriter-geogebra-geometry.ts"
+          ]
         }
       ],
       "exports": [
@@ -7658,9 +7652,7 @@
                 "module": "src/components/geogebra-app.ts"
               }
             }
-          ],
-          "modulePath": "src/widgets/webwriter-geogebra-notes.ts",
-          "definitionPath": "src/widgets/webwriter-geogebra-notes.ts"
+          ]
         }
       ],
       "exports": [
@@ -9578,9 +9570,7 @@
                 "module": "src/components/geogebra-app.ts"
               }
             }
-          ],
-          "modulePath": "src/widgets/webwriter-geogebra-scientific.ts",
-          "definitionPath": "src/widgets/webwriter-geogebra-scientific.ts"
+          ]
         }
       ],
       "exports": [
@@ -11498,9 +11488,7 @@
                 "module": "src/components/geogebra-app.ts"
               }
             }
-          ],
-          "modulePath": "src/widgets/webwriter-geogebra.ts",
-          "definitionPath": "src/widgets/webwriter-geogebra.ts"
+          ]
         }
       ],
       "exports": [
