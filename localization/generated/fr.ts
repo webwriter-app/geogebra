@@ -2,21 +2,15 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    import {html} from 'lit';
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      'haaf9676c372c5a97': html`Voir le 
-          <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
-                documentation de GeoGebra
-          </a>
-              pour plus d'informations.
-        `,
-'s247bdb7c37e6e0cd': `Ces paramètres ne concernent pas la plupart des utilisateurs et ne doivent généralement pas être modifiés. Les modifier peut complètement endommager votre applet.`,
-'s6236cc7215aadb0a': `Importer un fichier GeoGebra`,
-'s74982e57a1d8896c': `Paramètres avancés`,
+      's860419b996186bd2': `Contenu interactif : ouvrez le document en ligne pour utiliser l’applet GeoGebra.`,
+'s863f73e2a453afb1': `Importer une construction`,
+'se0fe1d92bec0b514': `Le fichier n’est pas une construction GeoGebra (.ggb).`,
+'sf4a6f174d07db447': `applet GeoGebra`,
     };
-  

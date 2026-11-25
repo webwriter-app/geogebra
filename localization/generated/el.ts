@@ -2,21 +2,15 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    import {html} from 'lit';
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      'haaf9676c372c5a97': html`Δείτε το 
-          <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
-                έγγραφα του GeoGebra
-          </a>
-              για περισσότερες πληροφορίες.
-        `,
-'s247bdb7c37e6e0cd': `Αυτές οι ρυθμίσεις δεν είναι σχετικές για τους περισσότερους χρήστες και συνήθως δεν πρέπει να αλλάζονται. Η αλλαγή τους μπορεί να καταστρέψει εντελώς την μικροεφαρμογή σας.`,
-'s6236cc7215aadb0a': `Εισαγωγή αρχείου GeoGebra`,
-'s74982e57a1d8896c': `Σύνθετες ρυθμίσεις`,
+      's860419b996186bd2': `Διαδραστικό περιεχόμενο: ανοίξτε το έγγραφο στο διαδίκτυο για να χρησιμοποιήσετε τη μικροεφαρμογή GeoGebra.`,
+'s863f73e2a453afb1': `Εισαγωγή κατασκευής`,
+'se0fe1d92bec0b514': `Το αρχείο δεν είναι κατασκευή GeoGebra (.ggb).`,
+'sf4a6f174d07db447': `μικροεφαρμογή GeoGebra`,
     };
-  

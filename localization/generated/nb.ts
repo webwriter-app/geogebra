@@ -2,21 +2,15 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    import {html} from 'lit';
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      'haaf9676c372c5a97': html`Se 
-          <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
-                GeoGebra-dokumentene
-          </a>
-              for mer informasjon.
-        `,
-'s247bdb7c37e6e0cd': `Disse innstillingene er ikke relevante for de fleste brukere og bør vanligvis ikke endres. Endring av dem kan ødelegge appleten din fullstendig.`,
-'s6236cc7215aadb0a': `Importer GeoGebra-fil`,
-'s74982e57a1d8896c': `Avanserte innstillinger`,
+      's860419b996186bd2': `Interaktivt innhold: åpne dokumentet på nettet for å bruke GeoGebra-appleten.`,
+'s863f73e2a453afb1': `Importer konstruksjon`,
+'se0fe1d92bec0b514': `Filen er ikke en GeoGebra-konstruksjon (.ggb).`,
+'sf4a6f174d07db447': `GeoGebra-applet`,
     };
-  

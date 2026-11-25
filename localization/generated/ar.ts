@@ -2,21 +2,15 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    import {html} from 'lit';
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      'haaf9676c372c5a97': html`انظر 
-          <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
-                وثائق GeoGebra
-          </a>
-              لمزيد من المعلومات.
-        `,
-'s247bdb7c37e6e0cd': `هذه الإعدادات غير مهمة لمعظم المستخدمين ولا ينبغي تغييرها عادةً. قد يؤدي تغييرها إلى تعطيل التطبيق الصغير تمامًا.`,
-'s6236cc7215aadb0a': `استيراد ملف GeoGebra`,
-'s74982e57a1d8896c': `الإعدادات المتقدمة`,
+      's860419b996186bd2': `محتوى تفاعلي: افتح المستند عبر الإنترنت لاستخدام تطبيق GeoGebra الصغير.`,
+'s863f73e2a453afb1': `استيراد إنشاء هندسي`,
+'se0fe1d92bec0b514': `هذا الملف ليس إنشاء GeoGebra (.ggb).`,
+'sf4a6f174d07db447': `تطبيق GeoGebra الصغير`,
     };
-  

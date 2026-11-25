@@ -2,21 +2,15 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    import {html} from 'lit';
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      'haaf9676c372c5a97': html`参照 
-          <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
-                GeoGebra ドキュメント
-          </a>
-              を参照してください。
-        `,
-'s247bdb7c37e6e0cd': `これらの設定はほとんどのユーザーには関係なく、通常は変更すべきではありません。変更するとアプレットが完全に動作しなくなる可能性があります。`,
-'s6236cc7215aadb0a': `GeoGebraファイルをインポート`,
-'s74982e57a1d8896c': `詳細設定`,
+      's860419b996186bd2': `インタラクティブコンテンツ：GeoGebra アプレットを使用するには、ドキュメントをオンラインで開いてください。`,
+'s863f73e2a453afb1': `作図をインポートする`,
+'se0fe1d92bec0b514': `このファイルは GeoGebra の作図ファイル（.ggb）ではありません。`,
+'sf4a6f174d07db447': `GeoGebra アプレット`,
     };
-  

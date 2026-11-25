@@ -2,21 +2,15 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    import {html} from 'lit';
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      'haaf9676c372c5a97': html`Vezi 
-          <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
-                documentația GeoGebra
-          </a>
-              pentru mai multe informații.
-        `,
-'s247bdb7c37e6e0cd': `Aceste setări nu sunt relevante pentru majoritatea utilizatorilor și, de obicei, nu trebuie modificate. Modificarea lor poate duce la defectarea completă a appletului.`,
-'s6236cc7215aadb0a': `Importați fișierul GeoGebra`,
-'s74982e57a1d8896c': `Setări avansate`,
+      's860419b996186bd2': `Conținut interactiv: deschideți documentul online pentru a folosi appletul GeoGebra.`,
+'s863f73e2a453afb1': `Importă construcția`,
+'se0fe1d92bec0b514': `Fișierul nu este o construcție GeoGebra (.ggb).`,
+'sf4a6f174d07db447': `applet GeoGebra`,
     };
-  

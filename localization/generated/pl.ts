@@ -2,21 +2,15 @@
     // Do not modify this file by hand!
     // Re-generate this file by running lit-localize
 
-    import {html} from 'lit';
-    
+
+
 
     /* eslint-disable no-irregular-whitespace */
     /* eslint-disable @typescript-eslint/no-explicit-any */
 
     export const templates = {
-      'haaf9676c372c5a97': html`Zobacz 
-          <a href="https://geogebra.github.io/docs/reference/en/GeoGebra_App_Parameters/" target="_blank">
-                dokumentację GeoGebry
-          </a>
-              .
-        `,
-'s247bdb7c37e6e0cd': `Te ustawienia nie są istotne dla większości użytkowników i zazwyczaj nie powinny być zmieniane. Ich zmiana może całkowicie zepsuć działanie apletu.`,
-'s6236cc7215aadb0a': `Importuj plik GeoGebra`,
-'s74982e57a1d8896c': `Ustawienia zaawansowane`,
+      's860419b996186bd2': `Treść interaktywna: otwórz dokument online, aby użyć apletu GeoGebry.`,
+'s863f73e2a453afb1': `Importuj konstrukcję`,
+'se0fe1d92bec0b514': `Plik nie jest konstrukcją GeoGebry (.ggb).`,
+'sf4a6f174d07db447': `aplet GeoGebra`,
     };
-  
