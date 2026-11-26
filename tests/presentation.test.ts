@@ -3,7 +3,7 @@ import "mocha/mocha.js";
 import { assert } from "chai";
 import { getMochaConfig } from "@webwriter/build/test";
 import "../src/widgets/webwriter-geogebra-classic";
-import { mountIn, unmountAll, until, wait } from "./helpers";
+import { SRC_A, dataBlock, mountIn, unmountAll, until, wait } from "./helpers";
 
 mocha.setup(getMochaConfig());
 
@@ -40,6 +40,40 @@ describe("presentation", function () {
     get: (target, key: string) => key in target ? target[key] : () => undefined,
   });
   const connect = (widget: any, api: unknown) => widget.dispatchEvent(new CustomEvent("ggb-load", {detail: {api}}));
+
+  it("keeps the applet mounted when a construction edit is saved", async function () {
+    const widget = await mountIn(`<webwriter-geogebra-classic></webwriter-geogebra-classic>`, "webwriter-geogebra-classic");
+    const frame = widget.shadowRoot.querySelector("iframe");
+    let constructionEdited: (() => void) | undefined;
+    const api = Object.assign(fakeApi([]), {
+      registerUpdateListener: (callback: () => void) => { constructionEdited = callback; },
+      getBase64: () => SRC_A.split(",")[1],
+      setBase64: () => assert.fail("the saved construction is already loaded"),
+    });
+    connect(widget, api);
+
+    constructionEdited!();
+    assert.isTrue(await until(() => JSON.parse(dataBlock(widget)?.textContent ?? "{}").src === SRC_A));
+    await widget.updateComplete;
+    assert.strictEqual(widget.shadowRoot.querySelector("iframe"), frame);
+    assert.isTrue(widget.shadowRoot.querySelector(".applet").hasAttribute("data-ready"));
+  });
+
+  it("updates live options and rebuilds for initialization settings", async function () {
+    const widget = await mountIn(`<webwriter-geogebra-classic></webwriter-geogebra-classic>`, "webwriter-geogebra-classic");
+    const frame = widget.shadowRoot.querySelector("iframe");
+    const toolbarChanges: boolean[] = [];
+    connect(widget, Object.assign(fakeApi([]), {
+      showToolBar: (visible: boolean) => toolbarChanges.push(visible),
+    }));
+    widget.showToolBar = false;
+    await widget.updateComplete;
+
+    assert.deepEqual(toolbarChanges, [false]);
+    assert.strictEqual(widget.shadowRoot.querySelector("iframe"), frame);
+    widget.showMenuBar = true;
+    assert.isTrue(await until(() => widget.shadowRoot.querySelector("iframe") !== frame));
+  });
 
   it("sizes the applet to the container at 300 and 2100 px", async function () {
     this.timeout(15000);
