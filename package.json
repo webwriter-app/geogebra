@@ -1,6 +1,6 @@
 {
   "name": "@webwriter/geogebra",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Use the mathematics learning apps of GeoGebra for algebra and geometry.",
   "keywords": [
     "webwriter-widget",
@@ -195,6 +195,7 @@
       "default": "./dist/tests/conversions.*"
     },
     "./icon": "./icon.svg",
+    "./preview": "./assets/preview.mp4",
     "./editing-config.json": "./editing-config.json",
     "./custom-elements.json": "./custom-elements.json"
   },
