@@ -11,8 +11,14 @@ import {geogebraAppStyles} from "./geogebra-app.styles"
 import { booleanAttributeConverter } from "../model/boolean-attribute-converter"
 import type { GeogebraAPI } from "../model/geogebra-api"
 import { geogebraOptions } from "../model/geogebra-options"
-import { appletParameters } from "../model/geogebra-parameters"
+import { appletParameters, passThroughParameters, passThroughParametersAfterLocale } from "../model/geogebra-parameters"
 import { base64ToBytes, bytesToBase64, dataUrlPayload, ggbDataUrl, GGB_MEDIA_TYPE, isGgbArchive } from "../model/ggb-file"
+
+const appletSettings = new Set<PropertyKey>([
+  ...passThroughParameters,
+  ...passThroughParametersAfterLocale,
+  "appletId", "type", "lang", "language", "country", "ggbStyles",
+])
 
 export type { GeogebraAPI }
 
@@ -493,9 +499,9 @@ export class GeogebraApp extends LitElementWw {
       let needFullReload = false
 
       changed.forEach((_, key) => {
-        if(key === "src" || key === "ready") {
-          return
-        }
+        // Saving a construction changes WebWriter's reactive data property. Only applet
+        // settings can require reinitialization. Construction changes are handled below.
+        if (!appletSettings.has(key)) return
         const updateFunc = this.paramUpdateMap?.get(key.toString())
         if(updateFunc) {
           updateFunc.call(api, this[key as keyof this] as never)
